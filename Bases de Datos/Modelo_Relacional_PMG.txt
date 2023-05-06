@@ -1,10 +1,14 @@
-ProyectoIntegrador(año, cod_area, curso, grupo, nota, cod_proyecto, nombre, url, componentes, area)
+ProyectoIntegrador(cod_proyecto, año, curso, grupo, nota, nombre, url, cod_area)
 PK -> cod_proyecto
 FK -> area -> TABLA Area
 
-Alumno(num_expediente, nombre_ape, cod_alumno, cod_proyecto)
+Alumno(cod_alumno, num_expediente, nombre_ape)
 PK -> cod_alumno
-FK -> cod_proyecto -> TABLA ProyectoIntegrador
 
-Area(nombre_corto, cod_area, descripcion)
+Area(cod_area, nombre_corto, descripcion)
 PK -> cod_area
+
+ProyectoIntegrador-Alumno (cod_proyecto, cod_alumno)
+PK -> cod_proyecto, cod_alumno
+FK -> cod_proyecto -> TABLA ProyectoIntegrador
+FK -> cod_alumno -> TABLA Alumno
