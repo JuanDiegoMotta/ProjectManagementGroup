@@ -1,4 +1,4 @@
-ProyectoIntegrador(año, cod_area, curso, grupo, nota, cod_proyecto, nombre)
+ProyectoIntegrador(año, cod_area, curso, grupo, nota, cod_proyecto, nombre, url, componentes, area)
 PK -> cod_proyecto
 FK -> area -> TABLA Area
 
