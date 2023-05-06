@@ -8,7 +8,7 @@ PK -> cod_alumno
 Area(cod_area, nombre_corto, descripcion)
 PK -> cod_area
 
-ProyectoIntegrador-Alumno (cod_proyecto, cod_alumno)
+ProyectoIntegrador_Alumno (cod_proyecto, cod_alumno)
 PK -> cod_proyecto, cod_alumno
 FK -> cod_proyecto -> TABLA ProyectoIntegrador
 FK -> cod_alumno -> TABLA Alumno
