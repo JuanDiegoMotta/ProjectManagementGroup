@@ -3,12 +3,104 @@
  */
 package pmg.vista;
 
-import javax.swing.JFrame;
+import java.awt.Font;
+
+import javax.swing.*;
+
 
 /**
- * @author juanm
+ * Clase VentanaArea_Edicion
+ * @author Pablo
  *
  */
 public class VentanaArea_Edicion extends JFrame {
 
+	private JTextField nombreCorto;
+	private JTextArea descripcion;
+	private JLabel LNombre;
+	private JLabel LDescripcion;
+	private JButton atras;
+	private JButton alta;
+	private JLabel LCodigo;
+	private JTextField codigo;
+	private JButton rellenar;
+
+	/**
+	 * Constructor de la clase VentanaArea_Edicion
+	 * @param titulo
+	 */
+	public VentanaArea_Edicion(String titulo) {
+		super(titulo);
+		inicializarComponentes();
+
+	}
+
+	/**
+	 * Método para inicializar componentes de la ventana, esta ventana construirá las cosas de la ventana VentanaArea_Edicion
+	 */
+	private void inicializarComponentes() {
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+
+		// Se agrega nombreCorto
+		nombreCorto = new JTextField();
+		nombreCorto.setBounds(282, 115, 131, 22);
+		getContentPane().add(nombreCorto);
+
+		// Se agrega LNombre
+		LNombre = new JLabel("Nombre Corto: ");
+		LNombre.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		LNombre.setBounds(131, 113, 117, 22);
+		getContentPane().add(LNombre);
+
+//		Se agrega LDescripcion
+		LDescripcion = new JLabel("Descripción: ");
+		LDescripcion.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		LDescripcion.setBounds(150, 167, 109, 22);
+		getContentPane().add(LDescripcion);
+
+//		Se agrega descripcion
+		descripcion = new JTextArea();
+		descripcion.setBounds(282, 169, 131, 69);
+		getContentPane().add(descripcion);
+
+//		Se agrega botón de atrás
+		atras = new JButton("ATRÁS");
+		atras.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		atras.setBounds(42, 300, 100, 30);
+		getContentPane().add(atras);
+
+//		Se agrega botón guardar
+		alta = new JButton("GUARDAR");
+		alta.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		alta.setBounds(430, 300, 109, 30);
+		getContentPane().add(alta);
+
+//		Se agrega codigo 
+		codigo = new JTextField();
+		codigo.setBounds(282, 65, 131, 22);
+		getContentPane().add(codigo);
+
+//		Se agrega LCodigo
+		LCodigo = new JLabel("Introduce el código: ");
+		LCodigo.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		LCodigo.setBounds(91, 53, 160, 42);
+		getContentPane().add(LCodigo);
+
+//		Se agrega el botón de rellenar
+		rellenar = new JButton("R");
+		rellenar.setBounds(430, 56, 42, 42);
+		rellenar.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		getContentPane().add(rellenar);
+
+		setSize(600, 400);
+		setLocationRelativeTo(null);
+	}
+
+	/**
+	 * Método que hace visible la pantalla
+	 */
+	public void hacerVisible() {
+		setVisible(true);
+	}
 }
