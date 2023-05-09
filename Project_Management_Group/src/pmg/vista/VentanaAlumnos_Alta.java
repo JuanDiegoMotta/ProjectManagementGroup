@@ -11,6 +11,7 @@ import pmg.modelo.Alumno;
 
 /**
  * @author juanm
+ * Clase de la ventana gráfica Alumnos que da de alta al alumno según su código.
  *
  */
 public class VentanaAlumnos_Alta extends JFrame {

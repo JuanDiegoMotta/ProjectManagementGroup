@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 
 /**
  * @author juanm
+ * 
+ * Clase de la ventana gráfica Alumnos que edita al alumno según su código.
  *
  */
 public class VentanaAlumnos_Edicion extends JFrame {
