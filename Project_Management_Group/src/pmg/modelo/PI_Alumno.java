@@ -7,6 +7,6 @@ package pmg.modelo;
  * @author juanm
  *
  */
-public class Alumno {
-	
+public class PI_Alumno {
+
 }
