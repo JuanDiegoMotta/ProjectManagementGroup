@@ -6,7 +6,7 @@
 	/**
 	 * @author juanm
 	 * 
-	 * Clase de la ventana gráfica Alumnos que da de baja al alumno según su código.
+	 * Clase de la ventana gráfica áreas que da de baja el área según su código.
 	 *
 	 */
 	public class VentanaArea_Baja extends JFrame {
@@ -17,8 +17,6 @@
 		private JLabel lblTxtBaja1;
 		private JTextField txtCod;
 		private JButton btnBorrar;
-		private JButton btnConsulta;
-		private JLabel lblConsulta;
 		private JButton btnAtras;
 		
 		/**
@@ -52,7 +50,7 @@
 			setLocation((pantalla.width - ventana.width) / 2,  (pantalla.height - ventana.height) / 2);
 				
 			// Se agrega la etiqueta txtBaja
-			lblTxtBaja = new JLabel("Introduce el código del alumno que quieres");
+			lblTxtBaja = new JLabel("Introduce el nombre corto del área que quieres");
 			lblTxtBaja.setFont(new Font("Segoe UI", Font.BOLD, 16));
 			lblTxtBaja.setBounds(118, 34, 353, 36);
 			getContentPane().add(lblTxtBaja);
@@ -73,18 +71,6 @@
 			btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 16));
 			btnBorrar.setBounds(249, 144, 54, 48);
 			getContentPane().add(btnBorrar);
-			
-			// Creamos botón para la consulta de alumnos
-			btnConsulta = new JButton("?");
-			btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 12));
-			btnConsulta.setBounds(100, 227, 37, 36);
-			getContentPane().add(btnConsulta);
-			
-			// Se agrega la etiqueta de la consulta de alumnos
-			lblTxtBaja = new JLabel("¿Quieres consultar los alumnos existentes?");
-			lblTxtBaja.setFont(new Font("Segoe UI", Font.BOLD, 16));
-			lblTxtBaja.setBounds(143, 227, 353, 36);
-			getContentPane().add(lblTxtBaja);
 			
 			// Creamos botón atrás y lo agregamos a la ventana
 			btnAtras = new JButton("ATRÁS");

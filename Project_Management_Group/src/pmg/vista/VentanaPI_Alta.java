@@ -67,7 +67,7 @@ public class VentanaPI_Alta extends JFrame {
 		
 		lblNota = new JLabel("Nota:");
 		lblNota.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNota.setBounds(226, 161, 37, 30);
+		lblNota.setBounds(203, 161, 60, 30);
 		getContentPane().add(lblNota);
 		
 		lblAno = new JLabel("Año:");

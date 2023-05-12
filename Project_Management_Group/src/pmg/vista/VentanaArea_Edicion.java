@@ -22,7 +22,6 @@ public class VentanaArea_Edicion extends JFrame {
 	private JButton atras;
 	private JButton alta;
 	private JLabel LCodigo;
-	private JTextField codigo;
 	private JButton rellenar;
 
 	/**
@@ -48,9 +47,9 @@ public class VentanaArea_Edicion extends JFrame {
 		getContentPane().add(nombreCorto);
 
 		// Se agrega LNombre
-		LNombre = new JLabel("Nombre Corto: ");
+		LNombre = new JLabel("Introduce el nombre corto: ");
 		LNombre.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		LNombre.setBounds(131, 113, 117, 22);
+		LNombre.setBounds(42, 111, 220, 22);
 		getContentPane().add(LNombre);
 
 //		Se agrega LDescripcion
@@ -76,20 +75,9 @@ public class VentanaArea_Edicion extends JFrame {
 		alta.setBounds(430, 300, 109, 30);
 		getContentPane().add(alta);
 
-//		Se agrega codigo 
-		codigo = new JTextField();
-		codigo.setBounds(282, 65, 131, 22);
-		getContentPane().add(codigo);
-
-//		Se agrega LCodigo
-		LCodigo = new JLabel("Introduce el código: ");
-		LCodigo.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		LCodigo.setBounds(91, 53, 160, 42);
-		getContentPane().add(LCodigo);
-
 //		Se agrega el botón de rellenar
 		rellenar = new JButton("R");
-		rellenar.setBounds(430, 56, 42, 42);
+		rellenar.setBounds(435, 101, 42, 42);
 		rellenar.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		getContentPane().add(rellenar);
 

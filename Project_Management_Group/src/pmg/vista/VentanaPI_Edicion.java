@@ -66,7 +66,7 @@ public class VentanaPI_Edicion extends JFrame {
 		
 		lblNota = new JLabel("Nota:");
 		lblNota.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNota.setBounds(226, 198, 37, 30);
+		lblNota.setBounds(203, 198, 60, 30);
 		getContentPane().add(lblNota);
 		
 		lblAno = new JLabel("Año:");
@@ -128,7 +128,7 @@ public class VentanaPI_Edicion extends JFrame {
 		btnAtras.setBounds(43, 306, 70, 30);
 		getContentPane().add(btnAtras);
 		
-		btnAlta = new JButton("Alta");
+		btnAlta = new JButton("Guardar");
 		btnAlta.setBounds(469, 306, 70, 30);
 		getContentPane().add(btnAlta);
 		

@@ -109,7 +109,7 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			getContentPane().add(btnAtras);
 			
 			// Creamos botón alta y lo agregamos a la ventana
-			btnAlta = new JButton("ALTA");
+			btnAlta = new JButton("GUARDAR");
 			btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 16));
 			btnAlta.setBounds(439, 300, 100, 30);
 			getContentPane().add(btnAlta);
