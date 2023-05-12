@@ -4,6 +4,8 @@
 package pmg.vista;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * Clase de la ventana gráfica Proyecto Integrador que consulta los proyectos según las áreas.
  *
  */
-public class VentanaPI_Consulta extends JFrame {
+public class VentanaPI_Consulta extends JFrame implements iVentana{
 
 	static final int ANCHO = 600;
 	static final int ALTO = 400;
@@ -90,7 +92,7 @@ public class VentanaPI_Consulta extends JFrame {
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		btnAtras.setBounds(42, 300, 100, 30);
+		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
 	}
 	
@@ -124,5 +126,11 @@ public class VentanaPI_Consulta extends JFrame {
 		tblPi.getColumn("Cod_proyecto").setPreferredWidth(75);
 		tblPi.getColumn("Cod_area").setPreferredWidth(75);
 		tblPi.getColumn("Url").setPreferredWidth(125);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

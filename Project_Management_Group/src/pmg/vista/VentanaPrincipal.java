@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.Font;
@@ -16,7 +17,7 @@ import java.awt.Font;
  * @author juanm
  *
  */
-public class VentanaPrincipal extends JFrame{
+public class VentanaPrincipal extends JFrame implements iVentana{
 	private JMenuBar menuBar;
 	private JMenu mnPI;
 	private JMenu mnAlumnos;
@@ -65,7 +66,7 @@ public class VentanaPrincipal extends JFrame{
 		
 		//Texto de bienvenida
 		JTextArea txtrBienvenidoAProject = new JTextArea();
-		txtrBienvenidoAProject.setFont(new Font("Roboto Mono", Font.PLAIN, 13));
+		txtrBienvenidoAProject.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		txtrBienvenidoAProject.setText("BIENVENIDO A PROJECT MANAGEMENT GROUP, ESTAMOS ENCANTADOS DE SERVIRTE.");
 		txtrBienvenidoAProject.setLineWrap(true);
 		txtrBienvenidoAProject.setBackground(UIManager.getColor("Button.background"));
@@ -147,5 +148,11 @@ public class VentanaPrincipal extends JFrame{
 	
 	public void hacerVisible() {
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

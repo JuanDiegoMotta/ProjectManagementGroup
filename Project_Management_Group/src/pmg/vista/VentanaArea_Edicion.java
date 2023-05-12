@@ -4,6 +4,7 @@
 package pmg.vista;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
@@ -13,7 +14,7 @@ import javax.swing.*;
  * @author Pablo
  *
  */
-public class VentanaArea_Edicion extends JFrame {
+public class VentanaArea_Edicion extends JFrame implements iVentana{
 
 	private JTextField nombreCorto;
 	private JTextArea descripcion;
@@ -43,42 +44,42 @@ public class VentanaArea_Edicion extends JFrame {
 
 		// Se agrega nombreCorto
 		nombreCorto = new JTextField();
-		nombreCorto.setBounds(282, 115, 131, 22);
+		nombreCorto.setBounds(282, 73, 131, 22);
 		getContentPane().add(nombreCorto);
 
 		// Se agrega LNombre
-		LNombre = new JLabel("Introduce el nombre corto: ");
-		LNombre.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		LNombre.setBounds(42, 111, 220, 22);
+		LNombre = new JLabel("Nombre corto: ");
+		LNombre.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		LNombre.setBounds(137, 69, 120, 22);
 		getContentPane().add(LNombre);
 
 //		Se agrega LDescripcion
 		LDescripcion = new JLabel("Descripción: ");
-		LDescripcion.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		LDescripcion.setBounds(150, 167, 109, 22);
+		LDescripcion.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		LDescripcion.setBounds(152, 113, 100, 22);
 		getContentPane().add(LDescripcion);
 
 //		Se agrega descripcion
 		descripcion = new JTextArea();
-		descripcion.setBounds(282, 169, 131, 69);
+		descripcion.setBounds(282, 115, 131, 69);
 		getContentPane().add(descripcion);
 
 //		Se agrega botón de atrás
 		atras = new JButton("ATRÁS");
-		atras.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		atras.setBounds(42, 300, 100, 30);
+		atras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		atras.setBounds(42, 300, 120, 30);
 		getContentPane().add(atras);
 
 //		Se agrega botón guardar
 		alta = new JButton("GUARDAR");
-		alta.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		alta.setBounds(430, 300, 109, 30);
+		alta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		alta.setBounds(419, 300, 120, 30);
 		getContentPane().add(alta);
 
 //		Se agrega el botón de rellenar
 		rellenar = new JButton("R");
-		rellenar.setBounds(435, 101, 42, 42);
-		rellenar.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		rellenar.setBounds(433, 59, 42, 42);
+		rellenar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(rellenar);
 
 		setSize(600, 400);
@@ -90,5 +91,11 @@ public class VentanaArea_Edicion extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

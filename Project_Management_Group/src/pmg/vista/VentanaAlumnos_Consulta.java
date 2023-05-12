@@ -6,6 +6,7 @@ package pmg.vista;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -20,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author juanm
  *
  */
-public class VentanaAlumnos_Consulta extends JFrame {
+public class VentanaAlumnos_Consulta extends JFrame implements iVentana{
 
 	static final int ANCHO = 600;
 	static final int ALTO = 400;
@@ -97,7 +98,7 @@ public class VentanaAlumnos_Consulta extends JFrame {
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		btnAtras.setBounds(42, 300, 100, 30);
+		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
 	}
 	
@@ -121,5 +122,11 @@ public class VentanaAlumnos_Consulta extends JFrame {
 		tblAlumnos.getColumn("Nombre y apellidos").setPreferredWidth(125);
 		tblAlumnos.getColumn("Num_Expediente").setPreferredWidth(75);
 		tblAlumnos.getColumn("Cod_Alumno").setPreferredWidth(75);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

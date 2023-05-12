@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
 
 
 /**
@@ -15,7 +16,7 @@ import java.awt.SystemColor;
  * @author Pablo
  *
  */
-public class VentanaAyuda extends JFrame {
+public class VentanaAyuda extends JFrame implements iVentana{
 
 	private JButton atras;
 	private JTextArea mensaje;
@@ -45,7 +46,7 @@ public class VentanaAyuda extends JFrame {
 				+ "campos tal y como se pide. Si desea consultar algún dato puede remitirse a las pestañas"
 				+ "de consulta correspondientes o también puede contactar con nosotros vía email.");
 		mensaje.setWrapStyleWord(true);
-		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		mensaje.setBackground(SystemColor.control);
 		mensaje.setForeground(Color.BLACK);
 		mensaje.setLineWrap(true);
@@ -54,8 +55,8 @@ public class VentanaAyuda extends JFrame {
 		
 //		Añadimos botón atrás
 		atras = new JButton("ATRÁS");
-		atras.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		atras.setBounds(42, 300, 100, 30);
+		atras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		atras.setBounds(42, 300, 120, 30);
 		getContentPane().add(atras);
 		
 		setSize(600, 400);
@@ -67,5 +68,11 @@ public class VentanaAyuda extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
