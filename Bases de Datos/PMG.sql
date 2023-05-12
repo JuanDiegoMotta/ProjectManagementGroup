@@ -87,11 +87,11 @@ insert into ProyectoIntegrador (año, curso, nota, grupo, cod_proyecto, nombre, 
 (2023, 1, 6, 'M11', 000004, 'Carne', 'https://github.com/Cristian', 232323),
 (2023, 1, 4, 'M11', 000005, 'Sin piedad', 'https://github.com/Jorge', 232323),
 (2023, 1, 3, 'M22', 000006, 'Espartanos', 'https://github.com/Miguel', 232323),
-(2023, 1, 6, 'T1', 000007, 'Espartanos', 'https://github.com/Pablo', 343434),
-(2023, 1, 5, 'T1', 000008, 'Espartanos', 'https://github.com/Victor', 343434),
-(2023, 1, 2, 'M22', 000009, 'Espartanos', 'https://github.com/Marcos', 454545),
-(2023, 1, 8, 'M11', 000010, 'Espartanos', 'https://github.com/Adrian', 454545),
-(2023, 1, 9, 'T1', 000011, 'Espartanos', 'https://github.com/Alvaro', 565656);
+(2023, 1, 6, 'T1', 000007, 'Marcianos', 'https://github.com/Pablo', 343434),
+(2023, 1, 5, 'T1', 000008, 'Perlas', 'https://github.com/Victor', 343434),
+(2023, 1, 2, 'M22', 000009, 'Cristales', 'https://github.com/Marcos', 454545),
+(2023, 1, 8, 'M11', 000010, 'Ganadores', 'https://github.com/Adrian', 454545),
+(2023, 1, 9, 'T1', 000011, 'Felices', 'https://github.com/Alvaro', 565656);
 
 insert into ProyectoIntegrador_Alumno (cod_alumno, cod_proyecto) values
 (999999, 000001),
