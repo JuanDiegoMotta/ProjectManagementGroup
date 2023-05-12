@@ -5,6 +5,7 @@ package pmg.vista;
 
 import java.awt.Font;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
@@ -14,7 +15,7 @@ import javax.swing.*;
  * @author Pablo
  *
  */
-public class VentanaArea_Alta extends JFrame {
+public class VentanaArea_Alta extends JFrame implements iVentana{
 	private JTextField nombreCorto;
 	private JTextArea descripcion;
 	private JLabel LNombre;
@@ -47,13 +48,13 @@ public class VentanaArea_Alta extends JFrame {
 
 		// Se agrega LNombre
 		LNombre = new JLabel("Nombre Corto: ");
-		LNombre.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		LNombre.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		LNombre.setBounds(128, 79, 117, 22);
 		getContentPane().add(LNombre);
 		
 //		Se agrega LDescripción
 		LDescripcion = new JLabel("Descripción: ");
-		LDescripcion.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		LDescripcion.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		LDescripcion.setBounds(148, 131, 109, 22);
 		getContentPane().add(LDescripcion);
 
@@ -64,20 +65,20 @@ public class VentanaArea_Alta extends JFrame {
 
 //		Se agrega mensaje
 		mensaje = new JLabel("Aquí irá el mensaje de que el código ha sigo generado");
-		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		mensaje.setBounds(94, 240, 413, 22);
 		getContentPane().add(mensaje);
 
 //		Se agrega el botón de atrás
 		atras = new JButton("ATRÁS");
-		atras.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		atras.setBounds(42, 300, 100, 30);
+		atras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		atras.setBounds(52, 300, 120, 30);
 		getContentPane().add(atras);
 
 //		Se agrega el botón de alta
 		alta = new JButton("ALTA");
-		alta.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		alta.setBounds(439, 300, 100, 30);
+		alta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		alta.setBounds(419, 300, 120, 30);
 		getContentPane().add(alta);
 
 		setSize(600, 400);
@@ -89,6 +90,12 @@ public class VentanaArea_Alta extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

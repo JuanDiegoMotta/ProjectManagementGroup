@@ -4,6 +4,8 @@
 package pmg.vista;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+
 import javax.swing.*;
 
 /**
@@ -12,7 +14,7 @@ import javax.swing.*;
  * Clase de la ventana gráfica Alumnos que da de baja al alumno según su código.
  *
  */
-public class VentanaAlumnos_Baja extends JFrame {
+public class VentanaAlumnos_Baja extends JFrame implements iVentana{
 
 	static final int ANCHO = 600;
 	static final int ALTO = 400;
@@ -79,8 +81,8 @@ public class VentanaAlumnos_Baja extends JFrame {
 		
 		// Creamos botón para la consulta de alumnos
 		btnConsulta = new JButton("?");
-		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		btnConsulta.setBounds(100, 227, 37, 36);
+		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnConsulta.setBounds(91, 227, 46, 36);
 		getContentPane().add(btnConsulta);
 		
 		// Se agrega la etiqueta de la consulta de alumnos
@@ -101,5 +103,11 @@ public class VentanaAlumnos_Baja extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

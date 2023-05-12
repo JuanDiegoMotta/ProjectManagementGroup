@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
  * @author juanm
  *
  */
-public class VentanaPI_Edicion extends JFrame {
+public class VentanaPI_Edicion extends JFrame implements iVentana{
 	//Labels
 	private JLabel lblGrupo;
 	private JLabel lblCurso;
@@ -61,17 +61,17 @@ public class VentanaPI_Edicion extends JFrame {
 		
 		lblComponentes = new JLabel("Componentes:");
 		lblComponentes.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblComponentes.setBounds(167, 157, 96, 30);
+		lblComponentes.setBounds(163, 156, 100, 30);
 		getContentPane().add(lblComponentes);
 		
 		lblNota = new JLabel("Nota:");
 		lblNota.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNota.setBounds(203, 198, 60, 30);
+		lblNota.setBounds(222, 200, 60, 30);
 		getContentPane().add(lblNota);
 		
 		lblAno = new JLabel("Año:");
 		lblAno.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblAno.setBounds(232, 239, 31, 30);
+		lblAno.setBounds(226, 240, 42, 30);
 		getContentPane().add(lblAno);
 		
 		lblArea = new JLabel("Área:");
@@ -81,7 +81,7 @@ public class VentanaPI_Edicion extends JFrame {
 		
 		lblCod = new JLabel("Introduce el código:");
 		lblCod.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblCod.setBounds(128, 30, 135, 30);
+		lblCod.setBounds(126, 29, 137, 30);
 		getContentPane().add(lblCod);
 		
 		txtNombre = new JTextField();
@@ -125,11 +125,15 @@ public class VentanaPI_Edicion extends JFrame {
 		getContentPane().add(cmbxArea);
 		
 		btnAtras = new JButton("Atrás");
-		btnAtras.setBounds(43, 306, 70, 30);
+		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
+		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
 		
 		btnAlta = new JButton("Guardar");
-		btnAlta.setBounds(469, 306, 70, 30);
+		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
+		btnAlta.setBounds(419, 300, 120, 30);
 		getContentPane().add(btnAlta);
 		
 		textField = new JTextField();
@@ -141,5 +145,11 @@ public class VentanaPI_Edicion extends JFrame {
 		btnNewButton.setBounds(452, 29, 42, 37);
 		getContentPane().add(btnNewButton);
 	
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

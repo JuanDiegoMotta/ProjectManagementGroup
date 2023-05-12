@@ -5,12 +5,13 @@ package pmg.vista;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 /**
  * @author juanm
  *
  */
-public class VentanaPI_Baja extends JFrame {
+public class VentanaPI_Baja extends JFrame implements iVentana{
 	static final int ANCHO = 600;
 	static final int ALTO = 400;
 	private JLabel lblTxtBaja;
@@ -53,13 +54,13 @@ public class VentanaPI_Baja extends JFrame {
 			
 		// Se agrega la etiqueta txtBaja
 		lblTxtBaja = new JLabel("Introduce el código del proyecto que quieres");
-		lblTxtBaja.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		lblTxtBaja.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblTxtBaja.setBounds(118, 34, 353, 36);
 		getContentPane().add(lblTxtBaja);
 		
 		// Se agrega la etiqueta txtBaja1
 		lblTxtBaja1 = new JLabel("dar de baja");
-		lblTxtBaja1.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		lblTxtBaja1.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblTxtBaja1.setBounds(236, 66, 95, 36);
 		getContentPane().add(lblTxtBaja1);
 		
@@ -70,26 +71,26 @@ public class VentanaPI_Baja extends JFrame {
 		
 		// Creamos botón para borrar el alumno
 		btnBorrar = new JButton("X");
-		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnBorrar.setBounds(249, 144, 54, 48);
 		getContentPane().add(btnBorrar);
 		
 		// Creamos botón para la consulta de alumnos
 		btnConsulta = new JButton("?");
-		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 12));
+		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnConsulta.setBounds(100, 227, 37, 36);
 		getContentPane().add(btnConsulta);
 		
 		// Se agrega la etiqueta de la consulta de alumnos
 		lblConsulta = new JLabel("¿Quieres consultar los proyectos existentes?");
-		lblConsulta.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		lblConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblConsulta.setBounds(143, 227, 353, 36);
 		getContentPane().add(lblConsulta);
 		
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
-		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		btnAtras.setBounds(42, 300, 100, 30);
+		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
 	}
 	
@@ -98,6 +99,12 @@ public class VentanaPI_Baja extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

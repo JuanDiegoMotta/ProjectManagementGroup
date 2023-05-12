@@ -17,7 +17,7 @@ import java.awt.Color;
  * @author juanm
  *
  */
-public class VentanaPI_Alta extends JFrame {
+public class VentanaPI_Alta extends JFrame implements iVentana{
 	//Labels
 	private JLabel lblGrupo;
 	private JLabel lblCurso;
@@ -62,7 +62,7 @@ public class VentanaPI_Alta extends JFrame {
 		
 		lblComponentes = new JLabel("Componentes:");
 		lblComponentes.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblComponentes.setBounds(167, 120, 96, 30);
+		lblComponentes.setBounds(162, 121, 116, 30);
 		getContentPane().add(lblComponentes);
 		
 		lblNota = new JLabel("Nota:");
@@ -72,7 +72,7 @@ public class VentanaPI_Alta extends JFrame {
 		
 		lblAno = new JLabel("Año:");
 		lblAno.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblAno.setBounds(232, 202, 31, 30);
+		lblAno.setBounds(221, 202, 42, 30);
 		getContentPane().add(lblAno);
 		
 		lblArea = new JLabel("Área:");
@@ -126,12 +126,22 @@ public class VentanaPI_Alta extends JFrame {
 		getContentPane().add(cmbxArea);
 		
 		btnAtras = new JButton("Atrás");
-		btnAtras.setBounds(43, 306, 70, 30);
+		btnAtras.setBounds(42, 300, 120, 30);
+		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
 		getContentPane().add(btnAtras);
 		
 		btnAlta = new JButton("Alta");
-		btnAlta.setBounds(469, 306, 70, 30);
+		btnAlta.setBounds(419, 300, 120, 30);
+		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
 		getContentPane().add(btnAlta);
 	
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

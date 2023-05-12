@@ -1,7 +1,9 @@
 	package pmg.vista;
 
 	import java.awt.*;
-	import javax.swing.*;
+import java.awt.event.ActionEvent;
+
+import javax.swing.*;
 
 	/**
 	 * @author juanm
@@ -9,7 +11,7 @@
 	 * Clase de la ventana gráfica áreas que da de baja el área según su código.
 	 *
 	 */
-	public class VentanaArea_Baja extends JFrame {
+	public class VentanaArea_Baja extends JFrame implements iVentana{
 
 		static final int ANCHO = 600;
 		static final int ALTO = 400;
@@ -49,15 +51,15 @@
 			// Una cuenta para situar la ventana en el centro de la pantalla.       
 			setLocation((pantalla.width - ventana.width) / 2,  (pantalla.height - ventana.height) / 2);
 				
-			// Se agrega la etiqueta txtBaja
+			// Se agrega la etiqueta lblTxtBaja
 			lblTxtBaja = new JLabel("Introduce el nombre corto del área que quieres");
-			lblTxtBaja.setFont(new Font("Segoe UI", Font.BOLD, 16));
-			lblTxtBaja.setBounds(118, 34, 353, 36);
+			lblTxtBaja.setFont(new Font("Segoe UI", Font.BOLD, 14));
+			lblTxtBaja.setBounds(115, 34, 321, 36);
 			getContentPane().add(lblTxtBaja);
 			
-			// Se agrega la etiqueta txtBaja1
+			// Se agrega la etiqueta lblTxtBaja1
 			lblTxtBaja1 = new JLabel("dar de baja");
-			lblTxtBaja1.setFont(new Font("Segoe UI", Font.BOLD, 16));
+			lblTxtBaja1.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			lblTxtBaja1.setBounds(236, 66, 95, 36);
 			getContentPane().add(lblTxtBaja1);
 			
@@ -66,16 +68,16 @@
 			txtCod.setBounds(192, 113, 174, 22);
 			getContentPane().add(txtCod);
 			
-			// Creamos botón para borrar el alumno
+			// Creamos botón para borrar el área
 			btnBorrar = new JButton("X");
-			btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 16));
+			btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			btnBorrar.setBounds(249, 144, 54, 48);
 			getContentPane().add(btnBorrar);
 			
 			// Creamos botón atrás y lo agregamos a la ventana
 			btnAtras = new JButton("ATRÁS");
-			btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 16));
-			btnAtras.setBounds(52, 300, 100, 30);
+			btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+			btnAtras.setBounds(52, 300, 120, 30);
 			getContentPane().add(btnAtras);
 		}
 		
@@ -84,5 +86,11 @@
 		 */
 		public void hacerVisible() {
 			setVisible(true);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
 		}
 	}

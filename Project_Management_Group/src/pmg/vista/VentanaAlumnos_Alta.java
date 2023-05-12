@@ -4,6 +4,7 @@
 package pmg.vista;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
@@ -14,7 +15,7 @@ import pmg.modelo.Alumno;
  * Clase de la ventana gráfica Alumnos que da de alta al alumno según su código.
  *
  */
-public class VentanaAlumnos_Alta extends JFrame {
+public class VentanaAlumnos_Alta extends JFrame implements iVentana{
 	//Labels
 	private JLabel lblNombre;
 	private JLabel lblApellido;
@@ -101,14 +102,20 @@ public class VentanaAlumnos_Alta extends JFrame {
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		btnAtras.setBounds(42, 300, 100, 30);
+		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
 		
 		// Creamos botón alta y lo agregamos a la ventana
 		btnAlta = new JButton("ALTA");
-		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 16));
-		btnAlta.setBounds(439, 300, 100, 30);
+		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnAlta.setBounds(419, 300, 120, 30);
 		getContentPane().add(btnAlta);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 
