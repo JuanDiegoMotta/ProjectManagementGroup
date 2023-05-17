@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
  * @author Pablo
  *
  */
-public class VentanaAyuda extends JFrame implements iVentana{
+public class VentanaAyuda extends JFrame {
 
 	private JButton atras;
 	private JTextArea mensaje;
@@ -80,9 +80,4 @@ public class VentanaAyuda extends JFrame implements iVentana{
 		atras.addActionListener(ba);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

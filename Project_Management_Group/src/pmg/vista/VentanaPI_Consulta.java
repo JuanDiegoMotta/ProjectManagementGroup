@@ -17,7 +17,7 @@ import pmg.controlador.ListenerBotonAtras;
  * Clase de la ventana gráfica Proyecto Integrador que consulta los proyectos según las áreas.
  *
  */
-public class VentanaPI_Consulta extends JFrame implements iVentana{
+public class VentanaPI_Consulta extends JFrame {
 
 	static final int ANCHO = 600;
 	static final int ALTO = 400;
@@ -137,9 +137,4 @@ public class VentanaPI_Consulta extends JFrame implements iVentana{
 		btnAtras.addActionListener(ba);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

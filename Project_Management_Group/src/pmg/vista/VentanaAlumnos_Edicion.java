@@ -17,7 +17,7 @@ import pmg.controlador.ListenerBotonAtras;
  * Clase de la ventana gráfica Alumnos que edita al alumno según su código.
  *
  */
-public class VentanaAlumnos_Edicion extends JFrame implements iVentana{
+public class VentanaAlumnos_Edicion extends JFrame {
 	//Labels
 		private JLabel lblNombre;
 		private JLabel lblApellido;
@@ -138,9 +138,4 @@ public class VentanaAlumnos_Edicion extends JFrame implements iVentana{
 			btnAtras.addActionListener(ba);
 		}
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
 }

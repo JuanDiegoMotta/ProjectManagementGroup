@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
  * @author juanm
  *
  */
-public class VentanaPI_Baja extends JFrame implements iVentana{
+public class VentanaPI_Baja extends JFrame {
 	static final int ANCHO = 600;
 	static final int ALTO = 400;
 	private JLabel lblTxtBaja;
@@ -113,12 +113,6 @@ public class VentanaPI_Baja extends JFrame implements iVentana{
 	 */
 	public void setControlador(ListenerBotonAtras ba) {
 		btnAtras.addActionListener(ba);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

@@ -16,7 +16,7 @@ import pmg.controlador.ListenerBotonAtras;
  * @author Pablo
  *
  */
-public class VentanaArea_Edicion extends JFrame implements iVentana{
+public class VentanaArea_Edicion extends JFrame {
 
 	private JTextField nombreCorto;
 	private JTextArea descripcion;
@@ -105,10 +105,4 @@ public class VentanaArea_Edicion extends JFrame implements iVentana{
 		atras.addActionListener(ba);
 	}
 
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

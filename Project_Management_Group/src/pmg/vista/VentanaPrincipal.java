@@ -17,7 +17,7 @@ import java.awt.Font;
  * @author juanm
  *
  */
-public class VentanaPrincipal extends JFrame implements iVentana{
+public class VentanaPrincipal extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu mnPI;
 	private JMenu mnAlumnos;
@@ -153,9 +153,4 @@ public class VentanaPrincipal extends JFrame implements iVentana{
 		setVisible(true);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }
