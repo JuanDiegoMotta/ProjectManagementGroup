@@ -17,7 +17,7 @@ import pmg.modelo.Alumno;
  * Clase de la ventana gráfica Alumnos que da de alta al alumno según su código.
  *
  */
-public class VentanaAlumnos_Alta extends JFrame implements iVentana{
+public class VentanaAlumnos_Alta extends JFrame {
 	//Labels
 	private JLabel lblNombre;
 	private JLabel lblApellido;
@@ -115,11 +115,6 @@ public class VentanaAlumnos_Alta extends JFrame implements iVentana{
 		
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	/**
 	 * Método encargado de agregar un controlador a la ventana

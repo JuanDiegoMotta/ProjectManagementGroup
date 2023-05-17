@@ -17,7 +17,7 @@ import pmg.controlador.ListenerBoton;
  * @author juanm
  *
  */
-public class VentanaLogIn extends JFrame implements iVentana {
+public class VentanaLogIn extends JFrame {
 	static private String USUARIO = "root";
 	static private String CONTRASEÑA = "root";
 
@@ -106,10 +106,6 @@ public class VentanaLogIn extends JFrame implements iVentana {
 		setVisible(true);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-
-	}
 
 	/**
 	 * Método encargado de agregar un controlador a la ventana

@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
  * @author juanm
  *
  */
-public class VentanaPI_Edicion extends JFrame implements iVentana{
+public class VentanaPI_Edicion extends JFrame {
 	//Labels
 	private JLabel lblGrupo;
 	private JLabel lblCurso;
@@ -166,9 +166,4 @@ public class VentanaPI_Edicion extends JFrame implements iVentana{
 		setVisible(true);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }

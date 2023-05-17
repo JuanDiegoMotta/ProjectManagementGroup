@@ -13,7 +13,7 @@ import pmg.controlador.ListenerBotonAtras;
 	 * Clase de la ventana gráfica áreas que da de baja el área según su código.
 	 *
 	 */
-	public class VentanaArea_Baja extends JFrame implements iVentana{
+	public class VentanaArea_Baja extends JFrame {
 
 		static final int ANCHO = 600;
 		static final int ALTO = 400;
@@ -100,10 +100,4 @@ import pmg.controlador.ListenerBotonAtras;
 			btnAtras.addActionListener(ba);
 		}
 
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
 	}

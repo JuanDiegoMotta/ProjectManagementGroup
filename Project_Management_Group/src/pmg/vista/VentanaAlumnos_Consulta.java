@@ -23,7 +23,7 @@ import pmg.controlador.ListenerBotonAtras;
  * @author juanm
  *
  */
-public class VentanaAlumnos_Consulta extends JFrame implements iVentana{
+public class VentanaAlumnos_Consulta extends JFrame {
 
 	static final int ANCHO = 600;
 	static final int ALTO = 400;
@@ -133,9 +133,4 @@ public class VentanaAlumnos_Consulta extends JFrame implements iVentana{
 		btnAtras.addActionListener(ba);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }
