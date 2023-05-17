@@ -40,8 +40,8 @@ public class VentanaPrincipal extends JFrame implements iVentana{
 	 * Constructor con parámetros de VentanaPrincipal
 	 * @param titulo titulo de la ventana principal
 	 */
-	public VentanaPrincipal(String titulo) {
-		super(titulo);
+	public VentanaPrincipal() {
+//		super(titulo);
 		inicializarComponentes();	
 	}
 	
