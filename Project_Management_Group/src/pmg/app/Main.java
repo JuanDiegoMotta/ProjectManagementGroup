@@ -8,13 +8,13 @@ public class Main {
 	public static void main(String[] args) {
 		
 		// Ventana Login
-//		VentanaLogIn vl = new VentanaLogIn();
+		VentanaLogIn vl = new VentanaLogIn();
 		
 		// Ventana principal con el menú
 		VentanaPrincipal vp = new VentanaPrincipal();
-//		ListenerBoton lb = new ListenerBoton(vl, vp);
+		ListenerBoton lb = new ListenerBoton(vl, vp);
 		
-//		vl.hacerVisible();
+		vl.hacerVisible();
 		
 		// Ventana alta de alumnos
 		VentanaAlumnos_Alta vala = new VentanaAlumnos_Alta("Alta de alumnos");
@@ -68,7 +68,7 @@ public class Main {
 		vpib.setControlador(lba);
 		vpie.setControlador(lba);
 		vpic.setControlador(lba);
-//		vl.setControlador(lb);
+		vl.setControlador(lb);
 
 	}
 }

@@ -24,6 +24,8 @@ public class VentanaPI_Baja extends JFrame implements iVentana{
 	private JButton btnConsulta;
 	private JLabel lblConsulta;
 	private JButton btnAtras;
+	private ImageIcon basura;
+
 	
 	/**
 	 * Constructor con parámetros de VentanaAlumnos_Baja
@@ -73,15 +75,17 @@ public class VentanaPI_Baja extends JFrame implements iVentana{
 		getContentPane().add(txtCod);
 		
 		// Creamos botón para borrar el alumno
-		btnBorrar = new JButton("X");
+		btnBorrar = new JButton();
 		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnBorrar.setBounds(249, 144, 54, 48);
 		getContentPane().add(btnBorrar);
+		basura = new ImageIcon();
+		btnBorrar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/trash.png")));
 		
 		// Creamos botón para la consulta de alumnos
 		btnConsulta = new JButton("?");
 		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		btnConsulta.setBounds(100, 227, 37, 36);
+		btnConsulta.setBounds(98, 227, 39, 36);
 		getContentPane().add(btnConsulta);
 		
 		// Se agrega la etiqueta de la consulta de alumnos

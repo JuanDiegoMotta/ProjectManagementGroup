@@ -35,6 +35,8 @@ public class VentanaPI_Edicion extends JFrame implements iVentana{
 	private JButton btnAtras;
 	private JButton btnAlta;
 	private JTextField textField;
+	private JButton btnRellenar;
+	private ImageIcon rellenar;
 	
 	public VentanaPI_Edicion(String titulo) {
 		super(titulo);
@@ -142,9 +144,11 @@ public class VentanaPI_Edicion extends JFrame implements iVentana{
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("E");
-		btnNewButton.setBounds(452, 29, 42, 37);
-		getContentPane().add(btnNewButton);
+		btnRellenar = new JButton();
+		btnRellenar.setBounds(452, 29, 42, 37);
+		getContentPane().add(btnRellenar);
+		rellenar = new ImageIcon();
+		btnRellenar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
 	
 	}
 	

@@ -6,11 +6,8 @@ package pmg.vista;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.*;
+
 
 import pmg.controlador.ListenerBotonAtras;
 
@@ -37,6 +34,7 @@ public class VentanaAlumnos_Edicion extends JFrame implements iVentana{
 		private JButton btnAtras;
 		private JButton btnAlta;
 		private JButton btnEdition;
+		private ImageIcon rellenar;
 		
 		public VentanaAlumnos_Edicion(String titulo) {
 			super(titulo);
@@ -117,10 +115,12 @@ public class VentanaAlumnos_Edicion extends JFrame implements iVentana{
 			btnAlta.setBounds(419, 300, 120, 30);
 			getContentPane().add(btnAlta);
 			
-			btnEdition = new JButton("E");
+			btnEdition = new JButton();
 			btnEdition.setFont(new Font("Segoe UI", Font.BOLD, 14));
-			btnEdition.setBounds(417, 36, 39, 39);
+			btnEdition.setBounds(417, 36, 52, 39);
 			getContentPane().add(btnEdition);
+			rellenar = new ImageIcon();
+			btnEdition.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
 			
 		}
 		

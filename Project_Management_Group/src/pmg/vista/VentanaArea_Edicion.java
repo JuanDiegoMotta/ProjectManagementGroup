@@ -25,7 +25,8 @@ public class VentanaArea_Edicion extends JFrame implements iVentana{
 	private JButton atras;
 	private JButton alta;
 	private JLabel LCodigo;
-	private JButton rellenar;
+	private JButton btnRellenar;
+	private ImageIcon rellenar;
 
 	/**
 	 * Constructor de la clase VentanaArea_Edicion
@@ -79,10 +80,12 @@ public class VentanaArea_Edicion extends JFrame implements iVentana{
 		getContentPane().add(alta);
 
 //		Se agrega el botón de rellenar
-		rellenar = new JButton("R");
-		rellenar.setBounds(433, 59, 42, 42);
-		rellenar.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		getContentPane().add(rellenar);
+		btnRellenar = new JButton();
+		btnRellenar.setBounds(433, 59, 42, 42);
+		btnRellenar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		getContentPane().add(btnRellenar);
+		rellenar = new ImageIcon();
+		btnRellenar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
 
 		setSize(600, 400);
 		setLocationRelativeTo(null);
