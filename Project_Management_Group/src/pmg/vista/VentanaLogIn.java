@@ -5,8 +5,11 @@ package pmg.vista;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
+
+import pmg.controlador.ListenerBoton;
 
 /**
  * Clase de la ventana gráfica del log-in
@@ -15,20 +18,26 @@ import javax.swing.*;
  *
  */
 public class VentanaLogIn extends JFrame implements iVentana {
-	// private logo (no se cómo se coloca)
+	static private String USUARIO = "root";
+	static private String CONTRASEÑA = "root";
+
 	private JLabel lblUser;
 	private JLabel lblPwd;
 	private JTextField txtUser;
 	private JPasswordField txtPwd;
 	private JButton btnLogin;
+	private JLabel lblNewLabel;
+	private JLabel error;
+	private JLabel errorCont;
+	private int cont;
 
 	/**
 	 * Constructor con parametros de VentanaLogIn
 	 * 
 	 * @param titulo titulo de la ventana
 	 */
-	public VentanaLogIn(String titulo) {
-		super(titulo);
+	public VentanaLogIn() {
+//		super(titulo);
 		inicializarComponentes();
 	}
 
@@ -67,11 +76,20 @@ public class VentanaLogIn extends JFrame implements iVentana {
 
 		getContentPane().add(btnLogin);
 
-		JLabel lblNewLabel = new JLabel("ICONO");
+		lblNewLabel = new JLabel("ICONO");
 		lblNewLabel.setBounds(248, 95, 63, 14);
 		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 14));
-
 		getContentPane().add(lblNewLabel);
+
+		error = new JLabel();
+		error.setBounds(219, 295, 181, 20);
+		error.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		getContentPane().add(error);
+
+		errorCont = new JLabel();
+		errorCont.setBounds(219, 322, 181, 20);
+		errorCont.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		getContentPane().add(errorCont);
 
 		// Se le da tamaño y posicion a la ventana
 		setSize(600, 400);
@@ -87,7 +105,58 @@ public class VentanaLogIn extends JFrame implements iVentana {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 
+	}
+
+	/**
+	 * Método encargado de agregar un controlador a la avnetana
+	 */
+	public void setControlador(ListenerBoton b) {
+		btnLogin.addActionListener(b);
+	}
+
+	/**
+	 * Método encargado de comprobar que el usuario y contraseña que pone el usuario sean correctos 
+	 * @param vp
+	 */
+	public void concederAcceso(VentanaPrincipal vp) {
+		String usua = txtUser.getText();
+		String passwo = String.valueOf(txtPwd.getPassword());
+		if (usua.equals(USUARIO)) {
+			if (passwo.equals(CONTRASEÑA)) {
+				dispose();
+				vp.hacerVisible();
+			} else {
+				cont++;
+				mostrarErrorLeft(cont);
+				mostrarError("Contraseñá incorrecta");
+
+			}
+		} else {
+			mostrarError("Usuario no valido");
+		}
+
+	}
+
+	/**
+	 * Método encargado de mostrar un error en la pantalla
+	 * 
+	 * @param errors
+	 */
+	public void mostrarError(String errors) {
+		error.setText(errors);
+	}
+
+	/**
+	 * Método encargado de mostros los intentos restantes que te quedan
+	 * 
+	 * @param contt
+	 */
+	public void mostrarErrorLeft(int contt) {
+		if (contt >= 4) {
+			dispose();
+		} else {
+			errorCont.setText("Intentos restantes: " + (4 - contt));
+		}
 	}
 }
