@@ -10,6 +10,11 @@
 
 Gracias por visitar el repositorio de nuestro proyecto en GitHub. Nos complace presentarte nuestra aplicación, la cual ha sido desarrollada con el objetivo de brindar una solución práctica y eficiente para la gestión de proyectos integradores.
 
+## Comenzando 🚀
+
+La primera ventana que nos aparece, será la del **login**, en la cual, el administrador, iniciará sesión con el usuario **root** y la contraseña **root**. Esta acción establecerá conexión con la base de datos existente y nos dará paso al menú (ventana principal) de nuestra aplicación.
+
+_Aquí irá imagen de la ventana del login_
 
 ## Autores ✒️
 
