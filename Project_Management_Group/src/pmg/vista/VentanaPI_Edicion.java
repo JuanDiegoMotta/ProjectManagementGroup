@@ -7,6 +7,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import pmg.controlador.ListenerBotonAtras;
 import pmg.modelo.Alumno;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -145,6 +146,20 @@ public class VentanaPI_Edicion extends JFrame implements iVentana{
 		btnNewButton.setBounds(452, 29, 42, 37);
 		getContentPane().add(btnNewButton);
 	
+	}
+	
+	/**
+	 * Método encargado de agregar un controlador a la ventana
+	 */
+	public void setControlador(ListenerBotonAtras ba) {
+		btnAtras.addActionListener(ba);
+	}
+	
+	/**
+	 * Método que hace visible la ventana
+	 */
+	public void hacerVisible() {
+		setVisible(true);
 	}
 
 	@Override

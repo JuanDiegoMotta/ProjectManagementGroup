@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
+import pmg.controlador.ListenerBoton;
+import pmg.controlador.ListenerBotonAtras;
 import pmg.modelo.Alumno;
 
 /**
@@ -118,5 +120,18 @@ public class VentanaAlumnos_Alta extends JFrame implements iVentana{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	/**
+	 * Método encargado de agregar un controlador a la ventana
+	 */
+	public void setControlador(ListenerBotonAtras ba) {
+		btnAtras.addActionListener(ba);
+	}
+	
+	/**
+	 * Método que hace visible la ventana
+	 */
+	public void hacerVisible() {
+		setVisible(true);
+	}
 }

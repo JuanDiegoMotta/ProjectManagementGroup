@@ -6,6 +6,9 @@ package pmg.vista;
 import java.awt.Font;
 
 import javax.swing.*;
+
+import pmg.controlador.ListenerBotonAtras;
+
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -68,6 +71,13 @@ public class VentanaAyuda extends JFrame implements iVentana{
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+	
+	/**
+	 * Método encargado de agregar un controlador a la ventana
+	 */
+	public void setControlador(ListenerBotonAtras ba) {
+		atras.addActionListener(ba);
 	}
 
 	@Override
