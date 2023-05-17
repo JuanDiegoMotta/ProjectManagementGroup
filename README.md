@@ -1,4 +1,4 @@
-<h1 align="center">Project Mangment Group</h1>
+<h1 align="center">Project Management Group</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0-green">
