@@ -3,6 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0-green">
   <img src="https://img.shields.io/badge/test-✓-green">
+  <img src="https://img.shields.io/badge/code-java-blueviolet">
   <img src="https://img.shields.io/badge/database-MySQL-informational">
   <img src="https://img.shields.io/badge/rating-⭐⭐⭐⭐⭐-blueviolet">
 </p>
