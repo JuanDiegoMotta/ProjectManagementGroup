@@ -35,6 +35,7 @@ public class VentanaPrincipal extends JFrame implements iVentana{
 	private JMenuItem area_baja;
 	private JMenuItem area_edicion;
 	private JScrollPane scrpContenedor;
+	private ImageIcon logo;
 	
 	/**
 	 * Constructor con parámetros de VentanaPrincipal
@@ -74,9 +75,11 @@ public class VentanaPrincipal extends JFrame implements iVentana{
 		getContentPane().add(txtrBienvenidoAProject);
 		
 		//Aquí iría el logo
-		JLabel lblNewLabel = new JLabel("LOGO");
-		lblNewLabel.setBounds(265, 113, 46, 14);
+		JLabel lblNewLabel = new JLabel();
+		lblNewLabel.setBounds(169, 81, 200, 60);
 		getContentPane().add(lblNewLabel);
+		logo = new ImageIcon("../img/logoPMG.png");
+		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/logoPMG.png")));
 		
 		
 		setSize(600,400);

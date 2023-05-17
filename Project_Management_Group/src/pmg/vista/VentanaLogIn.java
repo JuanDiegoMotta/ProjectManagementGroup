@@ -30,6 +30,7 @@ public class VentanaLogIn extends JFrame implements iVentana {
 	private JLabel error;
 	private JLabel errorCont;
 	private int cont;
+	private ImageIcon logo;
 
 	/**
 	 * Constructor con parametros de VentanaLogIn
@@ -76,10 +77,12 @@ public class VentanaLogIn extends JFrame implements iVentana {
 
 		getContentPane().add(btnLogin);
 
-		lblNewLabel = new JLabel("ICONO");
-		lblNewLabel.setBounds(248, 95, 63, 14);
+		lblNewLabel = new JLabel();
+		lblNewLabel.setBounds(180, 44, 205, 68);
 		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(lblNewLabel);
+		logo = new ImageIcon("../img/logoPMG.png");
+		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/logoPMG.png")));
 
 		error = new JLabel();
 		error.setBounds(219, 295, 181, 20);

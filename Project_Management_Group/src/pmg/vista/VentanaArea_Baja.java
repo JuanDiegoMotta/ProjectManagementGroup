@@ -22,6 +22,7 @@ import pmg.controlador.ListenerBotonAtras;
 		private JTextField txtCod;
 		private JButton btnBorrar;
 		private JButton btnAtras;
+		private ImageIcon basura;
 		
 		/**
 		 * Constructor con parámetros de VentanaAlumnos_Baja
@@ -71,10 +72,12 @@ import pmg.controlador.ListenerBotonAtras;
 			getContentPane().add(txtCod);
 			
 			// Creamos botón para borrar el área
-			btnBorrar = new JButton("X");
+			btnBorrar = new JButton();
 			btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
-			btnBorrar.setBounds(249, 144, 54, 48);
+			btnBorrar.setBounds(250, 152, 54, 48);
 			getContentPane().add(btnBorrar);
+			basura = new ImageIcon();
+			btnBorrar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/trash.png")));
 			
 			// Creamos botón atrás y lo agregamos a la ventana
 			btnAtras = new JButton("ATRÁS");
