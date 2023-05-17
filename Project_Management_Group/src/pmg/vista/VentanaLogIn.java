@@ -109,7 +109,7 @@ public class VentanaLogIn extends JFrame implements iVentana {
 	}
 
 	/**
-	 * Método encargado de agregar un controlador a la avnetana
+	 * Método encargado de agregar un controlador a la ventana
 	 */
 	public void setControlador(ListenerBoton b) {
 		btnLogin.addActionListener(b);

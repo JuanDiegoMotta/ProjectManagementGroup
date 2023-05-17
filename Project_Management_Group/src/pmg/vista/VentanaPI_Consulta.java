@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import pmg.controlador.ListenerBotonAtras;
+
 /**
  * @author jburg
  * 
@@ -126,6 +128,13 @@ public class VentanaPI_Consulta extends JFrame implements iVentana{
 		tblPi.getColumn("Cod_proyecto").setPreferredWidth(75);
 		tblPi.getColumn("Cod_area").setPreferredWidth(75);
 		tblPi.getColumn("Url").setPreferredWidth(125);
+	}
+	
+	/**
+	 * Método encargado de agregar un controlador a la ventana
+	 */
+	public void setControlador(ListenerBotonAtras ba) {
+		btnAtras.addActionListener(ba);
 	}
 
 	@Override

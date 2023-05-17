@@ -17,6 +17,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import pmg.controlador.ListenerBotonAtras;
+
 /**
  * @author juanm
  *
@@ -122,6 +124,13 @@ public class VentanaAlumnos_Consulta extends JFrame implements iVentana{
 		tblAlumnos.getColumn("Nombre y apellidos").setPreferredWidth(125);
 		tblAlumnos.getColumn("Num_Expediente").setPreferredWidth(75);
 		tblAlumnos.getColumn("Cod_Alumno").setPreferredWidth(75);
+	}
+	
+	/**
+	 * Método encargado de agregar un controlador a la ventana
+	 */
+	public void setControlador(ListenerBotonAtras ba) {
+		btnAtras.addActionListener(ba);
 	}
 
 	@Override

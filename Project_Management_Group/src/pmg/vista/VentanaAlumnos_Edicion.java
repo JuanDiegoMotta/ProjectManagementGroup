@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import pmg.controlador.ListenerBotonAtras;
+
 /**
  * @author juanm
  * 
@@ -120,6 +122,20 @@ public class VentanaAlumnos_Edicion extends JFrame implements iVentana{
 			btnEdition.setBounds(417, 36, 39, 39);
 			getContentPane().add(btnEdition);
 			
+		}
+		
+		/**
+		 * Método que hace visible la ventana
+		 */
+		public void hacerVisible() {
+			setVisible(true);
+		}
+		
+		/**
+		 * Método encargado de agregar un controlador a la ventana
+		 */
+		public void setControlador(ListenerBotonAtras ba) {
+			btnAtras.addActionListener(ba);
 		}
 
 		@Override

@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
+import pmg.controlador.ListenerBotonAtras;
+
 
 /**
  * Clase VentanaArea_Edicion
@@ -92,6 +94,14 @@ public class VentanaArea_Edicion extends JFrame implements iVentana{
 	public void hacerVisible() {
 		setVisible(true);
 	}
+	
+	/**
+	 * Método encargado de agregar un controlador a la ventana
+	 */
+	public void setControlador(ListenerBotonAtras ba) {
+		atras.addActionListener(ba);
+	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
