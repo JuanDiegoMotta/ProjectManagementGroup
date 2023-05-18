@@ -42,6 +42,11 @@ public class VentanaPI_Alta extends JFrame {
 		inicializarComponentes();
 	}
 	
+	// Getter del botón alta
+	public JButton getBtnAlta() {
+		return btnAlta;
+	}
+	
 	public void inicializarComponentes() {
 		//Configuramos layout a absoluto
 		getContentPane().setLayout(null);
