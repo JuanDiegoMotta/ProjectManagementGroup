@@ -4,6 +4,8 @@
 package pmg.vista;
 import javax.swing.*;
 
+import pmg.controlador.ListenerMenu;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -22,7 +24,7 @@ public class VentanaPrincipal extends JFrame {
 	private JMenu mnPI;
 	private JMenu mnAlumnos;
 	private JMenu mnAreas;
-	private JMenu mnAyuda;
+	private JMenuItem mnAyuda;
 	private JMenuItem pi_alta;
 	private JMenuItem pi_baja;
 	private JMenuItem pi_edicion;
@@ -37,6 +39,12 @@ public class VentanaPrincipal extends JFrame {
 	private JScrollPane scrpContenedor;
 	private ImageIcon logo;
 	
+	JMenuItem ayudaMenuItem;
+	
+	public JMenuItem getAyudaMenuItem() {
+		return ayudaMenuItem;
+	}
+
 	/**
 	 * Constructor con parámetros de VentanaPrincipal
 	 * @param titulo titulo de la ventana principal
@@ -44,6 +52,55 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal() {
 //		super(titulo);
 		inicializarComponentes();	
+	}
+	
+	//Getters de los MenuItems que se usarán en el controlador ListenerMenu
+	public JMenuItem getMnAyuda() {
+		return mnAyuda;
+	}
+	
+	public JMenuItem getPi_alta() {
+		return pi_alta;
+	}
+	
+	public JMenuItem getPi_baja() {
+		return pi_baja;
+	}
+	
+	public JMenuItem getPi_edicion() {
+		return pi_edicion;
+	}
+	
+	public JMenuItem getPi_consulta() {
+		return pi_consulta;
+	}
+	
+	public JMenuItem getAlumnos_alta() {
+		return alumnos_alta;
+	}
+	
+	public JMenuItem getAlumnos_baja() {
+		return alumnos_baja;
+	}
+	
+	public JMenuItem getAlumnos_edicion() {
+		return alumnos_edicion;
+	}
+	
+	public JMenuItem getAlumnos_consulta() {
+		return alumnos_consulta;
+	}
+	
+	public JMenuItem getArea_alta() {
+		return area_alta;
+	}
+	
+	public JMenuItem getArea_baja() {
+		return area_baja;
+	}
+	
+	public JMenuItem getArea_edicion() {
+		return area_edicion;
 	}
 	
 	/**
@@ -142,8 +199,9 @@ public class VentanaPrincipal extends JFrame {
 		mnAreas.add(area_edicion);
 		
 		//Creamos otro JMenu de Ayuda
-		mnAyuda = new JMenu("Ayuda");
+		mnAyuda = new JMenuItem("Ayuda");
 		menuBar.add(mnAyuda);
+		
 		
 		scrpContenedor = new JScrollPane();
 		getContentPane().add(scrpContenedor, BorderLayout.CENTER);
@@ -152,5 +210,20 @@ public class VentanaPrincipal extends JFrame {
 	public void hacerVisible() {
 		setVisible(true);
 	}
+	public void setListenerMenu(ListenerMenu listener){
+		pi_alta.addActionListener(listener);
+		pi_baja.addActionListener(listener);
+		pi_edicion.addActionListener(listener);
+		pi_consulta.addActionListener(listener);
+		alumnos_alta.addActionListener(listener);
+		alumnos_baja.addActionListener(listener);
+		alumnos_edicion.addActionListener(listener);
+		alumnos_consulta.addActionListener(listener);
+		area_alta.addActionListener(listener);
+		area_baja.addActionListener(listener);
+		area_edicion.addActionListener(listener);
+		mnAyuda.addActionListener(listener);
+	}
+
 
 }
