@@ -6,6 +6,7 @@ import pmg.vista.*;
 public class Main {
 
 	public static void main(String[] args) {
+
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 
@@ -14,6 +15,7 @@ public class Main {
 
 				// Ventana principal con el menú
 				VentanaPrincipal vp = new VentanaPrincipal();
+
 				ListenerBoton lb = new ListenerBoton(vl, vp);
 
 				vl.hacerVisible();
@@ -73,7 +75,13 @@ public class Main {
 				vpie.setControlador(lba);
 				vpic.setControlador(lba);
 				vl.setControlador(lb);
+				// Controlador Menu
+				ListenerMenu listenerMenu = new ListenerMenu(vp, vpia, vpib, vpic, vpie, vala, vab, vac, vae, vara,
+						varb, vare, vay);
+				vp.setListenerMenu(listenerMenu);
 			}
+
 		});
 	}
+
 }
