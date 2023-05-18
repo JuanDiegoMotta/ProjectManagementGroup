@@ -35,6 +35,11 @@ public class VentanaArea_Alta extends JFrame {
 		inicializarComponentes();
 
 	}
+	
+	// Getter del botón alta
+	public JButton getBtnAlta() {
+		return alta;
+	}
 
 	/**
 	 * Método para inicializar componentes de la ventana, esta ventana construirá las cosas de la ventana VentanaArea_Alta

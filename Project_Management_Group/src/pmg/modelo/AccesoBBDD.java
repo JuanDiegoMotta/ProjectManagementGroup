@@ -14,7 +14,7 @@ public class AccesoBBDD {
 	private String driver = "com.mysql.cj.jdbc.Driver";
 	private String url = "jdbc:mysql://localhost/pmg";
 	private String usuario = "root";
-	private String pword = "123456";
+	private String pword = "root";
 	private Connection con = null;
 
 	static private int cont;
