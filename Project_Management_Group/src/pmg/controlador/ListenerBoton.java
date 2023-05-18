@@ -3,6 +3,7 @@ package pmg.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import pmg.modelo.AccesoBBDD;
 import pmg.vista.*;
 
 /**
@@ -14,6 +15,7 @@ public class ListenerBoton implements ActionListener {
 
 	private VentanaLogIn vl;
 	private VentanaPrincipal vp;
+	private AccesoBBDD bd;
 
 	/**
 	 * Constructor de la clase ListenerBoton
@@ -31,6 +33,10 @@ public class ListenerBoton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		vl.concederAcceso(vp);
+		bd = new AccesoBBDD();
+		bd.getConexion();
+		
+		
 	}
 
 }
