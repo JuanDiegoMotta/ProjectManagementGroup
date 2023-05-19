@@ -2,8 +2,9 @@ ProyectoIntegrador(cod_proyecto, año, curso, grupo, nota, nombre, url, cod_area
 PK -> cod_proyecto
 FK -> area -> TABLA Area
 
-Alumno(cod_alumno, num_expediente, nombre_ape)
+Alumno(cod_alumno, num_expediente, nombre_ape, area)
 PK -> cod_alumno
+FK -> TABLA Area
 
 Area(cod_area, nombre_corto, descripcion)
 PK -> cod_area
