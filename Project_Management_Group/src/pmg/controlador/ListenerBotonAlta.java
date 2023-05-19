@@ -38,7 +38,7 @@ public class ListenerBotonAlta implements ActionListener {
 	}
 	
 	public void altaAlumnos() {
-		
+		System.out.println("esto es una prueba");
 	}
 
 }
