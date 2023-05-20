@@ -7,7 +7,8 @@ import pmg.modelo.AccesoBBDD;
 import pmg.vista.*;
 
 /**
- * Clase ListenerBoton 
+ * Clase ListenerBoton
+ * 
  * @author Pablo
  *
  */
@@ -19,6 +20,7 @@ public class ListenerBoton implements ActionListener {
 
 	/**
 	 * Constructor de la clase ListenerBoton
+	 * 
 	 * @param vl
 	 * @param vp
 	 */
@@ -33,10 +35,7 @@ public class ListenerBoton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		vl.concederAcceso(vp);
-		bd = new AccesoBBDD();
-		bd.getConexion();
-		
-		
+
 	}
 
 }

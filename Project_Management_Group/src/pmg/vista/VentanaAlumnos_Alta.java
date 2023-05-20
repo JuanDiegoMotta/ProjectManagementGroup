@@ -12,8 +12,8 @@ import pmg.controlador.*;
 import pmg.modelo.*;
 
 /**
- * @author juanm Clase de la ventana gráfica Alumnos que da de alta al alumno
- *         según su código.
+ * Clase de la ventana gráfica Alumnos que da de alta al alumno según su código
+ * @author juanm 
  *
  */
 public class VentanaAlumnos_Alta extends JFrame {
@@ -23,7 +23,6 @@ public class VentanaAlumnos_Alta extends JFrame {
 	private JLabel lblNumExp;
 	private JLabel lblArea;
 	private JLabel lblCod;
-	private JLabel lblCp;
 	// Otros JComponents
 	private JTextField txtNombre;
 	private JTextField txtApellido;
@@ -32,16 +31,22 @@ public class VentanaAlumnos_Alta extends JFrame {
 	private JComboBox<String> cmbxArea;
 	private JButton btnAtras;
 	private JButton btnAlta;
-	private DatosAltaAlumno datos;
+	private JLabel aviso;
 
 	public VentanaAlumnos_Alta(String titulo) {
 		super(titulo);
 		inicializarComponentes();
 	}
 
-	// Getter del botón alta
+	// Getters necesarios
 	public JButton getBtnAlta() {
 		return btnAlta;
+	}
+	public JLabel getAviso() {
+		return aviso;
+	}
+	public JLabel getLblCod() {
+		return lblCod;
 	}
 
 	public void inicializarComponentes() {
@@ -85,17 +90,8 @@ public class VentanaAlumnos_Alta extends JFrame {
 		lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(lblArea);
 
-		lblCp = new JLabel("Código Proyecto:");
-		lblCp.setBounds(122, 182, 122, 30);
-		lblCp.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		getContentPane().add(lblCp);
-
-		txtCp = new JTextField();
-		txtCp.setBounds(270, 189, 137, 20);
-		getContentPane().add(txtCp);
-
-		lblCod = new JLabel("Aquí iría el código generado automáticamente (al pulsar el botón)");
-		lblCod.setBounds(122, 233, 321, 30);
+		lblCod = new JLabel("");
+		lblCod.setBounds(152, 197, 321, 30);
 		getContentPane().add(lblCod);
 
 		cmbxArea = new JComboBox<String>();
@@ -117,6 +113,11 @@ public class VentanaAlumnos_Alta extends JFrame {
 		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAlta.setBounds(419, 300, 120, 30);
 		getContentPane().add(btnAlta);
+
+		aviso = new JLabel();
+		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		aviso.setBounds(183, 249, 314, 30);
+		getContentPane().add(aviso);
 	}
 
 	/**
@@ -124,7 +125,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 	 */
 	public void setControlador(ListenerBotonAtras ba, ListenerBotonAlta bal) {
 		btnAtras.addActionListener(ba);
-		// btnAlta.addActionListener(bal);
+		btnAlta.addActionListener(bal);
 	}
 
 	public String generarCodigo() {
@@ -137,6 +138,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 			int index = rand.nextInt(caracteres.length());
 			codigo.append(caracteres.charAt(index));
 		}
+		lblCod.setText("Código de alumno generado: "+codigo.toString());
 		return codigo.toString();
 	}
 
@@ -145,14 +147,26 @@ public class VentanaAlumnos_Alta extends JFrame {
 	 */
 	public DatosAltaAlumno getDatos() {
 
-		String nombre = lblNombre.getText();
-		String apellido = lblApellido.getText();
+		String nombre = txtNombre.getText();
+		String apellido = txtApellido.getText();
 		String nombreCompleto = nombre + " " + apellido;
-		String numExp = lblNumExp.getText();
-		String lblArea = cmbxArea.getSelectedItem().toString();
-		String lblCod = generarCodigo();
+		String numExp = txtNumExp.getText();
+		String area = cmbxArea.getSelectedItem().toString();
+		String codAlumno = generarCodigo();
+
+		DatosAltaAlumno datos = new DatosAltaAlumno(nombreCompleto, numExp, area, codAlumno);
 
 		return datos;
+	}
+
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			aviso.setText("Alumno añadido correctamente");
+		} else {
+			aviso.setText("Error al añadir el alumno");
+			lblCod.setText("");
+		}
+
 	}
 
 	/**
