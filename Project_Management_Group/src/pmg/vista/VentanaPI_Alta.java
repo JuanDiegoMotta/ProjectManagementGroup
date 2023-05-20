@@ -5,9 +5,11 @@ package pmg.vista;
 
 import javax.swing.*;
 
-import pmg.controlador.ListenerBotonAtras;
-import pmg.modelo.Alumno;
+import pmg.controlador.*;
+import pmg.modelo.*;
+
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
@@ -22,20 +24,23 @@ public class VentanaPI_Alta extends JFrame {
 	//Labels
 	private JLabel lblGrupo;
 	private JLabel lblCurso;
-	private JLabel lblComponentes;
+//	private JLabel lblComponentes;
 	private JLabel lblNota;
 	private JLabel lblAno;
 	private JLabel lblArea;
 	private JLabel lblCod;
+	private JLabel lblURL;
 	//Otros JComponents
 	private JTextField txtNombre;
 	private JSpinner spnrCurso;
-	private JList<Alumno> listAlumnos;
+//	private JList<Alumno> listAlumnos;
 	private JSpinner spnrNota;
 	private JComboBox<String> cmbxAno;
 	private JComboBox<String> cmbxArea;
 	private JButton btnAtras;
 	private JButton btnAlta;
+	private JTextField txtURL;
+	private JLabel lblAviso;
 	
 	public VentanaPI_Alta(String titulo) {
 		super(titulo);
@@ -47,6 +52,14 @@ public class VentanaPI_Alta extends JFrame {
 		return btnAlta;
 	}
 	
+	public JLabel getLblCod() {
+		return lblCod;
+	}
+
+	public JLabel getLblAviso() {
+		return lblAviso;
+	}
+
 	public void inicializarComponentes() {
 		//Configuramos layout a absoluto
 		getContentPane().setLayout(null);
@@ -58,69 +71,87 @@ public class VentanaPI_Alta extends JFrame {
 		//Inicializamos y situamos los JComponent
 		lblGrupo = new JLabel("Nombre del grupo:");
 		lblGrupo.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblGrupo.setBounds(133, 38, 130, 30);
+		lblGrupo.setBounds(133, 22, 130, 30);
 		getContentPane().add(lblGrupo);
 		
 		lblCurso = new JLabel("Curso:");
 		lblCurso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblCurso.setBounds(221, 79, 42, 30);
+		lblCurso.setBounds(221, 102, 42, 30);
 		getContentPane().add(lblCurso);
 		
-		lblComponentes = new JLabel("Componentes:");
-		lblComponentes.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblComponentes.setBounds(162, 121, 116, 30);
-		getContentPane().add(lblComponentes);
+//		lblComponentes = new JLabel("Componentes:");
+//		lblComponentes.setFont(new Font("Segoe UI", Font.BOLD, 14));
+//		lblComponentes.setBounds(162, 121, 116, 30);
+//		getContentPane().add(lblComponentes);
 		
 		lblNota = new JLabel("Nota:");
 		lblNota.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNota.setBounds(203, 161, 60, 30);
+		lblNota.setBounds(221, 141, 42, 30);
 		getContentPane().add(lblNota);
 		
 		lblAno = new JLabel("Año:");
 		lblAno.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblAno.setBounds(221, 202, 42, 30);
+		lblAno.setBounds(221, 182, 42, 30);
 		getContentPane().add(lblAno);
 		
 		lblArea = new JLabel("Área:");
 		lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblArea.setBounds(226,243, 37, 30);
+		lblArea.setBounds(221,223, 37, 30);
 		getContentPane().add(lblArea);
 		
 		lblCod = new JLabel("Aquí iría el código generado automáticamente (al pulsar el botón)");
 		lblCod.setForeground(new Color(192, 192, 192));
-		lblCod.setBounds(147, 275, 321, 30);
+		lblCod.setBounds(133, 264, 321, 30);
 		getContentPane().add(lblCod);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(320, 38, 100, 30);
+		txtNombre.setBounds(320, 22, 100, 30);
 		getContentPane().add(txtNombre);
 		
 		spnrCurso = new JSpinner();
 		spnrCurso.setModel(new SpinnerNumberModel(1, 1, 2, 1));
-		spnrCurso.setBounds(320, 79, 30, 30);
+		spnrCurso.setBounds(320, 102, 30, 30);
 		getContentPane().add(spnrCurso);
 		
-		listAlumnos = new JList<Alumno>();
-		DefaultListModel<Alumno> dlm = new DefaultListModel<Alumno>();
+//		listAlumnos = new JList<Alumno>();
+//		DefaultListModel<Alumno> dlm = new DefaultListModel<Alumno>();
 //		dlm.addElement(new Alumno("Alumno1", "Apellidos", "12345678A"));
 //		dlm.addElement(new Alumno("Alumno2", "Apellidos", "12345678E"));
 //		dlm.addElement(new Alumno("Alumno3", "Apellidos", "12345678C"));
 //		dlm.addElement(new Alumno("Alumno4", "Apellidos", "12345678B"));
 //		dlm.addElement(new Alumno("Alumno5", "Apellidos", "12345678D"));
 //		dlm.addElement(new Alumno("Alumno6", "Apellidos", "12345678F"));
-		listAlumnos.setModel(dlm);
-		listAlumnos.setBounds(320, 120, 100, 30);
-		getContentPane().add(listAlumnos);
+//		listAlumnos.setModel(dlm);
+//		listAlumnos.setBounds(320, 120, 100, 30);
+//		getContentPane().add(listAlumnos);
 		
 		spnrNota = new JSpinner();
 		spnrNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spnrNota.setBounds(320, 161, 30, 30);
+		spnrNota.setBounds(320, 143, 30, 30);
 		getContentPane().add(spnrNota);
 		
 		cmbxAno = new JComboBox<String>();
-		cmbxAno.addItem("1");
-		cmbxAno.addItem("2");
-		cmbxAno.setBounds(320, 202, 40, 30);
+		cmbxAno.addItem("2023");
+		cmbxAno.addItem("2024");
+		cmbxAno.addItem("2025");
+		cmbxAno.addItem("2026");
+		cmbxAno.addItem("2027");
+		cmbxAno.addItem("2028");
+		cmbxAno.addItem("2029");
+		cmbxAno.addItem("2030");
+		cmbxAno.addItem("2031");
+		cmbxAno.addItem("2032");
+		cmbxAno.addItem("2033");
+		cmbxAno.addItem("2034");
+		cmbxAno.addItem("2035");
+		cmbxAno.addItem("2036");
+		cmbxAno.addItem("2037");
+		cmbxAno.addItem("2038");
+		cmbxAno.addItem("2039");
+		cmbxAno.addItem("2040");
+		cmbxAno.addItem("2041");
+		cmbxAno.addItem("2042");
+		cmbxAno.setBounds(309, 184, 40, 30);
 		getContentPane().add(cmbxAno);
 		
 		cmbxArea = new JComboBox<String>();
@@ -128,7 +159,8 @@ public class VentanaPI_Alta extends JFrame {
 		cmbxArea.addItem("DAM");
 		cmbxArea.addItem("ASIR");
 		cmbxArea.addItem("A3DV");
-		cmbxArea.setBounds(320, 243, 60, 30);
+		//TODO Cuando se añada un área nueva, ésta se tiene que añadir automáticamente a este cmbx
+		cmbxArea.setBounds(309, 225, 60, 30);
 		getContentPane().add(cmbxArea);
 		
 		btnAtras = new JButton("Atrás");
@@ -142,14 +174,67 @@ public class VentanaPI_Alta extends JFrame {
 		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
 		getContentPane().add(btnAlta);
+		
+		lblURL = new JLabel("Código git:");
+		lblURL.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		lblURL.setBounds(188, 63, 75, 30);
+		getContentPane().add(lblURL);
+		
+		txtURL = new JTextField();
+		txtURL.setBounds(320, 71, 200, 20);
+		getContentPane().add(txtURL);
+		txtURL.setColumns(10);
+		
+		lblAviso = new JLabel("New label");
+		lblAviso.setBounds(274, 310, 46, 14);
+		getContentPane().add(lblAviso);
 	
+	}
+	public DatosAltaPI getDatos() {
+		String año = (String) cmbxAno.getSelectedItem();
+		String curso = String.valueOf((int)spnrCurso.getValue());
+		String nota = String.valueOf((int)spnrNota.getValue());
+		String cod_proyecto = generarCodigo();
+		String nombre = txtNombre.getText();
+		String url = txtURL.getText();
+		String nc_area = (String) cmbxArea.getSelectedItem();
+		DatosAltaPI datos = new DatosAltaPI(año, curso, nota, cod_proyecto, nombre, url, nc_area);
+		return datos;
+	}
+	/**
+	 * Método que genera un código alfanumérico de 6 caracteres
+	 * @return una String con ese código
+	 */ 
+	public String generarCodigo() {
+
+		StringBuilder codigo = new StringBuilder();
+		String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+		Random rand = new Random();
+		for (int i = 0; i < 6; i++) {
+			int index = rand.nextInt(caracteres.length());
+			codigo.append(caracteres.charAt(index));
+		}
+		lblCod.setText("Código de área generado: "+codigo.toString());
+		return codigo.toString();
+	}
+	
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			lblAviso.setText("PI añadido correctamente");
+		} else {
+			lblAviso.setText("Error al añadir PI");
+			lblCod.setText("");
+		}
+
 	}
 	
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba) {
+	public void setControlador(ListenerBotonAtras ba, ListenerBotonAlta bal) {
 		btnAtras.addActionListener(ba);
+		btnAlta.addActionListener(bal);
 	}
 	
 	/**
@@ -158,5 +243,4 @@ public class VentanaPI_Alta extends JFrame {
 	public void hacerVisible() {
 		setVisible(true);
 	}
-
 }

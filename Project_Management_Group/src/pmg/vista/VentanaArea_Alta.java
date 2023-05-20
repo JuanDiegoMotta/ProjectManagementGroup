@@ -3,13 +3,13 @@
  */
 package pmg.vista;
 
-import java.awt.Font;
-import java.awt.Label;
-import java.awt.event.ActionEvent;
+import java.awt.*;
+import java.util.Random;
 
 import javax.swing.*;
 
-import pmg.controlador.ListenerBotonAtras;
+import pmg.controlador.*;
+import pmg.modelo.*;
 
 
 /**
@@ -23,6 +23,7 @@ public class VentanaArea_Alta extends JFrame {
 	private JLabel LNombre;
 	private JLabel LDescripcion;
 	private JLabel mensaje;
+	private JLabel aviso;
 	private JButton atras;
 	private JButton alta;
 
@@ -36,9 +37,17 @@ public class VentanaArea_Alta extends JFrame {
 
 	}
 	
-	// Getter del botón alta
+	// Getters necesarios
 	public JButton getBtnAlta() {
 		return alta;
+	}
+
+	public JLabel getMensaje() {
+		return mensaje;
+	}
+	
+	public JLabel getAviso() {
+		return aviso;
 	}
 
 	/**
@@ -73,8 +82,14 @@ public class VentanaArea_Alta extends JFrame {
 //		Se agrega mensaje
 		mensaje = new JLabel("Aquí irá el mensaje de que el código ha sigo generado");
 		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		mensaje.setBounds(94, 240, 413, 22);
+		mensaje.setBounds(94, 234, 413, 22);
 		getContentPane().add(mensaje);
+		
+//		Se agrega aviso
+		aviso = new JLabel("Aquí irá el mensaje de la BBDD");
+		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		aviso.setBounds(94, 256, 413, 22);
+		getContentPane().add(aviso);
 
 //		Se agrega el botón de atrás
 		atras = new JButton("ATRÁS");
@@ -91,7 +106,46 @@ public class VentanaArea_Alta extends JFrame {
 		setSize(600, 400);
 		setLocationRelativeTo(null);
 	}
+	
+	/**
+	 * Método que recoge los datos de los txtField, crea un objeto DatosAltaArea y lo devuelve
+	 * @return objeto de DatosAltaArea
+	 */
+	public DatosAltaArea getDatos() {
+		String nombre_corto = nombreCorto.getText();
+		String cod_area = generarCodigo();
+		String descripcion = this.descripcion.getText();
+		DatosAltaArea datos = new DatosAltaArea(nombre_corto, cod_area, descripcion);
+		return datos;
+	}
+	
+	/**
+	 * Método que genera un código alfanumérico de 6 caracteres
+	 * @return una String con ese código
+	 */ 
+	public String generarCodigo() {
 
+		StringBuilder codigo = new StringBuilder();
+		String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+		Random rand = new Random();
+		for (int i = 0; i < 6; i++) {
+			int index = rand.nextInt(caracteres.length());
+			codigo.append(caracteres.charAt(index));
+		}
+		mensaje.setText("Código de área generado: "+codigo.toString());
+		return codigo.toString();
+	}
+	
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			aviso.setText("Área añadida correctamente");
+		} else {
+			aviso.setText("Error al añadir el área");
+			mensaje.setText("");
+		}
+
+	}
 	/**
 	 * Método que hace visible la pantalla
 	 */
@@ -102,8 +156,9 @@ public class VentanaArea_Alta extends JFrame {
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba) {
+	public void setControlador(ListenerBotonAtras ba, ListenerBotonAlta bal) {
 		atras.addActionListener(ba);
+		alta.addActionListener(bal);
 	}
 
 }
