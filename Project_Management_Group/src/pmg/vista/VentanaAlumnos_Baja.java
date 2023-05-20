@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 import pmg.controlador.ListenerBotonAtras;
+import pmg.controlador.ListenerBotonBaja;
 
 /**
  * @author juanm
@@ -29,6 +30,10 @@ public class VentanaAlumnos_Baja extends JFrame {
 	private JLabel lblConsulta;
 	private JButton btnAtras;
 	private ImageIcon basura;
+
+	public JButton getBtnBorrar() {
+		return btnBorrar;
+	}
 
 	/**
 	 * Constructor con parámetros de VentanaAlumnos_Baja
@@ -115,8 +120,16 @@ public class VentanaAlumnos_Baja extends JFrame {
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba) {
+	public void setControlador(ListenerBotonAtras ba, ListenerBotonBaja bb) {
 		btnAtras.addActionListener(ba);
+		btnBorrar.addActionListener(bb);
+	}
+
+	public String getCodigo() {
+
+		String codigo = txtCod.getText();
+
+		return codigo;
 	}
 
 }

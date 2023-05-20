@@ -63,17 +63,18 @@ public class Main {
 				// Creamos listener botón alta
 				ListenerBotonAlta lbal = new ListenerBotonAlta(vala, vara, vpia);
 
+				ListenerBotonBaja lbb = new ListenerBotonBaja(vab, varb, vpib);
 				// Controladores de las ventanas
 				vala.setControlador(lba, lbal);
-				vab.setControlador(lba);
+				vab.setControlador(lba, lbb);
 				vae.setControlador(lba);
 				vac.setControlador(lba);
 				vara.setControlador(lba, lbal);
-				varb.setControlador(lba);
+				varb.setControlador(lba, lbb);
 				vare.setControlador(lba);
 				vay.setControlador(lba);
 				vpia.setControlador(lba, lbal);
-				vpib.setControlador(lba);
+				vpib.setControlador(lba, lbb);
 				vpie.setControlador(lba);
 				vpic.setControlador(lba);
 				vl.setControlador(lb);

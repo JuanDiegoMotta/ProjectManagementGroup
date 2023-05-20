@@ -97,6 +97,7 @@ public class AccesoBBDD {
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
+	
 	public boolean altaArea(Connection con, DatosAltaArea datos) {
 		// Guardamos los datos en variables
 		String nombre_corto = datos.getNombre_corto();
@@ -149,6 +150,62 @@ public class AccesoBBDD {
 			pstmt.setString(5, nombre);
 			pstmt.setString(6, url);
 			pstmt.setString(7, nc_area);
+			resultado = pstmt.executeUpdate();
+			//Imprimimos la query ejecutada
+			System.out.println(pstmt);
+			//cerramos cosas
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
+		return (resultado == 1) ? true : false;
+	}
+	
+	/**
+	 * Método que ejecuta la sentencia para dar de baja un área
+	 * @param con instancia de tipo Connection
+	 * @param nc nombre corto del área a eliminar (String)
+	 * @return booleano (true o false) en función de si se ejecuta la sentencia o no
+	 */
+	public boolean bajaArea(Connection con, String nc) {
+		
+		// Creamos la query del prepared statement
+		String query = "DELETE FROM AREA WHERE nombre_corto = ?";
+		PreparedStatement pstmt;
+		int resultado = 0;
+		try {
+			pstmt = con.prepareStatement(query);
+			// Rellenamos la query con los datos correspondientes
+			pstmt.setString(1, nc);
+			resultado = pstmt.executeUpdate();
+			//Imprimimos la query ejecutada
+			System.out.println(pstmt);
+			//cerramos cosas
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
+		return (resultado == 1) ? true : false;
+	}
+	/**
+	 * Método que ejecuta la sentencia para dar de baja un PI
+	 * @param con instancia de tipo Connection
+	 * @param cod código del PI a eliminar (String)
+	 * @return booleano (true o false) en función de si se ejecuta la sentencia o no
+	 */
+	public boolean bajaPI(Connection con, String cod) {
+		// Creamos la query del prepared statement
+		String query = "DELETE FROM ProyectoIntegrador WHERE cod_proyecto = ?";
+		PreparedStatement pstmt;
+		int resultado = 0;
+		try {
+			pstmt = con.prepareStatement(query);
+			// Rellenamos la query con los datos correspondientes
+			pstmt.setString(1, cod);
 			resultado = pstmt.executeUpdate();
 			//Imprimimos la query ejecutada
 			System.out.println(pstmt);
@@ -223,6 +280,31 @@ public class AccesoBBDD {
 	 */
 	public boolean existeNombrePI(Connection con, String valor) {
 		String query = "SELECT * FROM ProyectoIntegrador WHERE nombre = ?";
+		ResultSet rset;
+		boolean flag = false;
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, valor);
+			rset = pstmt.executeQuery();
+			System.out.println(pstmt);
+			flag = (rset.next()) ? true : false; // Si hay resultados se devuelve true, false en el caso contrario
+			//cerramos cosas
+			rset.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	/**
+	 * Método que comprueba si existe el código del PI en la tabla ProyectoIntegrador
+	 * @param con instancia de una conexión a la base de datos
+	 * @param valor nombre (String) que comprobamos si existe
+	 * @return true si existe, false si no
+	 */
+	public boolean existeCodigoPI(Connection con, String valor) {
+		String query = "SELECT * FROM ProyectoIntegrador WHERE cod_proyecto = ?";
 		ResultSet rset;
 		boolean flag = false;
 		try {
