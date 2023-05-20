@@ -43,26 +43,27 @@ public class ListenerBotonBaja implements ActionListener {
 	}
 	
 	public void bajaAlumnos() {
-//		//Se recogen el código generado
-//		String codigo = vab.getCodigo();
-//		//Se crea un acceso a la bbdd y su conexión
-//		acceso = new AccesoBBDD();
-//		Connection con = acceso.getConexion();
-//		//Comprobamos si el expediente es único
-//		if (!acceso.existeExpedienteAlumno(con, datos.getNumExp())) {
-//			//Se modifica el label de la ventana Alumnos_Alta si en función de si se realiza la operación o no
-//			vala.mostrarAviso(acceso.altaAlumno(con, datos)); //el método devuleve true o false			
-//		} else {
-//			vala.getAviso().setText("Número de expediente no válido");
-//			vala.getLblCod().setText("");
-//		}
-//		acceso.cerrarConexion();
+		//Se recoge el código generado
+		String codigo = vab.getCodigo();
+		//Se crea un acceso a la bbdd y su conexión
+		acceso = new AccesoBBDD();
+		Connection con = acceso.getConexion();
+		
+		//Comprobamos si el código es único
+		if (acceso.exiteCodigoAlumno(con, codigo)) {
+			//Se modifica el label de la ventana Alumnos_Baja si en función de si se realiza la operación o no
+			vab.mostrarAviso(acceso.bajaAlumno(con, codigo)); //el método devuleve true o false			
+		} else {
+			vab.getAviso().setText("Número de código no válido");
+		}
+		acceso.cerrarConexion();
 	}
 	
 	/**
 	 * Método que da de baja un área
 	 */
 	public void bajaArea() {
+
 		//Se recoge el nombre corto del área introducido por el usuario
 		String nc = varb.getNombreCorto();
 		//Se crea un acceso a la bbdd y su conexión
@@ -76,9 +77,11 @@ public class ListenerBotonBaja implements ActionListener {
 			varb.getAviso().setText("El nombre corto introducido no existe");
 		}
 		acceso.cerrarConexion();
+
 	}
 	
 	public void bajaPI() {
+
 		//Se recoge el código del PI introducido por el usuario
 		String cod = vpib.getCodigo();
 		//Se crea un acceso a la bbdd y su conexión
@@ -92,6 +95,7 @@ public class ListenerBotonBaja implements ActionListener {
 			vpib.getAviso().setText("Código no válido");
 		}
 		acceso.cerrarConexion();
+
 	}
 
 }

@@ -179,7 +179,6 @@ public class VentanaAlumnos_Alta extends JFrame {
 			aviso.setText("Error al añadir el alumno");
 			lblCod.setText("");
 		}
-
 	}
 
 	/**

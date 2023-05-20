@@ -1,6 +1,5 @@
 package pmg.modelo;
 
-import java.beans.Statement;
 import java.sql.*;
 
 /**
@@ -64,7 +63,8 @@ public class AccesoBBDD {
 
 	/**
 	 * Método que da de alta un alumno en la base de datos
-	 * @param con instancia de una conexión a la base de datos
+	 * 
+	 * @param con   instancia de una conexión a la base de datos
 	 * @param datos instancia de la clase que contiene los datos del alta del alumno
 	 * @return true si se realiza el insert, false en caso contrario
 	 */
@@ -73,7 +73,7 @@ public class AccesoBBDD {
 		String nombre = datos.getNombreCompleto();
 		String exp = datos.getNumExp();
 		String area = datos.getArea();
-		String cod = datos.getCodAlumno(); 
+		String cod = datos.getCodAlumno();
 		// Creamos la query del prepared statement
 		String query = "INSERT INTO ALUMNO (num_expediente, nombre_ape, cod_alumno, area) VALUES (?, ?, ?, ?)";
 		PreparedStatement pstmt;
@@ -86,24 +86,31 @@ public class AccesoBBDD {
 			pstmt.setString(3, cod);
 			pstmt.setString(4, area);
 			resultado = pstmt.executeUpdate();
-			//Imprimimos la query ejecutada
+			// Imprimimos la query ejecutada
 			System.out.println(pstmt);
-			//cerramos cosas
+			// cerramos cosas
 			pstmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
-	
+
+	/**
+	 * Método que da de alta el área a la base de datos
+	 * 
+	 * @param con   instancia de una conexión a la base de datos
+	 * @param datos instancia de la clase que contiene los datos del area
+	 * @return true si se realiza el insert, false en caso contrario
+	 */
 	public boolean altaArea(Connection con, DatosAltaArea datos) {
 		// Guardamos los datos en variables
 		String nombre_corto = datos.getNombre_corto();
 		String cod_area = datos.getCod_area();
 		String descripcion = datos.getDescripcion();
-		
+
 		// Creamos la query del prepared statement
 		String query = "INSERT INTO AREA (nombre_corto, cod_area, descripcion) VALUES (?, ?, ?)";
 		PreparedStatement pstmt;
@@ -115,17 +122,25 @@ public class AccesoBBDD {
 			pstmt.setString(2, cod_area);
 			pstmt.setString(3, descripcion);
 			resultado = pstmt.executeUpdate();
-			//Imprimimos la query ejecutada
+			// Imprimimos la query ejecutada
 			System.out.println(pstmt);
-			//cerramos cosas
+			// cerramos cosas
 			pstmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
+
+	/**
+	 * Método que da de alta un proyecto integrador a la base de datos
+	 * 
+	 * @param con   instancia de una conexión a la base de datos
+	 * @param datos instancia de la clase que contiene los datos del area
+	 * @return true si se realiza el insert, false en caso contrario
+	 */
 	public boolean altaPI(Connection con, DatosAltaPI datos) {
 		// Guardamos los datos en variables
 		String año = datos.getAño();
@@ -135,7 +150,7 @@ public class AccesoBBDD {
 		String nombre = datos.getNombre();
 		String url = datos.getUrl();
 		String nc_area = datos.getNc_area();
-		
+
 		// Creamos la query del prepared statement
 		String query = "INSERT INTO ProyectoIntegrador (ano, curso, nota, cod_proyecto, nombre, url, nc_area) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt;
@@ -151,18 +166,51 @@ public class AccesoBBDD {
 			pstmt.setString(6, url);
 			pstmt.setString(7, nc_area);
 			resultado = pstmt.executeUpdate();
-			//Imprimimos la query ejecutada
+			// Imprimimos la query ejecutada
 			System.out.println(pstmt);
-			//cerramos cosas
+			// cerramos cosas
 			pstmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
-	
+
+	/**
+	 * Método que da de baja el alumno de la base de datos
+	 * 
+	 * @param con instancia de una conexión a la base de datos
+	 * @param cod código del alumno
+	 * @return true si se realiza el insert, false en caso contrario
+	 */
+	public boolean bajaAlumno(Connection con, String cod) {
+
+		// Guardamos el código en una varible
+		String codigo = cod;
+
+		// Creamos la query del prepared statement
+		String query = "DELETE FROM ALUMNO WHERE cod_alumno = ?";
+		PreparedStatement pstmt;
+		int resultado = 0;
+		try {
+			pstmt = con.prepareStatement(query);
+			// Rellenamos la query con los datos correspondientes
+			pstmt.setString(1, codigo);
+
+			resultado = pstmt.executeUpdate();
+			// Imprimimos la query ejecutada
+			System.out.println(pstmt);
+			// cerramos cosas
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (resultado == 1) ? true : false;
+	}
+
 	/**
 	 * Método que ejecuta la sentencia para dar de baja un área
 	 * @param con instancia de tipo Connection
@@ -236,7 +284,7 @@ public class AccesoBBDD {
 			rset = pstmt.executeQuery();
 			System.out.println(pstmt);
 			flag = (rset.next()) ? true : false; // Si hay resultados se devuelve true, false en el caso contrario
-			//cerramos cosas
+			// cerramos cosas
 			rset.close();
 			pstmt.close();
 		} catch (SQLException e) {
@@ -246,10 +294,41 @@ public class AccesoBBDD {
 		return flag;
 
 	}
-	
+
+	/**
+	 * Método que comprueba si existe el código del alumno en la tabla alumno
+	 * 
+	 * @param con   instancia de una conexión a la base de datos
+	 * @param valor cod_alumno (String) que comprobamos si existe
+	 * @return true si existe, false si no
+	 */
+	public boolean exiteCodigoAlumno(Connection con, String valor) {
+		String query = "SELECT * FROM ALUMNO WHERE cod_alumno = ?";
+		ResultSet rset;
+		boolean flag = false;
+
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, valor);
+			rset = pstmt.executeQuery();
+			System.out.println(pstmt);
+			flag = (rset.next()) ? true : false; // Si hay resultados se devuelve true, false en el caso contrario
+			// cerramos cosas
+			rset.close();
+			pstmt.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return flag;
+	}
+
 	/**
 	 * Método que comprueba si existe el nombre corto del area en la tabla area
-	 * @param con instancia de una conexión a la base de datos
+	 * 
+	 * @param con   instancia de una conexión a la base de datos
 	 * @param valor nombre corto (String) que comprobamos si existe
 	 * @return true si existe, false si no
 	 */
@@ -263,7 +342,7 @@ public class AccesoBBDD {
 			rset = pstmt.executeQuery();
 			System.out.println(pstmt);
 			flag = (rset.next()) ? true : false; // Si hay resultados se devuelve true, false en el caso contrario
-			//cerramos cosas
+			// cerramos cosas
 			rset.close();
 			pstmt.close();
 		} catch (SQLException e) {
@@ -272,9 +351,12 @@ public class AccesoBBDD {
 		}
 		return flag;
 	}
+
 	/**
-	 * Método que comprueba si existe el nombre del PI en la tabla ProyectoIntegrador
-	 * @param con instancia de una conexión a la base de datos
+	 * Método que comprueba si existe el nombre del PI en la tabla
+	 * ProyectoIntegrador
+	 * 
+	 * @param con   instancia de una conexión a la base de datos
 	 * @param valor nombre (String) que comprobamos si existe
 	 * @return true si existe, false si no
 	 */
@@ -288,7 +370,7 @@ public class AccesoBBDD {
 			rset = pstmt.executeQuery();
 			System.out.println(pstmt);
 			flag = (rset.next()) ? true : false; // Si hay resultados se devuelve true, false en el caso contrario
-			//cerramos cosas
+			// cerramos cosas
 			rset.close();
 			pstmt.close();
 		} catch (SQLException e) {

@@ -30,6 +30,7 @@ public class VentanaAlumnos_Baja extends JFrame {
 	private JLabel lblConsulta;
 	private JButton btnAtras;
 	private ImageIcon basura;
+	private JLabel aviso;
 
 	public JButton getBtnBorrar() {
 		return btnBorrar;
@@ -108,6 +109,12 @@ public class VentanaAlumnos_Baja extends JFrame {
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(42, 300, 100, 30);
 		getContentPane().add(btnAtras);
+
+		// Se crea la Jlabel que nos dará el aviso de si se ha borrado o no
+		aviso = new JLabel();
+		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		aviso.setBounds(182, 300, 314, 30);
+		getContentPane().add(aviso);
 	}
 
 	/**
@@ -118,6 +125,18 @@ public class VentanaAlumnos_Baja extends JFrame {
 	}
 
 	/**
+	 * Método que muestra el aviso de si se ha borrado o no el alumno correctamente
+	 * @param caso correspondiente
+	 */
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			aviso.setText("Alumno borrado correctamente");
+		} else {
+			aviso.setText("Error al borrar el alumno");
+		}
+	}
+
+	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
 	public void setControlador(ListenerBotonAtras ba, ListenerBotonBaja bb) {
@@ -125,11 +144,25 @@ public class VentanaAlumnos_Baja extends JFrame {
 		btnBorrar.addActionListener(bb);
 	}
 
+	/**
+	 * Getter del código generado automáticamente del alumno
+	 * 
+	 * @return codigo del alumno generado
+	 */
 	public String getCodigo() {
 
 		String codigo = txtCod.getText();
 
 		return codigo;
+	}
+
+	/**
+	 * Getter del aviso que nos muestra por pantalla al realizar la acción de baja
+	 * 
+	 * @return aviso correspondiente
+	 */
+	public JLabel getAviso() {
+		return aviso;
 	}
 
 }
