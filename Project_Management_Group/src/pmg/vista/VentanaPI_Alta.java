@@ -14,14 +14,14 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
 
-
 /**
  * Clase de la ventana gráfica que da de alta los proyectos integradores
+ * 
  * @author juanm
  *
  */
 public class VentanaPI_Alta extends JFrame {
-	//Labels
+	// Labels
 	private JLabel lblGrupo;
 	private JLabel lblCurso;
 //	private JLabel lblComponentes;
@@ -30,7 +30,7 @@ public class VentanaPI_Alta extends JFrame {
 	private JLabel lblArea;
 	private JLabel lblCod;
 	private JLabel lblURL;
-	//Otros JComponents
+	// Otros JComponents
 	private JTextField txtNombre;
 	private JSpinner spnrCurso;
 //	private JList<Alumno> listAlumnos;
@@ -41,17 +41,17 @@ public class VentanaPI_Alta extends JFrame {
 	private JButton btnAlta;
 	private JTextField txtURL;
 	private JLabel lblAviso;
-	
+
 	public VentanaPI_Alta(String titulo) {
 		super(titulo);
 		inicializarComponentes();
 	}
-	
+
 	// Getter del botón alta
 	public JButton getBtnAlta() {
 		return btnAlta;
 	}
-	
+
 	public JLabel getLblCod() {
 		return lblCod;
 	}
@@ -61,58 +61,58 @@ public class VentanaPI_Alta extends JFrame {
 	}
 
 	public void inicializarComponentes() {
-		//Configuramos layout a absoluto
+		// Configuramos layout a absoluto
 		getContentPane().setLayout(null);
-		
-		//Le damos tamaño y posición a la ventana
-		setSize(600,400);
+
+		// Le damos tamaño y posición a la ventana
+		setSize(600, 400);
 		setLocationRelativeTo(null);
-		
-		//Inicializamos y situamos los JComponent
+
+		// Inicializamos y situamos los JComponent
 		lblGrupo = new JLabel("Nombre del grupo:");
 		lblGrupo.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblGrupo.setBounds(133, 22, 130, 30);
 		getContentPane().add(lblGrupo);
-		
+
 		lblCurso = new JLabel("Curso:");
 		lblCurso.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblCurso.setBounds(221, 102, 42, 30);
 		getContentPane().add(lblCurso);
-		
+
 //		lblComponentes = new JLabel("Componentes:");
 //		lblComponentes.setFont(new Font("Segoe UI", Font.BOLD, 14));
 //		lblComponentes.setBounds(162, 121, 116, 30);
 //		getContentPane().add(lblComponentes);
-		
+
 		lblNota = new JLabel("Nota:");
 		lblNota.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblNota.setBounds(221, 141, 42, 30);
 		getContentPane().add(lblNota);
-		
+
 		lblAno = new JLabel("Año:");
 		lblAno.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblAno.setBounds(221, 182, 42, 30);
 		getContentPane().add(lblAno);
-		
+
 		lblArea = new JLabel("Área:");
 		lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblArea.setBounds(221,223, 37, 30);
+		lblArea.setBounds(221, 223, 37, 30);
 		getContentPane().add(lblArea);
-		
+
 		lblCod = new JLabel("Aquí iría el código generado automáticamente (al pulsar el botón)");
 		lblCod.setForeground(new Color(192, 192, 192));
 		lblCod.setBounds(133, 264, 321, 30);
 		getContentPane().add(lblCod);
-		
+
 		txtNombre = new JTextField();
 		txtNombre.setBounds(320, 22, 100, 30);
 		getContentPane().add(txtNombre);
-		
+
 		spnrCurso = new JSpinner();
 		spnrCurso.setModel(new SpinnerNumberModel(1, 1, 2, 1));
 		spnrCurso.setBounds(320, 102, 30, 30);
 		getContentPane().add(spnrCurso);
-		
+
 //		listAlumnos = new JList<Alumno>();
 //		DefaultListModel<Alumno> dlm = new DefaultListModel<Alumno>();
 //		dlm.addElement(new Alumno("Alumno1", "Apellidos", "12345678A"));
@@ -124,12 +124,12 @@ public class VentanaPI_Alta extends JFrame {
 //		listAlumnos.setModel(dlm);
 //		listAlumnos.setBounds(320, 120, 100, 30);
 //		getContentPane().add(listAlumnos);
-		
+
 		spnrNota = new JSpinner();
 		spnrNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
 		spnrNota.setBounds(320, 143, 30, 30);
 		getContentPane().add(spnrNota);
-		
+
 		cmbxAno = new JComboBox<String>();
 		cmbxAno.addItem("2023");
 		cmbxAno.addItem("2024");
@@ -153,47 +153,59 @@ public class VentanaPI_Alta extends JFrame {
 		cmbxAno.addItem("2042");
 		cmbxAno.setBounds(309, 184, 40, 30);
 		getContentPane().add(cmbxAno);
-		
+
 		cmbxArea = new JComboBox<String>();
 		cmbxArea.addItem("DAW");
 		cmbxArea.addItem("DAM");
 		cmbxArea.addItem("ASIR");
 		cmbxArea.addItem("A3DV");
-		//TODO Cuando se añada un área nueva, ésta se tiene que añadir automáticamente a este cmbx
+		// TODO Cuando se añada un área nueva, ésta se tiene que añadir automáticamente
+		// a este cmbx
 		cmbxArea.setBounds(309, 225, 60, 30);
 		getContentPane().add(cmbxArea);
-		
+
 		btnAtras = new JButton("Atrás");
 		btnAtras.setBounds(42, 300, 120, 30);
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
 		getContentPane().add(btnAtras);
-		
+
 		btnAlta = new JButton("Alta");
 		btnAlta.setBounds(419, 300, 120, 30);
 		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
 		getContentPane().add(btnAlta);
-		
+
 		lblURL = new JLabel("Código git:");
 		lblURL.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblURL.setBounds(188, 63, 75, 30);
 		getContentPane().add(lblURL);
-		
+
 		txtURL = new JTextField();
 		txtURL.setBounds(320, 71, 200, 20);
 		getContentPane().add(txtURL);
 		txtURL.setColumns(10);
-		
+
 		lblAviso = new JLabel("New label");
 		lblAviso.setBounds(274, 310, 46, 14);
 		getContentPane().add(lblAviso);
-	
+
 	}
+
 	public DatosAltaPI getDatos() {
+
+		JTextField[] textFields = { txtNombre, txtURL };
+
+		for (JTextField textField : textFields) {
+			if (textField.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Faltan campos por comletar");
+				return null; // Si hay un campo vacío, retornamos null o puedes manejarlo de otra manera
+								// según tu lógica
+			}
+		}
 		String año = (String) cmbxAno.getSelectedItem();
-		String curso = String.valueOf((int)spnrCurso.getValue());
-		String nota = String.valueOf((int)spnrNota.getValue());
+		String curso = String.valueOf((int) spnrCurso.getValue());
+		String nota = String.valueOf((int) spnrNota.getValue());
 		String cod_proyecto = generarCodigo();
 		String nombre = txtNombre.getText();
 		String url = txtURL.getText();
@@ -201,10 +213,12 @@ public class VentanaPI_Alta extends JFrame {
 		DatosAltaPI datos = new DatosAltaPI(año, curso, nota, cod_proyecto, nombre, url, nc_area);
 		return datos;
 	}
+
 	/**
 	 * Método que genera un código alfanumérico de 6 caracteres
+	 * 
 	 * @return una String con ese código
-	 */ 
+	 */
 	public String generarCodigo() {
 
 		StringBuilder codigo = new StringBuilder();
@@ -215,10 +229,10 @@ public class VentanaPI_Alta extends JFrame {
 			int index = rand.nextInt(caracteres.length());
 			codigo.append(caracteres.charAt(index));
 		}
-		lblCod.setText("Código de área generado: "+codigo.toString());
+		lblCod.setText("Código de área generado: " + codigo.toString());
 		return codigo.toString();
 	}
-	
+
 	public void mostrarAviso(boolean caso) {
 		if (caso) {
 			lblAviso.setText("PI añadido correctamente");
@@ -228,7 +242,7 @@ public class VentanaPI_Alta extends JFrame {
 		}
 
 	}
-	
+
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
@@ -236,7 +250,7 @@ public class VentanaPI_Alta extends JFrame {
 		btnAtras.addActionListener(ba);
 		btnAlta.addActionListener(bal);
 	}
-	
+
 	/**
 	 * Método que hace visible la ventana
 	 */

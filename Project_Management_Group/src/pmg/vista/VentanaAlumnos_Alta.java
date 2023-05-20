@@ -13,7 +13,8 @@ import pmg.modelo.*;
 
 /**
  * Clase de la ventana gráfica Alumnos que da de alta al alumno según su código
- * @author juanm 
+ * 
+ * @author juanm
  *
  */
 public class VentanaAlumnos_Alta extends JFrame {
@@ -42,9 +43,11 @@ public class VentanaAlumnos_Alta extends JFrame {
 	public JButton getBtnAlta() {
 		return btnAlta;
 	}
+
 	public JLabel getAviso() {
 		return aviso;
 	}
+
 	public JLabel getLblCod() {
 		return lblCod;
 	}
@@ -138,7 +141,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 			int index = rand.nextInt(caracteres.length());
 			codigo.append(caracteres.charAt(index));
 		}
-		lblCod.setText("Código de alumno generado: "+codigo.toString());
+		lblCod.setText("Código de alumno generado: " + codigo.toString());
 		return codigo.toString();
 	}
 
@@ -146,6 +149,16 @@ public class VentanaAlumnos_Alta extends JFrame {
 	 * Método que recoge y devuelve los datos introducidos en las etiquetas
 	 */
 	public DatosAltaAlumno getDatos() {
+
+		JTextField[] textFields = { txtNombre, txtApellido, txtNumExp };
+
+		for (JTextField textField : textFields) {
+			if (textField.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Faltan campos por completar");
+				return null; // Si hay un campo vacío, retornamos null o puedes manejarlo de otra manera
+								// según tu lógica
+			}
+		}
 
 		String nombre = txtNombre.getText();
 		String apellido = txtApellido.getText();
