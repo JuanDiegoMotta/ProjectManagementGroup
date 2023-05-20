@@ -16,7 +16,6 @@ public class AccesoBBDD {
 	private String usuario = "root";
 	private String pword = "root";
 	private Connection con = null;
-
 	static private int cont;
 
 	/**
