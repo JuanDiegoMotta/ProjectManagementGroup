@@ -3,21 +3,15 @@
  */
 package pmg.vista;
 
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-import pmg.controlador.ListenerBotonAtras;
+import pmg.controlador.*;
+import pmg.modelo.*;
 
 /**
  * @author juanm
@@ -31,6 +25,11 @@ public class VentanaAlumnos_Consulta extends JFrame {
 	private JTable tblAlumnos;
 	private DefaultTableModel tableModel;
 	private JButton btnAtras;
+	
+	//Getters necesarios
+	public JComboBox<String> getAreasPi() {
+		return areasPi;
+	}
 
 	/**
 	 * Constructor con parámetros de VentanaAlumnos_Consulta
@@ -95,8 +94,6 @@ public class VentanaAlumnos_Consulta extends JFrame {
 		};
 		tblAlumnos.setModel(tableModel);
 
-		cargarTabla();
-
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -114,30 +111,47 @@ public class VentanaAlumnos_Consulta extends JFrame {
 	/**
 	 * Método que rellena la tabla
 	 */
-	private void cargarTabla() {
+	public void cargarTabla(ArrayList<Alumno> alumnos) {
 
-		// Especificamos el nombre de las columnas
-		tableModel.addColumn("Nombre y apellidos");
-		tableModel.addColumn("Num_Expediente");
-		tableModel.addColumn("Cod_Alumno");
+	    // Verificar si ya se han agregado las columnas
+	    if (tableModel.getColumnCount() == 0) {
+	        // Especificamos el nombre de las columnas solo si no existen previamente
+	        tableModel.addColumn("Nombre y apellidos");
+	        tableModel.addColumn("Num_Expediente");
+	        tableModel.addColumn("Cod_Alumno");
 
-		tblAlumnos.getColumn("Nombre y apellidos").setPreferredWidth(125);
-		tblAlumnos.getColumn("Num_Expediente").setPreferredWidth(75);
-		tblAlumnos.getColumn("Cod_Alumno").setPreferredWidth(75);
+	        tblAlumnos.getColumn("Nombre y apellidos").setPreferredWidth(125);
+	        tblAlumnos.getColumn("Num_Expediente").setPreferredWidth(75);
+	        tblAlumnos.getColumn("Cod_Alumno").setPreferredWidth(75);
+	    }
 
-		Object[] fila = new Object[3];
-		fila[0] = "hola";
-		fila[1] = "adios";
-		fila[2] = "que tal";
-		tableModel.addRow(fila);
+	    // Limpiar los datos existentes en la tabla
+	    tableModel.setRowCount(0);
 
+	    for (Alumno al : alumnos) {
+	        Object[] fila = new Object[3];
+	        fila[0] = al.getNombre_ape();
+	        fila[1] = al.getNum_expediente();
+	        fila[2] = al.getCod_alumno();
+	        tableModel.addRow(fila);
+	    }
 	}
-
+	
+	/**
+	 * Método que devuelve el área seleccionada por el usuario
+	 * @return área (String)
+	 */
+	public String getArea() {
+		String area = (String) areasPi.getSelectedItem();
+		return area;
+	}
+	
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba) {
+	public void setControlador(ListenerBotonAtras ba, ListenerConsultas lc) {
 		btnAtras.addActionListener(ba);
+		areasPi.addItemListener(lc);
 	}
 
 }
