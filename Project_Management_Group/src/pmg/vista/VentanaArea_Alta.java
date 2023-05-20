@@ -11,9 +11,9 @@ import javax.swing.*;
 import pmg.controlador.*;
 import pmg.modelo.*;
 
-
 /**
  * Clase VentanaArea_Alta
+ * 
  * @author Pablo
  *
  */
@@ -29,6 +29,7 @@ public class VentanaArea_Alta extends JFrame {
 
 	/**
 	 * Constructor de la clase VentanaArea_Alta
+	 * 
 	 * @param titulo
 	 */
 	public VentanaArea_Alta(String titulo) {
@@ -36,7 +37,7 @@ public class VentanaArea_Alta extends JFrame {
 		inicializarComponentes();
 
 	}
-	
+
 	// Getters necesarios
 	public JButton getBtnAlta() {
 		return alta;
@@ -45,13 +46,14 @@ public class VentanaArea_Alta extends JFrame {
 	public JLabel getMensaje() {
 		return mensaje;
 	}
-	
+
 	public JLabel getAviso() {
 		return aviso;
 	}
 
 	/**
-	 * Método para inicializar componentes de la ventana, esta ventana construirá las cosas de la ventana VentanaArea_Alta
+	 * Método para inicializar componentes de la ventana, esta ventana construirá
+	 * las cosas de la ventana VentanaArea_Alta
 	 */
 	private void inicializarComponentes() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -67,7 +69,7 @@ public class VentanaArea_Alta extends JFrame {
 		LNombre.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		LNombre.setBounds(128, 79, 117, 22);
 		getContentPane().add(LNombre);
-		
+
 //		Se agrega LDescripción
 		LDescripcion = new JLabel("Descripción: ");
 		LDescripcion.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -84,7 +86,7 @@ public class VentanaArea_Alta extends JFrame {
 		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		mensaje.setBounds(94, 234, 413, 22);
 		getContentPane().add(mensaje);
-		
+
 //		Se agrega aviso
 		aviso = new JLabel("Aquí irá el mensaje de la BBDD");
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -106,23 +108,37 @@ public class VentanaArea_Alta extends JFrame {
 		setSize(600, 400);
 		setLocationRelativeTo(null);
 	}
-	
+
 	/**
-	 * Método que recoge los datos de los txtField, crea un objeto DatosAltaArea y lo devuelve
+	 * Método que recoge los datos de los txtField, crea un objeto DatosAltaArea y
+	 * lo devuelve
+	 * 
 	 * @return objeto de DatosAltaArea
 	 */
 	public DatosAltaArea getDatos() {
+
+		JTextField[] textFields = { nombreCorto };
+
+		for (JTextField textField : textFields) {
+			if (textField.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Falta el nombre corto por completar");
+				return null; // Si hay un campo vacío, retornamos null o puedes manejarlo de otra manera
+								// según tu lógica
+			}
+		}
+
 		String nombre_corto = nombreCorto.getText();
 		String cod_area = generarCodigo();
 		String descripcion = this.descripcion.getText();
 		DatosAltaArea datos = new DatosAltaArea(nombre_corto, cod_area, descripcion);
 		return datos;
 	}
-	
+
 	/**
 	 * Método que genera un código alfanumérico de 6 caracteres
+	 * 
 	 * @return una String con ese código
-	 */ 
+	 */
 	public String generarCodigo() {
 
 		StringBuilder codigo = new StringBuilder();
@@ -133,10 +149,10 @@ public class VentanaArea_Alta extends JFrame {
 			int index = rand.nextInt(caracteres.length());
 			codigo.append(caracteres.charAt(index));
 		}
-		mensaje.setText("Código de área generado: "+codigo.toString());
+		mensaje.setText("Código de área generado: " + codigo.toString());
 		return codigo.toString();
 	}
-	
+
 	public void mostrarAviso(boolean caso) {
 		if (caso) {
 			aviso.setText("Área añadida correctamente");
@@ -146,13 +162,14 @@ public class VentanaArea_Alta extends JFrame {
 		}
 
 	}
+
 	/**
 	 * Método que hace visible la pantalla
 	 */
 	public void hacerVisible() {
 		setVisible(true);
 	}
-	
+
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
