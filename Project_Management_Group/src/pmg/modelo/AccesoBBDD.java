@@ -1,6 +1,7 @@
 package pmg.modelo;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Clase AccesoBBDD encargadad de crear la conexión con la base de datos
@@ -403,6 +404,31 @@ public class AccesoBBDD {
 			e.printStackTrace();
 		}
 		return flag;
+	}
+	
+	public ArrayList<Alumno> getAlumnos(Connection con, String area){
+		String query = "SELECT * FROM ALUMNO WHERE AREA = ?";
+		ResultSet rset;
+		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, area);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				String exp = rset.getString(1);
+				String nombre = rset.getString(2);
+				String cod = rset.getString(3);
+				String nc_area = rset.getString(4);
+				alumnos.add(new Alumno(exp, nombre, cod, nc_area));
+			}
+			//cerramos cosas
+			rset.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return alumnos;
 	}
 
 }
