@@ -21,13 +21,19 @@ public class VentanaArea_Baja extends JFrame {
 	static final int ALTO = 400;
 	private JLabel lblTxtBaja;
 	private JLabel lblTxtBaja1;
-	private JTextField txtCod;
+	private JTextField txtNombreCorto;
 	private JButton btnBorrar;
 	private JButton btnAtras;
 	private ImageIcon basura;
-
+	private JLabel aviso;
+	
+	//Getters
 	public JButton getBtnBorrar() {
 		return btnBorrar;
+	}
+	
+	public JLabel getAviso() {
+		return aviso;
 	}
 
 	/**
@@ -74,9 +80,9 @@ public class VentanaArea_Baja extends JFrame {
 		getContentPane().add(lblTxtBaja1);
 
 		// Se agrega el area de texto para introducir el código
-		txtCod = new JTextField();
-		txtCod.setBounds(192, 113, 174, 22);
-		getContentPane().add(txtCod);
+		txtNombreCorto = new JTextField();
+		txtNombreCorto.setBounds(192, 113, 174, 22);
+		getContentPane().add(txtNombreCorto);
 
 		// Creamos botón para borrar el área
 		btnBorrar = new JButton();
@@ -91,8 +97,35 @@ public class VentanaArea_Baja extends JFrame {
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
+		
+		aviso = new JLabel("Texto aviso");
+		aviso.setHorizontalAlignment(SwingConstants.CENTER);
+		aviso.setBounds(88, 248, 385, 14);
+		getContentPane().add(aviso);
 	}
+	
+	/**
+	 * Método que devuelve el nombre corto del área introducido por el usuario
+	 * @return nombre corto área (String)
+	 */
+	public String getNombreCorto() {
+		String nombreCorto = txtNombreCorto.getText();
+		return nombreCorto;
+	}
+	
+	/**
+	 * Método que mostrará a través de un label si el área ha sido borrada o no
+	 * @param caso booleano (true o false)
+	 */
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			aviso.setText("Área borrada correctamente");
+		} else {
+			aviso.setText("Error al borrar el área");
+		}
 
+	}
+	
 	/**
 	 * Método que hace visible la pantalla
 	 */
@@ -107,5 +140,4 @@ public class VentanaArea_Baja extends JFrame {
 		btnAtras.addActionListener(ba);
 		btnBorrar.addActionListener(bb);
 	}
-
 }

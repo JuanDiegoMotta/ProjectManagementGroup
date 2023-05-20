@@ -1,4 +1,4 @@
-/**
+	/**
  * 
  */
 package pmg.vista;
@@ -26,10 +26,18 @@ public class VentanaPI_Baja extends JFrame {
 	private JLabel lblConsulta;
 	private JButton btnAtras;
 	private ImageIcon basura;
+	private JLabel aviso;
 
+	//Getters
 	public JButton getBtnBorrar() {
 		return btnBorrar;
 	}
+
+
+	public JLabel getAviso() {
+		return aviso;
+	}
+
 
 	/**
 	 * Constructor con parámetros de VentanaAlumnos_Baja
@@ -65,24 +73,24 @@ public class VentanaPI_Baja extends JFrame {
 		// Se agrega la etiqueta txtBaja
 		lblTxtBaja = new JLabel("Introduce el código del proyecto que quieres");
 		lblTxtBaja.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblTxtBaja.setBounds(118, 34, 353, 36);
+		lblTxtBaja.setBounds(115, 21, 353, 36);
 		getContentPane().add(lblTxtBaja);
 
 		// Se agrega la etiqueta txtBaja1
 		lblTxtBaja1 = new JLabel("dar de baja");
 		lblTxtBaja1.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblTxtBaja1.setBounds(236, 66, 95, 36);
+		lblTxtBaja1.setBounds(233, 53, 95, 36);
 		getContentPane().add(lblTxtBaja1);
 
 		// Se agrega el area de texto para introducir el código
 		txtCod = new JTextField();
-		txtCod.setBounds(192, 113, 174, 20);
+		txtCod.setBounds(189, 100, 174, 20);
 		getContentPane().add(txtCod);
 
 		// Creamos botón para borrar el alumno
 		btnBorrar = new JButton();
 		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		btnBorrar.setBounds(249, 144, 54, 48);
+		btnBorrar.setBounds(246, 131, 54, 48);
 		getContentPane().add(btnBorrar);
 		basura = new ImageIcon();
 		btnBorrar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/trash.png")));
@@ -90,13 +98,13 @@ public class VentanaPI_Baja extends JFrame {
 		// Creamos botón para la consulta de alumnos
 		btnConsulta = new JButton("?");
 		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		btnConsulta.setBounds(98, 227, 39, 36);
+		btnConsulta.setBounds(94, 253, 39, 36);
 		getContentPane().add(btnConsulta);
 
 		// Se agrega la etiqueta de la consulta de alumnos
 		lblConsulta = new JLabel("¿Quieres consultar los proyectos existentes?");
 		lblConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblConsulta.setBounds(143, 227, 353, 36);
+		lblConsulta.setBounds(139, 253, 353, 36);
 		getContentPane().add(lblConsulta);
 
 		// Creamos botón atrás y lo agregamos a la ventana
@@ -104,6 +112,11 @@ public class VentanaPI_Baja extends JFrame {
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
+		
+		aviso = new JLabel("New label");
+		aviso.setHorizontalAlignment(SwingConstants.CENTER);
+		aviso.setBounds(50, 216, 485, 14);
+		getContentPane().add(aviso);
 	}
 
 	/**
@@ -111,6 +124,27 @@ public class VentanaPI_Baja extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+	
+
+	/**
+	 * Método que devuelve el código del PI por borrar
+	 * @return
+	 */
+	public String getCodigo() {
+		return txtCod.getText();
+	}
+	/**
+	 * Método que mostrará a través de un label si el PI ha sido borrado o no
+	 * @param caso booleano (true o false)
+	 */
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			aviso.setText("PI borrado correctamente");
+		} else {
+			aviso.setText("Error al borrar el PI");
+		}
+
 	}
 
 	/**
