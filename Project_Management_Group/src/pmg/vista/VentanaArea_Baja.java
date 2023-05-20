@@ -26,12 +26,12 @@ public class VentanaArea_Baja extends JFrame {
 	private JButton btnAtras;
 	private ImageIcon basura;
 	private JLabel aviso;
-	
-	//Getters
+
+	// Getters
 	public JButton getBtnBorrar() {
 		return btnBorrar;
 	}
-	
+
 	public JLabel getAviso() {
 		return aviso;
 	}
@@ -97,24 +97,26 @@ public class VentanaArea_Baja extends JFrame {
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
-		
+
 		aviso = new JLabel("Texto aviso");
 		aviso.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso.setBounds(88, 248, 385, 14);
 		getContentPane().add(aviso);
 	}
-	
+
 	/**
 	 * Método que devuelve el nombre corto del área introducido por el usuario
+	 * 
 	 * @return nombre corto área (String)
 	 */
 	public String getNombreCorto() {
 		String nombreCorto = txtNombreCorto.getText();
 		return nombreCorto;
 	}
-	
+
 	/**
 	 * Método que mostrará a través de un label si el área ha sido borrada o no
+	 * 
 	 * @param caso booleano (true o false)
 	 */
 	public void mostrarAviso(boolean caso) {
@@ -125,7 +127,7 @@ public class VentanaArea_Baja extends JFrame {
 		}
 
 	}
-	
+
 	/**
 	 * Método que hace visible la pantalla
 	 */

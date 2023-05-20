@@ -7,7 +7,12 @@ import javax.swing.*;
 
 import pmg.vista.*;
 
+/*
+ * Clase que implementa la interfaz ActionListener para manejar eventos de los botones del menú. 
+ * Proporciona el manejo de eventos cuando se hace clic en los botones del menú.
+ */
 public class ListenerMenu implements ActionListener {
+	
 	private VentanaPrincipal VPpal;
 	private VentanaPI_Alta VPI_alta;
 	private VentanaPI_Baja VPI_baja;
@@ -21,6 +26,24 @@ public class ListenerMenu implements ActionListener {
 	private VentanaArea_Baja VAr_baja;
 	private VentanaArea_Edicion VAr_edicion;
 	private VentanaAyuda Vay;
+	
+	/**
+	 * Constructor de ListenerMenu con las ventanas correspondientes para cada opción del menú.
+	 *
+	 * @param vPpal la ventana principal
+	 * @param vPI_alta la ventana de alta de proyectos
+	 * @param vPI_baja la ventana de baja de proyectos
+	 * @param vPI_consulta la ventana de consulta de proyectos
+	 * @param vPI_edicion la ventana de edición de proyectos
+	 * @param vAl_alta la ventana de alta de alumnos
+	 * @param vAl_baja la ventana de baja de alumnos
+	 * @param vAl_consulta la ventana de consulta de alumnos
+	 * @param vAl_edicion la ventana de edición de alumnos
+	 * @param vAr_alta la ventana de alta de áreas
+	 * @param vAr_baja la ventana de baja de áreas
+	 * @param vAr_edicion la ventana de edición de áreas
+	 * @param vAy la ventana de ayuda
+	 */
 	public ListenerMenu(VentanaPrincipal vPpal, VentanaPI_Alta vPI_alta, VentanaPI_Baja vPI_baja, VentanaPI_Consulta vPI_consulta,
 			VentanaPI_Edicion vPI_edicion, VentanaAlumnos_Alta vAl_alta, VentanaAlumnos_Baja vAl_baja,
 			VentanaAlumnos_Consulta vAl_consulta, VentanaAlumnos_Edicion vAl_edicion, VentanaArea_Alta vAr_alta,
@@ -41,6 +64,11 @@ public class ListenerMenu implements ActionListener {
 		Vay = vAy;
 	}
 
+	/**
+	 * Invocado cuando ocurre un evento de acción sobre el botón
+	 *
+	 * @param e el objeto ActionEvent que contiene la información
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();

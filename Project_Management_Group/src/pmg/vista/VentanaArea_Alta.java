@@ -153,6 +153,12 @@ public class VentanaArea_Alta extends JFrame {
 		return codigo.toString();
 	}
 
+	/**
+	 * Actualiza el texto del componente de aviso y el componente lblCod en función
+	 * del resultado.
+	 *
+	 * @param caso indica si la operación fue exitosa (true) o no (false)
+	 */
 	public void mostrarAviso(boolean caso) {
 		if (caso) {
 			aviso.setText("Área añadida correctamente");

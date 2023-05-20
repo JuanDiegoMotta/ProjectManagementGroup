@@ -12,6 +12,10 @@ import pmg.vista.*;
 
 /**
  * @author jburg
+ * 
+ * 
+ * Clase que implementa la interfaz ActionListener para manejar eventos de botones de baja.
+ * Proporciona el manejo de eventos cuando se hace clic en los botones de baja.
  *
  */
 public class ListenerBotonBaja implements ActionListener {
@@ -21,13 +25,25 @@ public class ListenerBotonBaja implements ActionListener {
 	private VentanaArea_Baja varb;
 	private VentanaPI_Baja vpib;
 
+	
+	/**
+	 * Constructor de la clase ListenerBotonBaja
+	 * 
+	 * @param vab la ventana de baja de alumnos
+	 * @param varb la ventana de baja de las áreas
+	 * @param vpib la ventana de baja de los proyectos integradores
+	 */
 	public ListenerBotonBaja(VentanaAlumnos_Baja vab, VentanaArea_Baja varb, VentanaPI_Baja vpib) {
-
 		this.vab = vab;
 		this.varb = varb;
 		this.vpib = vpib;
 	}
 
+	/**
+	 * Invocado cuando ocurre un evento de acción sobre el botón
+	 *
+	 * @param e el objeto ActionEvent que contiene la información
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -42,6 +58,9 @@ public class ListenerBotonBaja implements ActionListener {
 		}
 	}
 	
+	/**
+	 * Método del listener para la baja del alumno
+	 */
 	public void bajaAlumnos() {
 		//Se recoge el código generado
 		String codigo = vab.getCodigo();
@@ -60,7 +79,7 @@ public class ListenerBotonBaja implements ActionListener {
 	}
 	
 	/**
-	 * Método que da de baja un área
+	 * Método del listener para la baja del área
 	 */
 	public void bajaArea() {
 
@@ -80,6 +99,9 @@ public class ListenerBotonBaja implements ActionListener {
 
 	}
 	
+	/*
+	 * Método del listener para la baja de los proyectos integradores
+	 */
 	public void bajaPI() {
 
 		//Se recoge el código del PI introducido por el usuario

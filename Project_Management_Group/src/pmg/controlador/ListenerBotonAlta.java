@@ -12,6 +12,8 @@ import pmg.vista.*;
 /**
  * @author jburg
  *
+ * Clase que implementa la interfaz ActionListener para manejar eventos de botones de alta.
+ * Proporciona el manejo de eventos cuando se hace clic en los botones de alta.
  */
 public class ListenerBotonAlta implements ActionListener {
 	private AccesoBBDD acceso;
@@ -19,12 +21,24 @@ public class ListenerBotonAlta implements ActionListener {
 	private VentanaArea_Alta vara;
 	private VentanaPI_Alta vpia;
 
+    /**
+     * Constructor de la clase ListenerBotonAlta.
+     *
+     * @param vala la ventana de alumnos alta
+     * @param vara la ventana alta de areas
+     * @param vpia la ventana alta de proyectos integradores
+     */
 	public ListenerBotonAlta(VentanaAlumnos_Alta vala, VentanaArea_Alta vara, VentanaPI_Alta vpia) {
 		this.vala = vala;
 		this.vara = vara;
 		this.vpia = vpia;
 	}
 
+	/**
+	 * Invocado cuando ocurre un evento de acción sobre el botón
+	 *
+	 * @param e el objeto ActionEvent que contiene la información
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
@@ -59,6 +73,9 @@ public class ListenerBotonAlta implements ActionListener {
 		acceso.cerrarConexion();
 	}
 	
+	/*
+	 * Método que se encarga de dar de alta a un área, creando la conexión con la base de datos y llamando al método de AccesoBBDD.
+	 */
 	public void altaArea() {
 		//Se recogen los datos introducidos por el usuario
 		DatosAltaArea datos = vara.getDatos();
@@ -76,6 +93,9 @@ public class ListenerBotonAlta implements ActionListener {
 		acceso.cerrarConexion();
 	}
 	
+	/*
+	 * Método que se encarga de dar de alta a un proyecto integrador, creando la conexión con la base de datos y llamando al método de AccesoBBDD.
+	 */
 	public void altaPI() {
 		//Se recogen los datos introducidos por el usuario
 		DatosAltaPI datos = vpia.getDatos();

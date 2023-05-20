@@ -38,7 +38,6 @@ public class VentanaPI_Baja extends JFrame {
 		return aviso;
 	}
 
-
 	/**
 	 * Constructor con parámetros de VentanaAlumnos_Baja
 	 * 

@@ -18,6 +18,9 @@ import pmg.vista.VentanaPI_Consulta;
 import pmg.vista.VentanaPI_Edicion;
 import pmg.vista.VentanaPrincipal;
 
+/**
+ * Implementa la interfaz ActionListener y define el comportamiento del botón para ir atrás en las diferentes pantallas.
+ */
 public class ListenerBotonAtras implements ActionListener {
 
 	private VentanaPrincipal vp;
@@ -59,6 +62,12 @@ public class ListenerBotonAtras implements ActionListener {
 		this.vpic = vpic;
 	}
 	
+	/**
+	 * Implementa el método actionPerformed de la interfaz ActionListener y define el comportamiento al hacer clic en el botón.
+	 * Cierra las diferentes ventanas y luego muestra la principal del menú.
+	 * 
+	 * @param e el evento que disparó la acción
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		vala.dispose();
