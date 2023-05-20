@@ -28,7 +28,7 @@ public class AccesoBBDD {
 	/**
 	 * Método encargado de crear la conexión con la base de datos
 	 * 
-	 * @return
+	 * @return conection
 	 */
 	public Connection getConexion() {
 

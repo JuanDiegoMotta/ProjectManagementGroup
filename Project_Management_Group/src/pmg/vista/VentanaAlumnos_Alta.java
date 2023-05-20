@@ -34,6 +34,11 @@ public class VentanaAlumnos_Alta extends JFrame {
 	private JButton btnAlta;
 	private JLabel aviso;
 
+	/**
+	 * Método que crea una nueva instancia de la ventana de alta de alumnos con el título.
+	 *
+	 * @param titulo el título de la ventana alta de alumnos
+	 */
 	public VentanaAlumnos_Alta(String titulo) {
 		super(titulo);
 		inicializarComponentes();
@@ -124,13 +129,22 @@ public class VentanaAlumnos_Alta extends JFrame {
 	}
 
 	/**
-	 * Método encargado de agregar un controlador a la ventana
+	 * Método que establece los controladores de eventos para los botones.
+	 *
+	 * @param ba el controlador para el botón atrás
+	 * @param bal el controlador para el botón alta
 	 */
+	
 	public void setControlador(ListenerBotonAtras ba, ListenerBotonAlta bal) {
 		btnAtras.addActionListener(ba);
 		btnAlta.addActionListener(bal);
 	}
 
+	/**
+	 * Método que genera un código alfanumérico de 6 caracteres y lo añade a la label lblCod.
+	 *
+	 * @return el código generado
+	 */
 	public String generarCodigo() {
 
 		StringBuilder codigo = new StringBuilder();
@@ -146,7 +160,10 @@ public class VentanaAlumnos_Alta extends JFrame {
 	}
 
 	/**
-	 * Método que recoge y devuelve los datos introducidos en las etiquetas
+	 * Método que obtiene los datos ingresados en los campos de texto del alta del alumno.
+	 * Si algún campo está vacío, muestra un mensaje de error y retorna null.
+	 *
+	 * @return los datos ingresados en forma de objeto DatosAltaAlumno, o null si algún campo está vacío
 	 */
 	public DatosAltaAlumno getDatos() {
 
@@ -172,6 +189,11 @@ public class VentanaAlumnos_Alta extends JFrame {
 		return datos;
 	}
 
+	/**
+	 * Actualiza el texto del componente de aviso y el componente lblCod en función del resultado.
+	 *
+	 * @param caso indica si la operación fue exitosa (true) o no (false)
+	 */
 	public void mostrarAviso(boolean caso) {
 		if (caso) {
 			aviso.setText("Alumno añadido correctamente");

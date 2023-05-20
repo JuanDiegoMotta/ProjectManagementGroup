@@ -3,6 +3,9 @@ package pmg.app;
 import pmg.controlador.*;
 import pmg.vista.*;
 
+/*
+ * Clase principal que contiene el main para dar inicio a la aplicación
+ */
 public class Main {
 
 	public static void main(String[] args) {
@@ -78,7 +81,8 @@ public class Main {
 				vpie.setControlador(lba);
 				vpic.setControlador(lba);
 				vl.setControlador(lb);
-				// Controlador Menu
+				
+				// Controlador del Menu
 				ListenerMenu listenerMenu = new ListenerMenu(vp, vpia, vpib, vpic, vpie, vala, vab, vac, vae, vara,
 						varb, vare, vay);
 				vp.setListenerMenu(listenerMenu);

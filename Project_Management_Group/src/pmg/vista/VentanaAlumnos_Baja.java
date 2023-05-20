@@ -14,8 +14,7 @@ import pmg.controlador.ListenerBotonBaja;
 /**
  * @author juanm
  * 
- *         Clase de la ventana gráfica Alumnos que da de baja al alumno según su
- *         código.
+ * Clase de la ventana gráfica Alumnos que da de baja al alumno según sucódigo.
  *
  */
 public class VentanaAlumnos_Baja extends JFrame {

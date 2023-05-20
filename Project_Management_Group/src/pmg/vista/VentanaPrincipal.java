@@ -210,6 +210,7 @@ public class VentanaPrincipal extends JFrame {
 	public void hacerVisible() {
 		setVisible(true);
 	}
+	
 	public void setListenerMenu(ListenerMenu listener){
 		pi_alta.addActionListener(listener);
 		pi_baja.addActionListener(listener);
