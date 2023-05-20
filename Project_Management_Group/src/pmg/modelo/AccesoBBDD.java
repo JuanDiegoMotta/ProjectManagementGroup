@@ -97,6 +97,7 @@ public class AccesoBBDD {
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
+	
 	public boolean altaArea(Connection con, DatosAltaArea datos) {
 		// Guardamos los datos en variables
 		String nombre_corto = datos.getNombre_corto();
