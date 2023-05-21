@@ -50,8 +50,20 @@ _Aquí irá la imagen de la ventana baja de alumno_
 La de edición y consulta, funcionan de la misma manera que en la parte de proyectos integradores.
 
 _Aquí irá la imagen de la ventana edición de alumno_
-
 _Aquí irá la imagen de la ventana consulta de alumno_
+
+Para dar de alta a un área, solo nos hará falta dar el nombre corto de la misma, como podría ser por ejemplo DAW (Desarrollo de Aplicaciones Web), y una breve descripción del mismo. 
+
+_Aquí irá la imagen de la ventana alta de área_
+
+Para borrarlo o editarlo solo nos haría falta el nombre corto, y darle a sus respectivos botones.
+
+_Aquí irá la imagen de la ventana baja de área_
+_Aquí irá la imagen de la ventana baja de área_
+
+Por último, disponemos de una ventana de ayuda, la cual mostrará un pequeño mensaje y al terminar el párrafo, nuestro e-mail para que se pongan en contacto con nosotros si tienen alguna duda que les quede por resolver.
+
+_Aquí irá la imagen de la ventana ayuda_
 
 ### Autores ✒️
 
