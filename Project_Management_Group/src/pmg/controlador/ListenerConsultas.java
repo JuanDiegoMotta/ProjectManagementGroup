@@ -11,8 +11,9 @@ import pmg.modelo.*;
 import pmg.vista.*;
 
 /**
- * Controlador que maneja las consultas y muestra la información de Alumnos y Proyectos Integradores
- * en función del área seleccionada.
+ * Controlador que maneja las consultas y muestra la información de Alumnos y
+ * Proyectos Integradores en función del área seleccionada.
+ * 
  * @author juanm
  *
  */
@@ -20,33 +21,45 @@ public class ListenerConsultas implements ItemListener {
 	private VentanaAlumnos_Consulta vac;
 	private VentanaPI_Consulta vpic;
 	private AccesoBBDD acceso;
-	
+	private VentanaPI_Asociar vpiaso;
+
 	/**
 	 * Constructor de ListenerConsultas con parámetros
-	 * @param vac Instancia de VentanaAlumnos_Consulta
+	 * 
+	 * @param vac  Instancia de VentanaAlumnos_Consulta
 	 * @param vpic Instancia de VentanaPI_Consulta
 	 */
-	public ListenerConsultas(VentanaAlumnos_Consulta vac, VentanaPI_Consulta vpic) {
+	public ListenerConsultas(VentanaAlumnos_Consulta vac, VentanaPI_Consulta vpic, VentanaPI_Asociar vpiaso) {
 		super();
 		this.vac = vac;
 		this.vpic = vpic;
+		this.vpiaso = vpiaso;
 	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		Object source = e.getSource();
-		if(source == vac.getAreasPi()) {
+		if (source == vac.getAreasPi()) {
 			if (e.getStateChange() == ItemEvent.SELECTED) {
-				rellenarTablaAlumnos((String) e.getItem());
+				rellenarTablaAlumnos(((String) e.getItem()), vac);
+			}
+		} else if (source == vpiaso.getAreasPi()) {
+			if (e.getStateChange() == ItemEvent.SELECTED) {
+				rellenarTablaAlumnos(((String) e.getItem()), vpiaso);
 			}
 		}
 
 	}
-	
-	public void rellenarTablaAlumnos(String area) {
+
+	public void rellenarTablaAlumnos(String area, Object o) {
 		acceso = new AccesoBBDD();
 		Connection con = acceso.getConexion();
-		vac.cargarTabla(acceso.getAlumnos(con, area));
+		if (o instanceof VentanaAlumnos_Consulta) {
+			vac.cargarTabla(acceso.getAlumnos(con, area));
+
+		} else if (o instanceof VentanaPI_Asociar) {
+			vpiaso.cargarTabla(acceso.getAlumnos(con, area));
+		}
 		acceso.cerrarConexion();
 	}
 

@@ -59,6 +59,8 @@ public class Main {
 				// Ventana consulta de proyectos
 				VentanaPI_Consulta vpic = new VentanaPI_Consulta("Consulta de proyectos");
 
+				VentanaPI_Asociar vpiaso = new VentanaPI_Asociar("Asociar alumnos");
+
 				// Listener del botón que hace retroceder la pantalla en la que estamos
 				// situados.
 				ListenerBotonAtras lba = new ListenerBotonAtras(vp, vala, vab, vae, vac, vara, varb, vare, vay, vpia,
@@ -67,8 +69,8 @@ public class Main {
 				ListenerBotonAlta lbal = new ListenerBotonAlta(vala, vara, vpia);
 
 				ListenerBotonBaja lbb = new ListenerBotonBaja(vab, varb, vpib);
-				
-				ListenerConsultas lc = new ListenerConsultas(vac, vpic);
+
+				ListenerConsultas lc = new ListenerConsultas(vac, vpic, vpiaso);
 				// Controladores de las ventanas
 				vala.setControlador(lba, lbal);
 				vab.setControlador(lba, lbb);
@@ -83,11 +85,15 @@ public class Main {
 				vpie.setControlador(lba);
 				vpic.setControlador(lba);
 				vl.setControlador(lb);
-				
+
 				// Controlador del Menu
 				ListenerMenu listenerMenu = new ListenerMenu(vp, vpia, vpib, vpic, vpie, vala, vab, vac, vae, vara,
-						varb, vare, vay);
+						varb, vare, vay, vpiaso);
 				vp.setListenerMenu(listenerMenu);
+
+				// Controlador para asociar alumnos a proyectos
+				ListenerBotonAsociar ListenerBAsociar = new ListenerBotonAsociar(vpiaso);
+				vpiaso.setControlador(lba, lc, ListenerBAsociar);
 			}
 
 		});
