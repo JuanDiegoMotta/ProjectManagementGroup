@@ -71,18 +71,20 @@ public class Main {
 				ListenerBotonBaja lbb = new ListenerBotonBaja(vab, varb, vpib);
 
 				ListenerConsultas lc = new ListenerConsultas(vac, vpic, vpiaso, vpic);
+				
+				ListenerMostrar lm = new ListenerMostrar(vae, vare, vpie);
 				// Controladores de las ventanas
 				vala.setControlador(lba, lbal);
 				vab.setControlador(lba, lbb);
-				vae.setControlador(lba);
+				vae.setControlador(lba, lm);
 				vac.setControlador(lba, lc);
 				vara.setControlador(lba, lbal);
 				varb.setControlador(lba, lbb);
-				vare.setControlador(lba);
+				vare.setControlador(lba, lm);
 				vay.setControlador(lba);
 				vpia.setControlador(lba, lbal);
 				vpib.setControlador(lba, lbb);
-				vpie.setControlador(lba);
+				vpie.setControlador(lba, lm);
 				vpic.setControlador(lba, lc);
 				vl.setControlador(lb);
 

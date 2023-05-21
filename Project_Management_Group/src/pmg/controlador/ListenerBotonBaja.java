@@ -69,7 +69,7 @@ public class ListenerBotonBaja implements ActionListener {
 		Connection con = acceso.getConexion();
 		
 		//Comprobamos si el código es único
-		if (acceso.exiteCodigoAlumno(con, codigo)) {
+		if (acceso.existeCodigoAlumno(con, codigo)) {
 			//Se modifica el label de la ventana Alumnos_Baja si en función de si se realiza la operación o no
 			vab.mostrarAviso(acceso.bajaAlumno(con, codigo)); //el método devuleve true o false			
 		} else {

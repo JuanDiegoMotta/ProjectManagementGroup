@@ -155,10 +155,10 @@ public class VentanaPI_Alta extends JFrame {
 		getContentPane().add(cmbxAno);
 
 		cmbxArea = new JComboBox<String>();
-		cmbxArea.addItem("DAW");
-		cmbxArea.addItem("DAM");
-		cmbxArea.addItem("ASIR");
-		cmbxArea.addItem("A3DV");
+		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
+		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
+		cmbxArea.setModel(modeloComboBox);
+		cmbxArea.setSelectedIndex(-1);
 		// TODO Cuando se añada un área nueva, ésta se tiene que añadir automáticamente
 		// a este cmbx
 		cmbxArea.setBounds(309, 225, 60, 30);

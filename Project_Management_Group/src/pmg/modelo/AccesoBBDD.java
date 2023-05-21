@@ -306,7 +306,7 @@ public class AccesoBBDD {
 	 * @param valor cod_alumno (String) que comprobamos si existe
 	 * @return true si existe, false si no
 	 */
-	public boolean exiteCodigoAlumno(Connection con, String valor) {
+	public boolean existeCodigoAlumno(Connection con, String valor) {
 		String query = "SELECT * FROM ALUMNO WHERE cod_alumno = ?";
 		ResultSet rset;
 		boolean flag = false;
@@ -547,7 +547,111 @@ public class AccesoBBDD {
 
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
-
+	}
+	
+	/**
+	 * Método getInfoAlumno que devuelve la información de un alumno según su código
+	 * @param con Objeto de tipo Connection
+	 * @param cod_alumno Código del alumno 
+	 * @return información del alumno a través de un objeto de DatosAltaAlumno
+	 */
+	public DatosAltaAlumno getInfoAlumno(Connection con, String cod_alumno) {
+		String query = "SELECT * FROM ALUMNO WHERE cod_alumno = ?";
+		ResultSet rset;
+		String num_exp = "";
+		String nombre_ape = "";
+		String area = "";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, cod_alumno);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				num_exp = rset.getString(1);
+				nombre_ape = rset.getString(2);
+				area = rset.getString(4);
+				System.out.println(pstmt);
+				//cerramos cosas
+				rset.close();
+				pstmt.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DatosAltaAlumno datosBaja = new DatosAltaAlumno(nombre_ape, num_exp, cod_alumno, area);
+		return datosBaja;
+	}
+	
+	/**
+	 * Método que se encarga de ejcutar la query para recoger los datos de un área
+	 * según su nombre corto
+	 * @param con Instancia de tipo Connection
+	 * @param nc_area nombre corto del área
+	 * @return objeto de DatosAltaArea
+	 */
+	public DatosAltaArea getInfoArea(Connection con, String nc_area) {
+		String query = "SELECT * FROM AREA WHERE nombre_corto = ?";
+		ResultSet rset;
+		String descripcion = "";
+		String cod_area = "";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, nc_area);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				descripcion = rset.getString(3);
+				cod_area = rset.getString(2);
+				System.out.println(pstmt);
+				//cerramos cosas
+				rset.close();
+				pstmt.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DatosAltaArea datosBaja = new DatosAltaArea(nc_area, cod_area, descripcion);
+		return datosBaja;
+	}
+	
+	/**
+	 * Método que se encarga de conseguir la información de un PI según su código de 
+	 * proyecto 
+	 * @param con Objeto de tipo Connection
+	 * @param cod Código del proyecto 
+	 * @return objeto de DatosAltaPI
+	 */
+	public DatosAltaPI getInfoPI(Connection con, String cod) {
+		String query = "SELECT * FROM ProyectoIntegrador WHERE cod_proyecto = ?";
+		ResultSet rset;
+		String ano = "";
+		String curso = "";
+		String nota = "";
+		String nombre = "";
+		String url = "";
+		String nc_area = "";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, cod);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				ano = rset.getString(1);
+				curso = rset.getString(2);
+				nota = rset.getString(3);
+				nombre = rset.getString(5);
+				url = rset.getString(6);
+				nc_area = rset.getString(7);
+				System.out.println(pstmt);
+				//cerramos cosas
+				rset.close();
+				pstmt.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DatosAltaPI datosBaja = new DatosAltaPI(ano, curso, nota, cod, nombre, url, nc_area);
+		return datosBaja;
 	}
 
 }

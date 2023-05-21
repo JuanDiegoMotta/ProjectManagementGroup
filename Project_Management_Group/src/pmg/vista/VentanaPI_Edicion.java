@@ -7,7 +7,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import pmg.controlador.ListenerBotonAtras;
+import pmg.controlador.*;
 import pmg.modelo.Alumno;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -20,7 +20,6 @@ public class VentanaPI_Edicion extends JFrame {
 	//Labels
 	private JLabel lblGrupo;
 	private JLabel lblCurso;
-	private JLabel lblComponentes;
 	private JLabel lblNota;
 	private JLabel lblAno;
 	private JLabel lblArea;
@@ -28,21 +27,58 @@ public class VentanaPI_Edicion extends JFrame {
 	//Otros JComponents
 	private JTextField txtNombre;
 	private JSpinner spnrCurso;
-	private JList<Alumno> listAlumnos;
 	private JSpinner spnrNota;
 	private JComboBox<String> cmbxAno;
 	private JComboBox<String> cmbxArea;
 	private JButton btnAtras;
-	private JButton btnAlta;
-	private JTextField textField;
+	private JButton btnGuardar;
+	private JTextField txtCod;
 	private JButton btnRellenar;
 	private ImageIcon rellenar;
+	private JLabel lblAviso;
 	
+	//Getters necesarios
+	public JButton getBtnGuardar() {
+		return btnGuardar;
+	}
+
+	public JButton getBtnRellenar() {
+		return btnRellenar;
+	}
+
+	
+	public JTextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public JSpinner getSpnrCurso() {
+		return spnrCurso;
+	}
+
+	public JSpinner getSpnrNota() {
+		return spnrNota;
+	}
+
+	public JComboBox<String> getCmbxAno() {
+		return cmbxAno;
+	}
+
+	public JComboBox<String> getCmbxArea() {
+		return cmbxArea;
+	}
+
+	public JTextField getTxtCod() {
+		return txtCod;
+	}
+	
+	public JLabel getLblAviso() {
+		return lblAviso;
+	}
+
 	public VentanaPI_Edicion(String titulo) {
 		super(titulo);
 		inicializarComponentes();
 	}
-	
 	public void inicializarComponentes() {
 		//Configuramos layout a absoluto
 		getContentPane().setLayout(null);
@@ -62,24 +98,19 @@ public class VentanaPI_Edicion extends JFrame {
 		lblCurso.setBounds(221, 116, 42, 30);
 		getContentPane().add(lblCurso);
 		
-		lblComponentes = new JLabel("Componentes:");
-		lblComponentes.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblComponentes.setBounds(163, 156, 100, 30);
-		getContentPane().add(lblComponentes);
-		
 		lblNota = new JLabel("Nota:");
 		lblNota.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNota.setBounds(222, 200, 60, 30);
+		lblNota.setBounds(221, 159, 60, 30);
 		getContentPane().add(lblNota);
 		
 		lblAno = new JLabel("Año:");
 		lblAno.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblAno.setBounds(226, 240, 42, 30);
+		lblAno.setBounds(225, 199, 42, 30);
 		getContentPane().add(lblAno);
 		
 		lblArea = new JLabel("Área:");
 		lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblArea.setBounds(226,280, 37, 30);
+		lblArea.setBounds(225,239, 37, 30);
 		getContentPane().add(lblArea);
 		
 		lblCod = new JLabel("Introduce el código:");
@@ -95,28 +126,17 @@ public class VentanaPI_Edicion extends JFrame {
 		spnrCurso.setModel(new SpinnerNumberModel(1, 1, 2, 1));
 		spnrCurso.setBounds(320, 116, 30, 30);
 		getContentPane().add(spnrCurso);
-		
-		listAlumnos = new JList<Alumno>();
 		DefaultListModel<Alumno> dlm = new DefaultListModel<Alumno>();
-//			dlm.addElement(new Alumno("Alumno1", "Apellidos", "12345678A"));
-//			dlm.addElement(new Alumno("Alumno2", "Apellidos", "12345678E"));
-//			dlm.addElement(new Alumno("Alumno3", "Apellidos", "12345678C"));
-//			dlm.addElement(new Alumno("Alumno4", "Apellidos", "12345678B"));
-//			dlm.addElement(new Alumno("Alumno5", "Apellidos", "12345678D"));
-//			dlm.addElement(new Alumno("Alumno6", "Apellidos", "12345678F"));
-		listAlumnos.setModel(dlm);
-		listAlumnos.setBounds(320, 157, 100, 30);
-		getContentPane().add(listAlumnos);
 		
 		spnrNota = new JSpinner();
 		spnrNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spnrNota.setBounds(320, 198, 30, 30);
+		spnrNota.setBounds(319, 157, 30, 30);
 		getContentPane().add(spnrNota);
 		
 		cmbxAno = new JComboBox<String>();
 		cmbxAno.addItem("1");
 		cmbxAno.addItem("2");
-		cmbxAno.setBounds(320, 239, 40, 30);
+		cmbxAno.setBounds(319, 198, 40, 30);
 		getContentPane().add(cmbxAno);
 		
 		cmbxArea = new JComboBox<String>();
@@ -124,7 +144,7 @@ public class VentanaPI_Edicion extends JFrame {
 		cmbxArea.addItem("DAM");
 		cmbxArea.addItem("ASIR");
 		cmbxArea.addItem("A3DV");
-		cmbxArea.setBounds(320, 280, 60, 30);
+		cmbxArea.setBounds(319, 239, 60, 30);
 		getContentPane().add(cmbxArea);
 		
 		btnAtras = new JButton("Atrás");
@@ -133,30 +153,36 @@ public class VentanaPI_Edicion extends JFrame {
 		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
 		
-		btnAlta = new JButton("Guardar");
-		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnGuardar = new JButton("Guardar");
+		btnGuardar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
-		btnAlta.setBounds(419, 300, 120, 30);
-		getContentPane().add(btnAlta);
+		btnGuardar.setBounds(419, 300, 120, 30);
+		getContentPane().add(btnGuardar);
 		
-		textField = new JTextField();
-		textField.setBounds(320, 32, 100, 30);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		txtCod = new JTextField();
+		txtCod.setBounds(320, 32, 100, 30);
+		getContentPane().add(txtCod);
+		txtCod.setColumns(10);
 		
 		btnRellenar = new JButton();
 		btnRellenar.setBounds(452, 29, 42, 37);
 		getContentPane().add(btnRellenar);
 		rellenar = new ImageIcon();
 		btnRellenar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
+		
+		lblAviso = new JLabel((String) null);
+		lblAviso.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAviso.setBounds(172, 310, 237, 14);
+		getContentPane().add(lblAviso);
 	
 	}
 	
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba) {
+	public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm) {
 		btnAtras.addActionListener(ba);
+		btnRellenar.addActionListener(lm);
 	}
 	
 	/**

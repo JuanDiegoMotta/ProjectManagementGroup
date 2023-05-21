@@ -82,7 +82,19 @@ public class ListenerBotonAtras implements ActionListener {
 		vpib.dispose();
 		vpie.dispose();
 		vpic.dispose();
+		hacerEditable();
 		vp.setVisible(true);
+	}
+	/**
+	 * Método que hace editable campos que se habían bloqueado
+	 * al hacer la consulta para editar
+	 */
+	public void hacerEditable() {
+		vae.getTxtCod().setEditable(true);
+		vare.getTxtNombreCorto().setEditable(true);
+		vpie.getTxtCod().setEditable(true);
+		vpie.getCmbxArea().setEnabled(true);
+		
 	}
 
 }
