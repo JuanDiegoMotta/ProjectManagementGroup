@@ -498,4 +498,27 @@ public class AccesoBBDD {
 		return flag;
 	}
 
+	public boolean edicionArea(Connection con, String nombre_corto, String descripcion) {
+		
+		String query = "UPDATE AREA SET descripcion = ? WHERE nombre_corto = ?";
+		int resultado = 0;
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+
+			pstmt.setString(1, descripcion);
+			pstmt.setString(2, nombre_corto);
+			resultado = pstmt.executeUpdate();
+			System.out.println(pstmt);
+			// Cerramos cosas
+			pstmt.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
+		return (resultado == 1) ? true : false;
+
+	}
+
 }
