@@ -74,7 +74,7 @@ public class Main {
 				
 				ListenerInterrog lin = new ListenerInterrog(vab, vac, vpib, vpic);
         
-        ListenerMostrar lm = new ListenerMostrar(vae, vare, vpie);
+				ListenerMostrar lm = new ListenerMostrar(vae, vare, vpie);
 				// Controladores de las ventanas
 				vala.setControlador(lba, lbal);
 				vab.setControlador(lba, lbb, lin);
@@ -86,7 +86,7 @@ public class Main {
 				vay.setControlador(lba);
 				vpia.setControlador(lba, lbal);
 				vpib.setControlador(lba, lbb, lin);
-				vpie.setControlador(lba);
+				vpie.setControlador(lba, lm);
 				vpic.setControlador(lba, lc);
 				vl.setControlador(lb);
 
