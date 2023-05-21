@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- * Clase AccesoBBDD encargadad de crear la conexión con la base de datos
+ * Clase AccesoBBDD encargada de crear la conexión con la base de datos
  * 
  * @author Pablo
  *
