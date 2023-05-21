@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import pmg.controlador.ListenerBoton;
+import java.awt.Color;
 
 /**
  * Clase de la ventana gráfica del log-in
@@ -38,6 +39,7 @@ public class VentanaLogIn extends JFrame {
 	 * @param titulo titulo de la ventana
 	 */
 	public VentanaLogIn() {
+		getContentPane().setBackground(Color.decode("#A9B2AC"));
 //		super(titulo);
 		inicializarComponentes();
 	}
@@ -58,23 +60,25 @@ public class VentanaLogIn extends JFrame {
 		getContentPane().add(lblUser);
 
 		lblPwd = new JLabel("Contraseña:");
-		lblPwd.setBounds(151, 176, 97, 30);
+		lblPwd.setBounds(155, 176, 97, 30);
 		lblPwd.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
 		getContentPane().add(lblPwd);
 
 		txtUser = new JTextField("");
+		txtUser.setBackground(new Color(255, 255, 255));
 		txtUser.setBounds(277, 135, 133, 30);
 		getContentPane().add(txtUser);
 
 		txtPwd = new JPasswordField();
+		txtPwd.setBackground(new Color(255, 255, 255));
 		txtPwd.setBounds(277, 176, 133, 30);
 		getContentPane().add(txtPwd);
 
-		btnLogin = new JButton("Log-in");
+		btnLogin = new JButton("LOG-IN");
+		btnLogin.setBackground(Color.decode("#BCD0C7"));
 		btnLogin.setBounds(219, 250, 120, 30);
 		btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 14));
-
 		getContentPane().add(btnLogin);
 
 		lblNewLabel = new JLabel();
