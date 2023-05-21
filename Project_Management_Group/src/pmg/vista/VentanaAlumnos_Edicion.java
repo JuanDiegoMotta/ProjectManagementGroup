@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 
-import pmg.controlador.ListenerBotonAtras;
+import pmg.controlador.*;
 
 /**
  * @author juanm
@@ -20,22 +20,53 @@ import pmg.controlador.ListenerBotonAtras;
 public class VentanaAlumnos_Edicion extends JFrame {
 	//Labels
 		private JLabel lblNombre;
-		private JLabel lblApellido;
 		private JLabel lblNumExp;
 		private JLabel lblArea;
 		private JLabel lblCod;
-		private JLabel lblCp;
+		private JLabel lblAviso;
 		//Otros JComponents
 		private JTextField txtNombre;
-		private JTextField txtApellido;
 		private JTextField txtNumExp;
-		private JTextField txtCp;
+		private JTextField txtCod;
 		private JComboBox<String> cmbxArea;
 		private JButton btnAtras;
-		private JButton btnAlta;
-		private JButton btnEdition;
+		private JButton btnGuardar;
+		private JButton btnRellenar;
 		private ImageIcon rellenar;
 		
+		//Getters necesarios
+		public JButton getBtnGuardar() {
+			return btnGuardar;
+		}
+
+		public JButton getBtnRellenar() {
+			return btnRellenar;
+		}
+
+		public JTextField getTxtNombre() {
+			return txtNombre;
+		}
+
+		public JTextField getTxtNumExp() {
+			return txtNumExp;
+		}
+
+		public JTextField getTxtCod() {
+			return txtCod;
+		}
+
+		public JComboBox<String> getCmbxArea() {
+			return cmbxArea;
+		}
+		
+		public JLabel getLblAviso() {
+			return lblAviso;
+		}
+
+		/**
+		 * Constructor de VentanaAlumnos_Edicion con parámetros
+		 * @param titulo título de la ventana
+		 */
 		public VentanaAlumnos_Edicion(String titulo) {
 			super(titulo);
 			inicializarComponentes();
@@ -50,57 +81,44 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			setLocationRelativeTo(null);
 			
 			//Inicializamos y situamos los JComponent
-			lblNombre = new JLabel("Nombre:");
-			lblNombre.setBounds(183, 78, 100, 30);
+			lblNombre = new JLabel("Nombre y apellido:");
+			lblNombre.setBounds(107, 114, 131, 30);
 			lblNombre.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			getContentPane().add(lblNombre);
 			
 			txtNombre = new JTextField();
-			txtNombre.setBounds(270, 86, 137, 20);
+			txtNombre.setBounds(270, 121, 137, 20);
 			getContentPane().add(txtNombre);
 			
-			lblApellido = new JLabel("Apellido:");
-			lblApellido.setBounds(183, 118, 70, 30);
-			lblApellido.setFont(new Font("Segoe UI", Font.BOLD, 14));
-			getContentPane().add(lblApellido);
-			
-			txtApellido = new JTextField();
-			txtApellido.setBounds(270, 126, 137, 20);
-			getContentPane().add(txtApellido);
-			
 			lblNumExp = new JLabel("Numero Expediente:");
-			lblNumExp.setBounds(108, 158, 156, 30);
+			lblNumExp.setBounds(107, 154, 156, 30);
 			lblNumExp.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			getContentPane().add(lblNumExp);
 			
 			txtNumExp = new JTextField();
-			txtNumExp.setBounds(269, 166, 138, 20);
+			txtNumExp.setBounds(268, 162, 138, 20);
 			getContentPane().add(txtNumExp);
 			
 			lblArea = new JLabel("Área:");
-			lblArea.setBounds(211,193, 42, 30);
+			lblArea.setBounds(210,189, 42, 30);
 			lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			getContentPane().add(lblArea);
 			
-			lblCp = new JLabel("Introduce el código:");
-			lblCp.setBounds(107, 38, 137, 30);
-			lblCp.setFont(new Font("Segoe UI", Font.BOLD, 14));
-			getContentPane().add(lblCp);
-			
-			txtCp = new JTextField();
-			txtCp.setBounds(270, 46, 137, 20);
-			getContentPane().add(txtCp);
-			
-			lblCod = new JLabel("Aquí iría el código generado automáticamente (al pulsar el botón)");
-			lblCod.setBounds(122, 233, 321, 30);
+			lblCod = new JLabel("Introduce el código:");
+			lblCod.setBounds(107, 73, 137, 30);
+			lblCod.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			getContentPane().add(lblCod);
+			
+			txtCod = new JTextField();
+			txtCod.setBounds(270, 81, 137, 20);
+			getContentPane().add(txtCod);
 			
 			cmbxArea = new JComboBox<String>();
 			cmbxArea.addItem("DAW");
 			cmbxArea.addItem("DAM");
 			cmbxArea.addItem("ASIR");
 			cmbxArea.addItem("A3DV");
-			cmbxArea.setBounds(270, 200, 138, 20);
+			cmbxArea.setBounds(269, 196, 68, 20);
 			getContentPane().add(cmbxArea);
 			
 			// Creamos botón atrás y lo agregamos a la ventana
@@ -110,17 +128,22 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			getContentPane().add(btnAtras);
 			
 			// Creamos botón alta y lo agregamos a la ventana
-			btnAlta = new JButton("GUARDAR");
-			btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-			btnAlta.setBounds(419, 300, 120, 30);
-			getContentPane().add(btnAlta);
+			btnGuardar = new JButton("GUARDAR");
+			btnGuardar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+			btnGuardar.setBounds(419, 300, 120, 30);
+			getContentPane().add(btnGuardar);
 			
-			btnEdition = new JButton();
-			btnEdition.setFont(new Font("Segoe UI", Font.BOLD, 14));
-			btnEdition.setBounds(417, 36, 52, 39);
-			getContentPane().add(btnEdition);
+			btnRellenar = new JButton();
+			btnRellenar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+			btnRellenar.setBounds(417, 71, 52, 39);
+			getContentPane().add(btnRellenar);
 			rellenar = new ImageIcon();
-			btnEdition.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
+			btnRellenar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
+			
+			lblAviso = new JLabel("");
+			lblAviso.setHorizontalAlignment(SwingConstants.CENTER);
+			lblAviso.setBounds(52, 258, 458, 14);
+			getContentPane().add(lblAviso);
 			
 		}
 		
@@ -134,8 +157,8 @@ public class VentanaAlumnos_Edicion extends JFrame {
 		/**
 		 * Método encargado de agregar un controlador a la ventana
 		 */
-		public void setControlador(ListenerBotonAtras ba) {
+		public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm) {
 			btnAtras.addActionListener(ba);
+			btnRellenar.addActionListener(lm);
 		}
-
 }

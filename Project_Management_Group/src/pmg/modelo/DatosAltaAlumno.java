@@ -23,7 +23,7 @@ public class DatosAltaAlumno {
 	 * @param area área del alumno
 	 * @param codAlumno código del alumno
 	 */
-	public DatosAltaAlumno(String nombreCompleto, String numExp, String area, String codAlumno) {
+	public DatosAltaAlumno(String nombreCompleto, String numExp, String codAlumno, String area) {
 		this.nombreCompleto = nombreCompleto;
 		this.numExp = numExp;
 		this.area = area;

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-import pmg.controlador.ListenerBotonAtras;
+import pmg.controlador.*;
 
 
 /**
@@ -18,15 +18,36 @@ import pmg.controlador.ListenerBotonAtras;
  */
 public class VentanaArea_Edicion extends JFrame {
 
-	private JTextField nombreCorto;
-	private JTextArea descripcion;
+	private JTextField txtNombreCorto;
+	private JTextArea txtDescripcion;
 	private JLabel LNombre;
 	private JLabel LDescripcion;
 	private JButton atras;
-	private JButton alta;
+	private JButton btnGuardar;
 	private JLabel LCodigo;
 	private JButton btnRellenar;
 	private ImageIcon rellenar;
+	private JLabel lblAviso;
+	
+	//Getters necesarios
+	public JButton getBtnGuardar() {
+		return btnGuardar;
+	}
+
+	public JButton getBtnRellenar() {
+		return btnRellenar;
+	}
+	public JTextField getTxtNombreCorto() {
+		return txtNombreCorto;
+	}
+
+	public JTextArea getTxtDescripcion() {
+		return txtDescripcion;
+	}
+	
+	public JLabel getLblAviso() {
+		return lblAviso;
+	}
 
 	/**
 	 * Constructor de la clase VentanaArea_Edicion
@@ -45,9 +66,9 @@ public class VentanaArea_Edicion extends JFrame {
 		getContentPane().setLayout(null);
 
 		// Se agrega nombreCorto
-		nombreCorto = new JTextField();
-		nombreCorto.setBounds(282, 73, 131, 22);
-		getContentPane().add(nombreCorto);
+		txtNombreCorto = new JTextField();
+		txtNombreCorto.setBounds(282, 73, 131, 22);
+		getContentPane().add(txtNombreCorto);
 
 		// Se agrega LNombre
 		LNombre = new JLabel("Nombre corto: ");
@@ -62,9 +83,11 @@ public class VentanaArea_Edicion extends JFrame {
 		getContentPane().add(LDescripcion);
 
 //		Se agrega descripcion
-		descripcion = new JTextArea();
-		descripcion.setBounds(282, 115, 131, 69);
-		getContentPane().add(descripcion);
+		txtDescripcion = new JTextArea();
+		txtDescripcion.setLineWrap(true);
+		txtDescripcion.setWrapStyleWord(true);
+		txtDescripcion.setBounds(282, 115, 131, 69);
+		getContentPane().add(txtDescripcion);
 
 //		Se agrega botón de atrás
 		atras = new JButton("ATRÁS");
@@ -73,10 +96,10 @@ public class VentanaArea_Edicion extends JFrame {
 		getContentPane().add(atras);
 
 //		Se agrega botón guardar
-		alta = new JButton("GUARDAR");
-		alta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		alta.setBounds(419, 300, 120, 30);
-		getContentPane().add(alta);
+		btnGuardar = new JButton("GUARDAR");
+		btnGuardar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnGuardar.setBounds(419, 300, 120, 30);
+		getContentPane().add(btnGuardar);
 
 //		Se agrega el botón de rellenar
 		btnRellenar = new JButton();
@@ -85,6 +108,11 @@ public class VentanaArea_Edicion extends JFrame {
 		getContentPane().add(btnRellenar);
 		rellenar = new ImageIcon();
 		btnRellenar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
+		
+		lblAviso = new JLabel("");
+		lblAviso.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAviso.setBounds(42, 241, 497, 14);
+		getContentPane().add(lblAviso);
 
 		setSize(600, 400);
 		setLocationRelativeTo(null);
@@ -100,8 +128,9 @@ public class VentanaArea_Edicion extends JFrame {
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba) {
+	public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm) {
 		atras.addActionListener(ba);
+		btnRellenar.addActionListener(lm);
 	}
 
 }
