@@ -22,6 +22,7 @@ public class ListenerConsultas implements ItemListener {
 	private VentanaPI_Consulta vpic;
 	private AccesoBBDD acceso;
 	private VentanaPI_Asociar vpiaso;
+	private VentanaPI_Consulta vpicon;
 
 	/**
 	 * Constructor de ListenerConsultas con parámetros
@@ -29,11 +30,13 @@ public class ListenerConsultas implements ItemListener {
 	 * @param vac  Instancia de VentanaAlumnos_Consulta
 	 * @param vpic Instancia de VentanaPI_Consulta
 	 */
-	public ListenerConsultas(VentanaAlumnos_Consulta vac, VentanaPI_Consulta vpic, VentanaPI_Asociar vpiaso) {
+	public ListenerConsultas(VentanaAlumnos_Consulta vac, VentanaPI_Consulta vpic, VentanaPI_Asociar vpiaso,
+			VentanaPI_Consulta vpicon) {
 		super();
 		this.vac = vac;
 		this.vpic = vpic;
 		this.vpiaso = vpiaso;
+		this.vpicon = vpicon;
 	}
 
 	@Override
@@ -46,6 +49,10 @@ public class ListenerConsultas implements ItemListener {
 		} else if (source == vpiaso.getAreasPi()) {
 			if (e.getStateChange() == ItemEvent.SELECTED) {
 				rellenarTablaAlumnos(((String) e.getItem()), vpiaso);
+			}
+		} else if (source == vpicon.getAreasPi()) {
+			if (e.getStateChange() == ItemEvent.SELECTED) {
+				rellenarTablaProyectos((String) e.getItem());
 			}
 		}
 
@@ -61,6 +68,14 @@ public class ListenerConsultas implements ItemListener {
 			vpiaso.cargarTabla(acceso.getAlumnos(con, area));
 		}
 		acceso.cerrarConexion();
+	}
+
+	public void rellenarTablaProyectos(String area) {
+		acceso = new AccesoBBDD();
+		Connection con = acceso.getConexion();
+		vpicon.cargarTabla(acceso.getProyetos(con, area));
+		acceso.cerrarConexion();
+
 	}
 
 }
