@@ -35,7 +35,6 @@ public class VentanaArea_Edicion extends JFrame {
 	public VentanaArea_Edicion(String titulo) {
 		super(titulo);
 		inicializarComponentes();
-
 	}
 
 	/**
