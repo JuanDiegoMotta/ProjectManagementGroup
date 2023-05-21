@@ -77,6 +77,7 @@ public class VentanaPI_Consulta extends JFrame {
 		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
 		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
 		areasPi.setModel(modeloComboBox);
+		areasPi.setSelectedIndex(-1);
 		getContentPane().add(areasPi);
 
 		// Creamos el espacio donde vamos a colocar nuestra tabla

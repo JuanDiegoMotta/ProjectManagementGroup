@@ -7,6 +7,7 @@ import javax.swing.*;
 
 import pmg.controlador.ListenerBotonAtras;
 import pmg.controlador.ListenerBotonBaja;
+import pmg.controlador.ListenerInterrog;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -50,6 +51,7 @@ public class VentanaPI_Baja extends JFrame {
 	 */
 	public VentanaPI_Baja(String titulo) {
 		super(titulo);
+		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 	}
 
@@ -93,6 +95,7 @@ public class VentanaPI_Baja extends JFrame {
 
 		// Creamos botón para borrar el alumno
 		btnBorrar = new JButton();
+		btnBorrar.setBackground(Color.decode("#BCD0C7"));
 		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnBorrar.setBounds(246, 131, 54, 48);
 		getContentPane().add(btnBorrar);
@@ -101,26 +104,29 @@ public class VentanaPI_Baja extends JFrame {
 
 		// Creamos botón para la consulta de alumnos
 		btnConsulta = new JButton("?");
+		btnConsulta.setBackground(Color.decode("#BCD0C7"));
 		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		btnConsulta.setBounds(94, 253, 39, 36);
+		btnConsulta.setBounds(102, 246, 46, 36);
 		getContentPane().add(btnConsulta);
 
 		// Se agrega la etiqueta de la consulta de alumnos
 		lblConsulta = new JLabel("¿Quieres consultar los proyectos existentes?");
 		lblConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblConsulta.setBounds(139, 253, 353, 36);
+		lblConsulta.setBounds(169, 246, 353, 36);
 		getContentPane().add(lblConsulta);
 
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
-
+    
 		// Inicializamos aviso
-		aviso = new JLabel("New label");
+		aviso = new JLabel("");
 		aviso.setHorizontalAlignment(SwingConstants.CENTER);
-		aviso.setBounds(50, 216, 485, 14);
+		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		aviso.setBounds(62, 209, 433, 26);
 		getContentPane().add(aviso);
 	}
 
@@ -143,6 +149,10 @@ public class VentanaPI_Baja extends JFrame {
 			aviso.setText("Error al borrar el PI");
 		}
 	}
+	
+	public JButton getBtnConsulta() {
+		return btnConsulta;
+	}
 
 	/**
 	 * Método encargado de agregar un controlador a la ventana
@@ -150,9 +160,10 @@ public class VentanaPI_Baja extends JFrame {
 	 * @param ba Clase ListenerBotonAtras
 	 * @param bb Clase ListenerBotonBaja
 	 */
-	public void setControlador(ListenerBotonAtras ba, ListenerBotonBaja bb) {
+	public void setControlador(ListenerBotonAtras ba, ListenerBotonBaja bb, ListenerInterrog bc) {
 		btnAtras.addActionListener(ba);
 		btnBorrar.addActionListener(bb);
+		btnConsulta.addActionListener(bc);
 	}
 
 }
