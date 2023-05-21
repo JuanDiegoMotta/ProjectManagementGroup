@@ -214,12 +214,13 @@ public class AccesoBBDD {
 
 	/**
 	 * Método que ejecuta la sentencia para dar de baja un área
+	 * 
 	 * @param con instancia de tipo Connection
-	 * @param nc nombre corto del área a eliminar (String)
+	 * @param nc  nombre corto del área a eliminar (String)
 	 * @return booleano (true o false) en función de si se ejecuta la sentencia o no
 	 */
 	public boolean bajaArea(Connection con, String nc) {
-		
+
 		// Creamos la query del prepared statement
 		String query = "DELETE FROM AREA WHERE nombre_corto = ?";
 		PreparedStatement pstmt;
@@ -229,19 +230,21 @@ public class AccesoBBDD {
 			// Rellenamos la query con los datos correspondientes
 			pstmt.setString(1, nc);
 			resultado = pstmt.executeUpdate();
-			//Imprimimos la query ejecutada
+			// Imprimimos la query ejecutada
 			System.out.println(pstmt);
-			//cerramos cosas
+			// cerramos cosas
 			pstmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
+
 	/**
 	 * Método que ejecuta la sentencia para dar de baja un PI
+	 * 
 	 * @param con instancia de tipo Connection
 	 * @param cod código del PI a eliminar (String)
 	 * @return booleano (true o false) en función de si se ejecuta la sentencia o no
@@ -256,18 +259,18 @@ public class AccesoBBDD {
 			// Rellenamos la query con los datos correspondientes
 			pstmt.setString(1, cod);
 			resultado = pstmt.executeUpdate();
-			//Imprimimos la query ejecutada
+			// Imprimimos la query ejecutada
 			System.out.println(pstmt);
-			//cerramos cosas
+			// cerramos cosas
 			pstmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
-	
+
 	/**
 	 * Método que comprueba si existe el expediente del alumno en la tabla alumnos
 	 * 
@@ -361,8 +364,36 @@ public class AccesoBBDD {
 	 * @param valor nombre (String) que comprobamos si existe
 	 * @return true si existe, false si no
 	 */
-	public boolean existeNombrePI(Connection con, String valor) {
+	public boolean existeNombrePI(Connection con, String nombre) {
 		String query = "SELECT * FROM ProyectoIntegrador WHERE nombre = ?";
+		ResultSet rset;
+		boolean flag = false;
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, nombre);
+			rset = pstmt.executeQuery();
+			System.out.println(pstmt);
+			flag = (rset.next()) ? true : false; // Si hay resultados se devuelve true, false en el caso contrario
+			// cerramos cosas
+			rset.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
+	/**
+	 * Método que comprueba si existe el código del PI en la tabla
+	 * ProyectoIntegrador
+	 * 
+	 * @param con   instancia de una conexión a la base de datos
+	 * @param valor nombre (String) que comprobamos si existe
+	 * @return true si existe, false si no
+	 */
+	public boolean existeCodigoPI(Connection con, String valor) {
+		String query = "SELECT * FROM ProyectoIntegrador WHERE cod_proyecto = ?";
 		ResultSet rset;
 		boolean flag = false;
 		try {
@@ -380,33 +411,8 @@ public class AccesoBBDD {
 		}
 		return flag;
 	}
-	/**
-	 * Método que comprueba si existe el código del PI en la tabla ProyectoIntegrador
-	 * @param con instancia de una conexión a la base de datos
-	 * @param valor nombre (String) que comprobamos si existe
-	 * @return true si existe, false si no
-	 */
-	public boolean existeCodigoPI(Connection con, String valor) {
-		String query = "SELECT * FROM ProyectoIntegrador WHERE cod_proyecto = ?";
-		ResultSet rset;
-		boolean flag = false;
-		try {
-			PreparedStatement pstmt = con.prepareStatement(query);
-			pstmt.setString(1, valor);
-			rset = pstmt.executeQuery();
-			System.out.println(pstmt);
-			flag = (rset.next()) ? true : false; // Si hay resultados se devuelve true, false en el caso contrario
-			//cerramos cosas
-			rset.close();
-			pstmt.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return flag;
-	}
-	
-	public ArrayList<Alumno> getAlumnos(Connection con, String area){
+
+	public ArrayList<Alumno> getAlumnos(Connection con, String area) {
 		String query = "SELECT * FROM ALUMNO WHERE AREA = ?";
 		ResultSet rset;
 		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
@@ -414,14 +420,14 @@ public class AccesoBBDD {
 			PreparedStatement pstmt = con.prepareStatement(query);
 			pstmt.setString(1, area);
 			rset = pstmt.executeQuery();
-			while(rset.next()) {
+			while (rset.next()) {
 				String exp = rset.getString(1);
 				String nombre = rset.getString(2);
 				String cod = rset.getString(3);
 				String nc_area = rset.getString(4);
 				alumnos.add(new Alumno(exp, nombre, cod, nc_area));
 			}
-			//cerramos cosas
+			// cerramos cosas
 			rset.close();
 			pstmt.close();
 		} catch (SQLException e) {
@@ -429,6 +435,67 @@ public class AccesoBBDD {
 			e.printStackTrace();
 		}
 		return alumnos;
+	}
+
+	public boolean asociarAlumno(Connection con, String nombreA, String nombreP) {
+		boolean flag = false;
+		System.out.println(nombreA);
+		String query1 = "SELECT cod_alumno FROM Alumno WHERE nombre_ape = ?";
+		ResultSet rset1 = null;
+		String cod_alumno = null;
+		try {
+			PreparedStatement pstmt1 = con.prepareStatement(query1);
+			pstmt1.setString(1, nombreA);
+			rset1 = pstmt1.executeQuery();
+			if (rset1.next()) {
+				cod_alumno = rset1.getString("cod_alumno");
+				System.out.println(cod_alumno);
+
+			} else {
+				flag = false;
+			}
+			// Cerraomos cosas
+			rset1.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(nombreP);
+		String query2 = "SELECT cod_proyecto FROM ProyectoIntegrador WHERE nombre = ?";
+		ResultSet rset2 = null;
+		String cod_proyecto = null;
+		try {
+			PreparedStatement pstmt2 = con.prepareStatement(query2);
+			pstmt2.setString(1, nombreP);
+			rset2 = pstmt2.executeQuery();
+			if (rset2.next()) {
+				cod_proyecto = rset2.getString(1);
+				System.out.println(cod_proyecto);
+			} else {
+				flag = false;
+			}
+			// Cerramos cosas
+			pstmt2.close();
+			rset2.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		String query3 = "INSERT INTO ProyectoIntegrador_Alumno (cod_alumno, cod_proyecto) VALUES (?, ?)";
+		int resultado = 0;
+		try {
+			PreparedStatement pstmt3 = con.prepareStatement(query3);
+			pstmt3.setString(1, cod_alumno);
+			pstmt3.setString(2, cod_proyecto);
+			resultado = pstmt3.executeUpdate();
+			System.out.println(pstmt3);
+			// Cerramos cosas
+			pstmt3.close();
+			flag = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return flag;
 	}
 
 }

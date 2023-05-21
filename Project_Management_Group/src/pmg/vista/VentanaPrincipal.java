@@ -38,6 +38,7 @@ public class VentanaPrincipal extends JFrame {
 	private JMenuItem area_edicion;
 	private JScrollPane scrpContenedor;
 	private ImageIcon logo;
+	private JMenuItem pi_asociar;
 	
 	JMenuItem ayudaMenuItem;
 	
@@ -101,6 +102,9 @@ public class VentanaPrincipal extends JFrame {
 	
 	public JMenuItem getArea_edicion() {
 		return area_edicion;
+	}
+	public JMenuItem getPi_asociar() {
+		return pi_asociar;
 	}
 	
 	/**
@@ -167,6 +171,9 @@ public class VentanaPrincipal extends JFrame {
 		pi_consulta = new JMenuItem("Consultar");
 		mnPI.add(pi_consulta);
 		
+		pi_asociar = new JMenuItem("Asociar alumno");
+		mnPI.add(pi_asociar);
+		
 		//Creamos el otro JMenu de Alumnos
 		mnAlumnos = new JMenu("Alumnos");
 		menuBar.add(mnAlumnos);
@@ -216,6 +223,7 @@ public class VentanaPrincipal extends JFrame {
 		pi_baja.addActionListener(listener);
 		pi_edicion.addActionListener(listener);
 		pi_consulta.addActionListener(listener);
+		pi_asociar.addActionListener(listener);
 		alumnos_alta.addActionListener(listener);
 		alumnos_baja.addActionListener(listener);
 		alumnos_edicion.addActionListener(listener);

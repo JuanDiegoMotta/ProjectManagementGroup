@@ -26,6 +26,7 @@ public class ListenerMenu implements ActionListener {
 	private VentanaArea_Baja VAr_baja;
 	private VentanaArea_Edicion VAr_edicion;
 	private VentanaAyuda Vay;
+	private VentanaPI_Asociar vpiaso;
 	
 	/**
 	 * Constructor de ListenerMenu con las ventanas correspondientes para cada opción del menú.
@@ -47,7 +48,7 @@ public class ListenerMenu implements ActionListener {
 	public ListenerMenu(VentanaPrincipal vPpal, VentanaPI_Alta vPI_alta, VentanaPI_Baja vPI_baja, VentanaPI_Consulta vPI_consulta,
 			VentanaPI_Edicion vPI_edicion, VentanaAlumnos_Alta vAl_alta, VentanaAlumnos_Baja vAl_baja,
 			VentanaAlumnos_Consulta vAl_consulta, VentanaAlumnos_Edicion vAl_edicion, VentanaArea_Alta vAr_alta,
-			VentanaArea_Baja vAr_baja, VentanaArea_Edicion vAr_edicion, VentanaAyuda vAy) {
+			VentanaArea_Baja vAr_baja, VentanaArea_Edicion vAr_edicion, VentanaAyuda vAy, VentanaPI_Asociar vpiaso) {
 		super();
 		VPpal = vPpal;
 		VPI_alta = vPI_alta;
@@ -62,6 +63,8 @@ public class ListenerMenu implements ActionListener {
 		VAr_baja = vAr_baja;
 		VAr_edicion = vAr_edicion;
 		Vay = vAy;
+		this.vpiaso = vpiaso;
+		
 	}
 
 	/**
@@ -84,7 +87,12 @@ public class ListenerMenu implements ActionListener {
 		    } else if (source == VPpal.getPi_consulta()) {
 		    	VPI_consulta.hacerVisible(); // Mostrar la ventana VentanaPI_Consulta
 		        VPpal.dispose();
-		    } else if (source == VPpal.getAlumnos_alta()) {
+		    } else if (source == VPpal.getPi_asociar()) {
+		    	vpiaso.hacerVisible(); // Mostrar la ventana VentanaPI_Consulta
+		        VPpal.dispose();
+		    } 
+		    
+		    else if (source == VPpal.getAlumnos_alta()) {
 		        VAl_alta.hacerVisible(); // Mostrar la ventana VentanaAlumnos_Alta
 		        VPpal.dispose();
 		    } else if (source == VPpal.getAlumnos_baja()) {
