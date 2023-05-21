@@ -195,7 +195,7 @@ public class VentanaPI_Edicion extends JFrame {
 		lblAviso.setBounds(172, 310, 237, 14);
 		getContentPane().add(lblAviso);
 
-
+	}
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 * 

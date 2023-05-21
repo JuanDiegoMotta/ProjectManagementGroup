@@ -49,18 +49,18 @@ public class VentanaPrincipal extends JFrame {
 		return ayudaMenuItem;
 	}
 
-
 	/**
 	 * Constructor con parámetros de VentanaPrincipal
+	 * 
 	 * @param titulo titulo de la ventana principal
 	 */
 	public VentanaPrincipal() {
 		getContentPane().setBackground(Color.decode("#A9B2AC"));
 //		super(titulo);
-		inicializarComponentes();	
+		inicializarComponentes();
 	}
-	
-	//Getters de los MenuItems que se usarán en el controlador ListenerMenu
+
+	// Getters de los MenuItems que se usarán en el controlador ListenerMenu
 	public JMenuItem getMnAyuda() {
 		return mnAyuda;
 	}
@@ -111,16 +111,6 @@ public class VentanaPrincipal extends JFrame {
 
 	public JMenuItem getPi_asociar() {
 		return pi_asociar;
-	}
-
-	/**
-	 * Constructor con parámetros de VentanaPrincipal
-	 * 
-	 * @param titulo titulo de la ventana principal
-	 */
-	public VentanaPrincipal() {
-//		super(titulo);
-		inicializarComponentes();
 	}
 
 	/**
@@ -224,7 +214,7 @@ public class VentanaPrincipal extends JFrame {
 		alumnos_edicion.setBackground(Color.decode("#898980"));
 		mnAlumnos.add(alumnos_edicion);
 
-		alumnos_consulta= new JMenuItem("Consultar");
+		alumnos_consulta = new JMenuItem("Consultar");
 		alumnos_consulta.setForeground(new Color(255, 255, 255));
 		alumnos_consulta.setBackground(Color.decode("#898980"));
 		mnAlumnos.add(alumnos_consulta);
