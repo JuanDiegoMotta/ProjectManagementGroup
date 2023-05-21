@@ -3,6 +3,7 @@
  */
 package pmg.vista;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 
@@ -41,6 +42,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 	 */
 	public VentanaAlumnos_Alta(String titulo) {
 		super(titulo);
+		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 	}
 
@@ -67,39 +69,39 @@ public class VentanaAlumnos_Alta extends JFrame {
 
 		// Inicializamos y situamos los JComponent
 		lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(183, 20, 100, 30);
+		lblNombre.setBounds(179, 67, 100, 30);
 		lblNombre.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(lblNombre);
 
 		txtNombre = new JTextField();
-		txtNombre.setBounds(270, 27, 137, 20);
+		txtNombre.setBounds(270, 74, 137, 25);
 		getContentPane().add(txtNombre);
 
 		lblApellido = new JLabel("Apellido:");
-		lblApellido.setBounds(183, 62, 70, 30);
+		lblApellido.setBounds(179, 108, 70, 30);
 		lblApellido.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(lblApellido);
 
 		txtApellido = new JTextField();
-		txtApellido.setBounds(270, 69, 137, 20);
+		txtApellido.setBounds(270, 115, 137, 25);
 		getContentPane().add(txtApellido);
 
 		lblNumExp = new JLabel("Numero Expediente:");
-		lblNumExp.setBounds(109, 101, 156, 30);
+		lblNumExp.setBounds(102, 153, 156, 30);
 		lblNumExp.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(lblNumExp);
 
 		txtNumExp = new JTextField();
-		txtNumExp.setBounds(270, 108, 138, 20);
+		txtNumExp.setBounds(269, 160, 138, 25);
 		getContentPane().add(txtNumExp);
 
 		lblArea = new JLabel("Área:");
-		lblArea.setBounds(206, 142, 42, 30);
+		lblArea.setBounds(202, 200, 42, 30);
 		lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(lblArea);
 
 		lblCod = new JLabel("");
-		lblCod.setBounds(152, 197, 321, 30);
+		lblCod.setBounds(124, 241, 321, 30);
 		getContentPane().add(lblCod);
 
 		cmbxArea = new JComboBox<String>();
@@ -107,17 +109,19 @@ public class VentanaAlumnos_Alta extends JFrame {
 		cmbxArea.addItem("DAM");
 		cmbxArea.addItem("ASIR");
 		cmbxArea.addItem("A3DV");
-		cmbxArea.setBounds(270, 149, 138, 20);
+		cmbxArea.setBounds(270, 207, 138, 25);
 		getContentPane().add(cmbxArea);
 
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
 
 		// Creamos botón alta y lo agregamos a la ventana
 		btnAlta = new JButton("ALTA");
+		btnAlta.setBackground(Color.decode("#BCD0C7"));
 		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAlta.setBounds(419, 300, 120, 30);
 		getContentPane().add(btnAlta);

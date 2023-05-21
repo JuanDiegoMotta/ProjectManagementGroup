@@ -34,6 +34,7 @@ public class VentanaArea_Alta extends JFrame {
 	 */
 	public VentanaArea_Alta(String titulo) {
 		super(titulo);
+		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 
 	}
@@ -61,7 +62,7 @@ public class VentanaArea_Alta extends JFrame {
 
 		// Se agrega nombreCorto
 		nombreCorto = new JTextField();
-		nombreCorto.setBounds(282, 81, 131, 22);
+		nombreCorto.setBounds(282, 81, 131, 25);
 		getContentPane().add(nombreCorto);
 
 		// Se agrega LNombre
@@ -82,25 +83,27 @@ public class VentanaArea_Alta extends JFrame {
 		getContentPane().add(descripcion);
 
 //		Se agrega mensaje
-		mensaje = new JLabel("Aquí irá el mensaje de que el código ha sigo generado");
+		mensaje = new JLabel("");
 		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		mensaje.setBounds(94, 234, 413, 22);
+		mensaje.setBounds(182, 229, 254, 22);
 		getContentPane().add(mensaje);
 
 //		Se agrega aviso
-		aviso = new JLabel("Aquí irá el mensaje de la BBDD");
+		aviso = new JLabel("");
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		aviso.setBounds(94, 256, 413, 22);
+		aviso.setBounds(199, 252, 214, 22);
 		getContentPane().add(aviso);
 
 //		Se agrega el botón de atrás
 		atras = new JButton("ATRÁS");
+		atras.setBackground(Color.decode("#BCD0C7"));
 		atras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		atras.setBounds(52, 300, 120, 30);
 		getContentPane().add(atras);
 
 //		Se agrega el botón de alta
 		alta = new JButton("ALTA");
+		alta.setBackground(Color.decode("#BCD0C7"));
 		alta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		alta.setBounds(419, 300, 120, 30);
 		getContentPane().add(alta);

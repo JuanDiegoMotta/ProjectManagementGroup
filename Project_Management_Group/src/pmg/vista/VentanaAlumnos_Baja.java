@@ -10,6 +10,7 @@ import javax.swing.*;
 
 import pmg.controlador.ListenerBotonAtras;
 import pmg.controlador.ListenerBotonBaja;
+import pmg.controlador.ListenerInterrog;
 
 /**
  * @author juanm
@@ -42,6 +43,7 @@ public class VentanaAlumnos_Baja extends JFrame {
 	 */
 	public VentanaAlumnos_Baja(String titulo) {
 		super(titulo);
+		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 	}
 
@@ -85,6 +87,7 @@ public class VentanaAlumnos_Baja extends JFrame {
 
 		// Creamos botón para borrar el alumno
 		btnBorrar = new JButton();
+		btnBorrar.setBackground(Color.decode("#BCD0C7"));
 		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnBorrar.setBounds(249, 144, 54, 48);
 		getContentPane().add(btnBorrar);
@@ -93,6 +96,7 @@ public class VentanaAlumnos_Baja extends JFrame {
 
 		// Creamos botón para la consulta de alumnos
 		btnConsulta = new JButton("?");
+		btnConsulta.setBackground(Color.decode("#BCD0C7"));
 		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnConsulta.setBounds(91, 227, 46, 36);
 		getContentPane().add(btnConsulta);
@@ -100,11 +104,12 @@ public class VentanaAlumnos_Baja extends JFrame {
 		// Se agrega la etiqueta de la consulta de alumnos
 		lblConsulta = new JLabel("¿Quieres consultar los alumnos existentes?");
 		lblConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblConsulta.setBounds(143, 227, 353, 36);
+		lblConsulta.setBounds(157, 227, 353, 36);
 		getContentPane().add(lblConsulta);
 
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(42, 300, 100, 30);
 		getContentPane().add(btnAtras);
@@ -138,9 +143,10 @@ public class VentanaAlumnos_Baja extends JFrame {
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba, ListenerBotonBaja bb) {
+	public void setControlador(ListenerBotonAtras ba, ListenerBotonBaja bb, ListenerInterrog bc) {
 		btnAtras.addActionListener(ba);
 		btnBorrar.addActionListener(bb);
+		btnConsulta.addActionListener(bc);
 	}
 
 	/**
@@ -162,6 +168,10 @@ public class VentanaAlumnos_Baja extends JFrame {
 	 */
 	public JLabel getAviso() {
 		return aviso;
+	}
+
+	public JButton getBtnConsulta() {
+		return btnConsulta;
 	}
 
 }

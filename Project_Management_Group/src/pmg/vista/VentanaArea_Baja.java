@@ -43,6 +43,7 @@ public class VentanaArea_Baja extends JFrame {
 	 */
 	public VentanaArea_Baja(String titulo) {
 		super(titulo);
+		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 	}
 
@@ -81,11 +82,12 @@ public class VentanaArea_Baja extends JFrame {
 
 		// Se agrega el area de texto para introducir el código
 		txtNombreCorto = new JTextField();
-		txtNombreCorto.setBounds(192, 113, 174, 22);
+		txtNombreCorto.setBounds(192, 113, 174, 25);
 		getContentPane().add(txtNombreCorto);
 
 		// Creamos botón para borrar el área
 		btnBorrar = new JButton();
+		btnBorrar.setBackground(Color.decode("#BCD0C7"));
 		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnBorrar.setBounds(250, 152, 54, 48);
 		getContentPane().add(btnBorrar);
@@ -94,11 +96,12 @@ public class VentanaArea_Baja extends JFrame {
 
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
 
-		aviso = new JLabel("Texto aviso");
+		aviso = new JLabel("");
 		aviso.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso.setBounds(88, 248, 385, 14);
 		getContentPane().add(aviso);

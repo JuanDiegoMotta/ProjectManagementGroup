@@ -64,16 +64,18 @@ public class Main {
 				// Listener del botón que hace retroceder la pantalla en la que estamos
 				// situados.
 				ListenerBotonAtras lba = new ListenerBotonAtras(vp, vala, vab, vae, vac, vara, varb, vare, vay, vpia,
-						vpib, vpie, vpic);
+						vpib, vpie, vpic, vpiaso);
 				// Creamos listener botón alta
 				ListenerBotonAlta lbal = new ListenerBotonAlta(vala, vara, vpia);
 
 				ListenerBotonBaja lbb = new ListenerBotonBaja(vab, varb, vpib);
 
 				ListenerConsultas lc = new ListenerConsultas(vac, vpic, vpiaso, vpic);
+				
+				ListenerInterrog lin = new ListenerInterrog(vab, vac, vpib, vpic);
 				// Controladores de las ventanas
 				vala.setControlador(lba, lbal);
-				vab.setControlador(lba, lbb);
+				vab.setControlador(lba, lbb, lin);
 				vae.setControlador(lba);
 				vac.setControlador(lba, lc);
 				vara.setControlador(lba, lbal);
@@ -81,7 +83,7 @@ public class Main {
 				vare.setControlador(lba);
 				vay.setControlador(lba);
 				vpia.setControlador(lba, lbal);
-				vpib.setControlador(lba, lbb);
+				vpib.setControlador(lba, lbb, lin);
 				vpie.setControlador(lba);
 				vpic.setControlador(lba, lc);
 				vl.setControlador(lb);

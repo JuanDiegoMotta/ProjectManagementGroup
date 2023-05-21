@@ -44,6 +44,7 @@ public class VentanaPI_Alta extends JFrame {
 
 	public VentanaPI_Alta(String titulo) {
 		super(titulo);
+		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 	}
 
@@ -71,7 +72,7 @@ public class VentanaPI_Alta extends JFrame {
 		// Inicializamos y situamos los JComponent
 		lblGrupo = new JLabel("Nombre del grupo:");
 		lblGrupo.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblGrupo.setBounds(133, 22, 130, 30);
+		lblGrupo.setBounds(133, 25, 130, 30);
 		getContentPane().add(lblGrupo);
 
 		lblCurso = new JLabel("Curso:");
@@ -91,7 +92,7 @@ public class VentanaPI_Alta extends JFrame {
 
 		lblAno = new JLabel("Año:");
 		lblAno.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblAno.setBounds(221, 182, 42, 30);
+		lblAno.setBounds(226, 182, 37, 30);
 		getContentPane().add(lblAno);
 
 		lblArea = new JLabel("Área:");
@@ -99,18 +100,19 @@ public class VentanaPI_Alta extends JFrame {
 		lblArea.setBounds(221, 223, 37, 30);
 		getContentPane().add(lblArea);
 
-		lblCod = new JLabel("Aquí iría el código generado automáticamente (al pulsar el botón)");
-		lblCod.setForeground(new Color(192, 192, 192));
+		lblCod = new JLabel("");
+		lblCod.setForeground(new Color(0, 0, 0));
+		lblCod.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblCod.setBounds(133, 264, 321, 30);
 		getContentPane().add(lblCod);
 
 		txtNombre = new JTextField();
-		txtNombre.setBounds(320, 22, 100, 30);
+		txtNombre.setBounds(296, 32, 211, 25);
 		getContentPane().add(txtNombre);
 
 		spnrCurso = new JSpinner();
 		spnrCurso.setModel(new SpinnerNumberModel(1, 1, 2, 1));
-		spnrCurso.setBounds(320, 102, 30, 30);
+		spnrCurso.setBounds(296, 109, 60, 25);
 		getContentPane().add(spnrCurso);
 
 //		listAlumnos = new JList<Alumno>();
@@ -127,7 +129,7 @@ public class VentanaPI_Alta extends JFrame {
 
 		spnrNota = new JSpinner();
 		spnrNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spnrNota.setBounds(320, 143, 30, 30);
+		spnrNota.setBounds(296, 148, 60, 25);
 		getContentPane().add(spnrNota);
 
 		cmbxAno = new JComboBox<String>();
@@ -151,7 +153,7 @@ public class VentanaPI_Alta extends JFrame {
 		cmbxAno.addItem("2040");
 		cmbxAno.addItem("2041");
 		cmbxAno.addItem("2042");
-		cmbxAno.setBounds(309, 184, 40, 30);
+		cmbxAno.setBounds(296, 189, 60, 25);
 		getContentPane().add(cmbxAno);
 
 		cmbxArea = new JComboBox<String>();
@@ -161,16 +163,18 @@ public class VentanaPI_Alta extends JFrame {
 		cmbxArea.addItem("A3DV");
 		// TODO Cuando se añada un área nueva, ésta se tiene que añadir automáticamente
 		// a este cmbx
-		cmbxArea.setBounds(309, 225, 60, 30);
+		cmbxArea.setBounds(296, 230, 60, 25);
 		getContentPane().add(cmbxArea);
 
-		btnAtras = new JButton("Atrás");
+		btnAtras = new JButton("ATRÁS");
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setBounds(42, 300, 120, 30);
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
 		getContentPane().add(btnAtras);
 
-		btnAlta = new JButton("Alta");
+		btnAlta = new JButton("ALTA");
+		btnAlta.setBackground(Color.decode("#BCD0C7"));
 		btnAlta.setBounds(419, 300, 120, 30);
 		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
@@ -182,12 +186,13 @@ public class VentanaPI_Alta extends JFrame {
 		getContentPane().add(lblURL);
 
 		txtURL = new JTextField();
-		txtURL.setBounds(320, 71, 200, 20);
+		txtURL.setBounds(296, 70, 211, 25);
 		getContentPane().add(txtURL);
 		txtURL.setColumns(10);
 
-		lblAviso = new JLabel("New label");
-		lblAviso.setBounds(274, 310, 46, 14);
+		lblAviso = new JLabel("");
+		lblAviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		lblAviso.setBounds(221, 295, 169, 40);
 		getContentPane().add(lblAviso);
 
 	}
@@ -198,7 +203,7 @@ public class VentanaPI_Alta extends JFrame {
 
 		for (JTextField textField : textFields) {
 			if (textField.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Faltan campos por comletar");
+				JOptionPane.showMessageDialog(null, "Faltan campos por completar");
 				return null; // Si hay un campo vacío, retornamos null o puedes manejarlo de otra manera
 								// según tu lógica
 			}

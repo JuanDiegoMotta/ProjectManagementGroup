@@ -13,6 +13,7 @@ import pmg.vista.VentanaArea_Edicion;
 import pmg.vista.VentanaAyuda;
 import pmg.vista.VentanaLogIn;
 import pmg.vista.VentanaPI_Alta;
+import pmg.vista.VentanaPI_Asociar;
 import pmg.vista.VentanaPI_Baja;
 import pmg.vista.VentanaPI_Consulta;
 import pmg.vista.VentanaPI_Edicion;
@@ -36,6 +37,7 @@ public class ListenerBotonAtras implements ActionListener {
 	private VentanaPI_Baja vpib;
 	private VentanaPI_Edicion vpie;
 	private VentanaPI_Consulta vpic;
+	private VentanaPI_Asociar vpias;
 	
 	
 	/**
@@ -46,7 +48,7 @@ public class ListenerBotonAtras implements ActionListener {
 	public ListenerBotonAtras(
 			VentanaPrincipal vp, VentanaAlumnos_Alta vala, VentanaAlumnos_Baja vab, VentanaAlumnos_Edicion vae, 
 			VentanaAlumnos_Consulta vac, VentanaArea_Alta vara, VentanaArea_Baja varb, VentanaArea_Edicion vare,
-			VentanaAyuda vay, VentanaPI_Alta vpia, VentanaPI_Baja vpib, VentanaPI_Edicion vpie, VentanaPI_Consulta vpic) {
+			VentanaAyuda vay, VentanaPI_Alta vpia, VentanaPI_Baja vpib, VentanaPI_Edicion vpie, VentanaPI_Consulta vpic, VentanaPI_Asociar vpias) {
 		this.vp = vp;
 		this.vala = vala;
 		this.vab = vab;
@@ -60,6 +62,7 @@ public class ListenerBotonAtras implements ActionListener {
 		this.vpib = vpib;
 		this.vpie = vpie;
 		this.vpic = vpic;
+		this.vpias = vpias;
 	}
 	
 	/**
@@ -82,6 +85,7 @@ public class ListenerBotonAtras implements ActionListener {
 		vpib.dispose();
 		vpie.dispose();
 		vpic.dispose();
+		vpias.dispose();
 		vp.setVisible(true);
 	}
 
