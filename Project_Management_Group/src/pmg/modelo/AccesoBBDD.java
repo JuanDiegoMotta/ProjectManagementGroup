@@ -437,6 +437,35 @@ public class AccesoBBDD {
 		return alumnos;
 	}
 
+	public ArrayList<ProyectoIntegrador> getProyetos(Connection con, String area) {
+		String query = "SELECT * FROM ProyectoIntegrador WHERE nc_area = ?";
+		ResultSet rset;
+		ArrayList<ProyectoIntegrador> proyectos = new ArrayList<ProyectoIntegrador>();
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, area);
+			rset = pstmt.executeQuery();
+			while (rset.next()) {
+				String año = rset.getString(1);
+				String curso = rset.getString(2);
+				String nota = rset.getString(3);
+				String cod_proyecto = rset.getString(4);
+				String nombre = rset.getString(5);
+				String url = rset.getString(6);
+				String nc_area = rset.getString(7);
+				proyectos.add(new ProyectoIntegrador(año, curso, nota, cod_proyecto, nombre, url, nc_area));
+			}
+			// Cerramos cosas
+			rset.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return proyectos;
+
+	}
+
 	public boolean asociarAlumno(Connection con, String nombreA, String nombreP) {
 		boolean flag = false;
 		System.out.println(nombreA);

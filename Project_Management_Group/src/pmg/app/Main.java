@@ -70,7 +70,7 @@ public class Main {
 
 				ListenerBotonBaja lbb = new ListenerBotonBaja(vab, varb, vpib);
 
-				ListenerConsultas lc = new ListenerConsultas(vac, vpic, vpiaso);
+				ListenerConsultas lc = new ListenerConsultas(vac, vpic, vpiaso, vpic);
 				// Controladores de las ventanas
 				vala.setControlador(lba, lbal);
 				vab.setControlador(lba, lbb);
@@ -83,7 +83,7 @@ public class Main {
 				vpia.setControlador(lba, lbal);
 				vpib.setControlador(lba, lbb);
 				vpie.setControlador(lba);
-				vpic.setControlador(lba);
+				vpic.setControlador(lba, lc);
 				vl.setControlador(lb);
 
 				// Controlador del Menu
