@@ -14,11 +14,10 @@ import pmg.controlador.*;
 import pmg.modelo.*;
 
 /**
- * @author jburg
+ * Clase de la ventana gráfica Proyecto Integrador que consulta los proyectos
+ * según las áreas.
  * 
- *         Clase de la ventana gráfica Proyecto Integrador que consulta los
- *         proyectos según las áreas.
- *
+ * @author jburg
  */
 public class VentanaPI_Consulta extends JFrame {
 
@@ -30,6 +29,7 @@ public class VentanaPI_Consulta extends JFrame {
 	private DefaultTableModel tableModel;
 	private JButton btnAtras;
 
+	// Getters necesarios
 	public JComboBox<String> getAreasPi() {
 		return areasPi;
 	}
@@ -126,7 +126,7 @@ public class VentanaPI_Consulta extends JFrame {
 			tableModel.addColumn("Cod_proyecto");
 			tableModel.addColumn("nc_area");
 			tableModel.addColumn("Url");
-
+			// Especificamos el tamaño de las columnas
 			tblPi.getColumn("Nombre").setPreferredWidth(85);
 			tblPi.getColumn("Curso").setPreferredWidth(55);
 			tblPi.getColumn("Año").setPreferredWidth(45);
@@ -140,7 +140,7 @@ public class VentanaPI_Consulta extends JFrame {
 		tableModel.setRowCount(0);
 
 		for (ProyectoIntegrador pi : proyectos) {
-			Object[] fila = new Object[7];
+			Object[] fila = new Object[7]; // Creamos un objeto con el número de columnas
 			fila[0] = pi.getNombre();
 			fila[1] = pi.getCurso();
 			fila[2] = pi.getAño();
@@ -154,11 +154,13 @@ public class VentanaPI_Consulta extends JFrame {
 
 	/**
 	 * Método encargado de agregar un controlador a la ventana
+	 * 
+	 * @param ba Clase ListenerBotonAtras
+	 * @param lc Clase ListenerConsultas
 	 */
 	public void setControlador(ListenerBotonAtras ba, ListenerConsultas lc) {
 		btnAtras.addActionListener(ba);
 		areasPi.addItemListener(lc);
-
 	}
 
 }

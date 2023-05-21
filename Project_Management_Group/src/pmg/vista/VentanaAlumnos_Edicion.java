@@ -17,6 +17,7 @@ import pmg.controlador.*;
  * Clase de la ventana gráfica Alumnos que edita al alumno según su código.
  *
  */
+
 public class VentanaAlumnos_Edicion extends JFrame {
 	//Labels
 		private JLabel lblNombre;
@@ -33,7 +34,7 @@ public class VentanaAlumnos_Edicion extends JFrame {
 		private JButton btnGuardar;
 		private JButton btnRellenar;
 		private ImageIcon rellenar;
-		
+
 		//Getters necesarios
 		public JButton getBtnGuardar() {
 			return btnGuardar;
@@ -72,6 +73,9 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			inicializarComponentes();
 		}
 		
+		/**
+		 * Método encargado de inicializar todos los componentes de la ventana
+		 */
 		public void inicializarComponentes() {
 			//Configuramos layout a absoluto
 			getContentPane().setLayout(null);
@@ -80,30 +84,35 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			setSize(600,400);
 			setLocationRelativeTo(null);
 			
+
 			//Inicializamos y situamos los JComponent
 			lblNombre = new JLabel("Nombre y apellido:");
 			lblNombre.setBounds(107, 114, 131, 30);
 			lblNombre.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			getContentPane().add(lblNombre);
 			
+			// Creamos txtNombre
 			txtNombre = new JTextField();
 			txtNombre.setBounds(270, 121, 137, 20);
 			getContentPane().add(txtNombre);
-			
+
 			lblNumExp = new JLabel("Numero Expediente:");
 			lblNumExp.setBounds(107, 154, 156, 30);
 			lblNumExp.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			getContentPane().add(lblNumExp);
 			
+			// Creamos txtNumExt
 			txtNumExp = new JTextField();
 			txtNumExp.setBounds(268, 162, 138, 20);
 			getContentPane().add(txtNumExp);
 			
+			// Creamos lblArea
 			lblArea = new JLabel("Área:");
 			lblArea.setBounds(210,189, 42, 30);
 			lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			getContentPane().add(lblArea);
 			
+			// Creamos el JComboBox cmbxArea y le añadimos los datos
 			lblCod = new JLabel("Introduce el código:");
 			lblCod.setBounds(107, 73, 137, 30);
 			lblCod.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -127,6 +136,7 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			btnAtras.setBounds(52, 300, 120, 30);
 			getContentPane().add(btnAtras);
 			
+
 			// Creamos botón alta y lo agregamos a la ventana
 			btnGuardar = new JButton("GUARDAR");
 			btnGuardar.setFont(new Font("Segoe UI", Font.BOLD, 14));
