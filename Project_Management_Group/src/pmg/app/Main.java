@@ -86,7 +86,7 @@ public class Main {
 				vay.setControlador(lba);
 				vpia.setControlador(lba, lbal);
 				vpib.setControlador(lba, lbb, lin);
-				vpie.setControlador(lba);
+				vpie.setControlador(lba, lm);
 				vpic.setControlador(lba, lc);
 				vl.setControlador(lb);
 
