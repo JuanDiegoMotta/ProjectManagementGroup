@@ -21,7 +21,6 @@ public class AccesoBBDD {
 	/**
 	 * Constructor de la clase AccesoBBDD
 	 * 
-	 * @param dat
 	 */
 	public AccesoBBDD() {
 	}
@@ -29,7 +28,7 @@ public class AccesoBBDD {
 	/**
 	 * Método encargado de crear la conexión con la base de datos
 	 * 
-	 * @return conection
+	 * @return conection Devuelve la conexión a la base de datos
 	 */
 	public Connection getConexion() {
 
@@ -256,11 +255,9 @@ public class AccesoBBDD {
 		int resultado = 0;
 		try {
 			pstmt = con.prepareStatement(query);
-			// Rellenamos la query con los datos correspondientes
-			pstmt.setString(1, cod);
+			pstmt.setString(1, cod);// Rellenamos la query con los datos correspondientes
 			resultado = pstmt.executeUpdate();
-			// Imprimimos la query ejecutada
-			System.out.println(pstmt);
+			System.out.println(pstmt);// Imprimimos la query ejecutada
 			// cerramos cosas
 			pstmt.close();
 		} catch (SQLException e) {
@@ -412,40 +409,59 @@ public class AccesoBBDD {
 		return flag;
 	}
 
+	/**
+	 * Método encargado de guardar un un ArrayList de objeto Alumno con todos los
+	 * atributos de dicho objeto pero solo en los que el alumno sea del área
+	 * selecionada
+	 * 
+	 * @param con  Instancia de una conexión a la base de datos
+	 * @param area nombre (String) de el área que haya selecionado el usuario
+	 * @return El ArrayList que hemos rellenado con el select
+	 */
 	public ArrayList<Alumno> getAlumnos(Connection con, String area) {
-		String query = "SELECT * FROM ALUMNO WHERE AREA = ?";
-		ResultSet rset;
-		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+		String query = "SELECT * FROM ALUMNO WHERE AREA = ?"; // Creamso la query
+		ResultSet rset; // Inicializamos el ResultSet
+		ArrayList<Alumno> alumnos = new ArrayList<Alumno>(); // Creamos el ArrayList
 		try {
-			PreparedStatement pstmt = con.prepareStatement(query);
+			PreparedStatement pstmt = con.prepareStatement(query); // Creamos el PreparedStatement y le damos un valor
 			pstmt.setString(1, area);
-			rset = pstmt.executeQuery();
-			while (rset.next()) {
+			rset = pstmt.executeQuery(); // Ejecutamos la query
+			while (rset.next()) { // Mientras hay un siguiente resulado que vaya guardando el las variables los
+									// resultados
 				String exp = rset.getString(1);
 				String nombre = rset.getString(2);
 				String cod = rset.getString(3);
 				String nc_area = rset.getString(4);
-				alumnos.add(new Alumno(exp, nombre, cod, nc_area));
+				alumnos.add(new Alumno(exp, nombre, cod, nc_area)); // Añadimos las variables al ArrayList
 			}
 			// cerramos cosas
 			rset.close();
 			pstmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return alumnos;
 	}
 
+	/**
+	 * Método encargado de guardar en un ArrayList de objeto ProyectoIntegrador con
+	 * todos los atributos de dicho objeto pero solo en los que el alumno sea del
+	 * área selecionada
+	 * 
+	 * @param con  Instancia de una conexión a la base de datos
+	 * @param area nombre (String) de el área que haya selecionado el usuario
+	 * @return El ArrayList que hemos rellenado con el select
+	 */
 	public ArrayList<ProyectoIntegrador> getProyetos(Connection con, String area) {
-		String query = "SELECT * FROM ProyectoIntegrador WHERE nc_area = ?";
-		ResultSet rset;
-		ArrayList<ProyectoIntegrador> proyectos = new ArrayList<ProyectoIntegrador>();
+		String query = "SELECT * FROM ProyectoIntegrador WHERE nc_area = ?"; // Creamos la query
+		ResultSet rset; // Inicializamos el ResultSet
+		ArrayList<ProyectoIntegrador> proyectos = new ArrayList<ProyectoIntegrador>(); // Creamos el ArrayList
 		try {
-			PreparedStatement pstmt = con.prepareStatement(query);
+			PreparedStatement pstmt = con.prepareStatement(query); // Creamos el PreparedStatement y le damos valor
 			pstmt.setString(1, area);
-			rset = pstmt.executeQuery();
-			while (rset.next()) {
+			rset = pstmt.executeQuery(); // Ejecutamos la query
+			while (rset.next()) { // Mientras hay un siguiente resulado que vaya guardando el las variables los
+									// resultados
 				String año = rset.getString(1);
 				String curso = rset.getString(2);
 				String nota = rset.getString(3);
@@ -459,27 +475,35 @@ public class AccesoBBDD {
 			rset.close();
 			pstmt.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return proyectos;
-
 	}
 
+	/**
+	 * Método encargado de asociar al alumno que le pasamos como parámetro con el
+	 * proyecto que le pasamos por parámetro. Como lo que pasamos como parámetro son
+	 * los nombres, tenemos que hacer un select tanto al nombre del alumno, como al
+	 * nombre del proyecto para poder conseguir los códigos con lo que ya si que
+	 * podremos hacer el insert en la tabla que los une
+	 * 
+	 * @param con     Instancia de una conexión a la base de datos
+	 * @param nombreA Nombre (String) de el nombre de el alumno
+	 * @param nombreP Nombre (String) de el nombre de el proyectoIntegrador
+	 * @return
+	 */
 	public boolean asociarAlumno(Connection con, String nombreA, String nombreP) {
-		boolean flag = false;
-		System.out.println(nombreA);
-		String query1 = "SELECT cod_alumno FROM Alumno WHERE nombre_ape = ?";
-		ResultSet rset1 = null;
-		String cod_alumno = null;
+		boolean flag = false; // Creamos la flag
+		String query1 = "SELECT cod_alumno FROM Alumno WHERE nombre_ape = ?";// Creamos la query1
+		ResultSet rset1 = null; // Creamos el ResultSet1
+		String cod_alumno = null;// Creamos el cod_alumno
 		try {
-			PreparedStatement pstmt1 = con.prepareStatement(query1);
+			PreparedStatement pstmt1 = con.prepareStatement(query1);// Creamos el PreparedStatement y le damos valor
 			pstmt1.setString(1, nombreA);
-			rset1 = pstmt1.executeQuery();
+			rset1 = pstmt1.executeQuery();// Ejecutamos la query
 			if (rset1.next()) {
-				cod_alumno = rset1.getString("cod_alumno");
-				System.out.println(cod_alumno);
-
+				cod_alumno = rset1.getString("cod_alumno");// Guardamos el cod_alumno el valor que nos devuelve la
+															// query1
 			} else {
 				flag = false;
 			}
@@ -488,17 +512,15 @@ public class AccesoBBDD {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(nombreP);
-		String query2 = "SELECT cod_proyecto FROM ProyectoIntegrador WHERE nombre = ?";
-		ResultSet rset2 = null;
-		String cod_proyecto = null;
+		String query2 = "SELECT cod_proyecto FROM ProyectoIntegrador WHERE nombre = ?";// Creamos la query2
+		ResultSet rset2 = null;// Creamos el ResultSet2
+		String cod_proyecto = null;// Creamos cod_proyecto
 		try {
-			PreparedStatement pstmt2 = con.prepareStatement(query2);
+			PreparedStatement pstmt2 = con.prepareStatement(query2);// Creamos el PreparedStatement y le damos valor
 			pstmt2.setString(1, nombreP);
-			rset2 = pstmt2.executeQuery();
+			rset2 = pstmt2.executeQuery();// Ejecutamos la query2
 			if (rset2.next()) {
-				cod_proyecto = rset2.getString(1);
-				System.out.println(cod_proyecto);
+				cod_proyecto = rset2.getString(1);// Guardamos en cod_proyeto el resultado de la query
 			} else {
 				flag = false;
 			}
@@ -509,13 +531,14 @@ public class AccesoBBDD {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		String query3 = "INSERT INTO ProyectoIntegrador_Alumno (cod_alumno, cod_proyecto) VALUES (?, ?)";
-		int resultado = 0;
+		String query3 = "INSERT INTO ProyectoIntegrador_Alumno (cod_alumno, cod_proyecto) VALUES (?, ?)";// Creamos la
+																											// query3
+		int resultado = 0;// Creamos resultado
 		try {
-			PreparedStatement pstmt3 = con.prepareStatement(query3);
+			PreparedStatement pstmt3 = con.prepareStatement(query3);// Creamos el PreparedStatement y le damos valor
 			pstmt3.setString(1, cod_alumno);
 			pstmt3.setString(2, cod_proyecto);
-			resultado = pstmt3.executeUpdate();
+			resultado = pstmt3.executeUpdate();// Ejecutamos la query3
 			System.out.println(pstmt3);
 			// Cerramos cosas
 			pstmt3.close();
@@ -527,16 +550,24 @@ public class AccesoBBDD {
 		return flag;
 	}
 
+	/**
+	 * Método encargado de hacer el update en la tabla Area con los nuevos datos que
+	 * haya creado el usuario
+	 * 
+	 * @param con          Instancia de una conexión a la base de datos
+	 * @param nombre_corto Nombre corto (String) de la área
+	 * @param descripcion  Descripción (String) de la área
+	 * @return Devuelve
+	 */
 	public boolean edicionArea(Connection con, String nombre_corto, String descripcion) {
-		
-		String query = "UPDATE AREA SET descripcion = ? WHERE nombre_corto = ?";
-		int resultado = 0;
-		try {
-			PreparedStatement pstmt = con.prepareStatement(query);
 
+		String query = "UPDATE AREA SET descripcion = ? WHERE nombre_corto = ?";// Creammos la query
+		int resultado = 0;// Creamos resultado
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);// Creamos el Preparedstatement
 			pstmt.setString(1, descripcion);
 			pstmt.setString(2, nombre_corto);
-			resultado = pstmt.executeUpdate();
+			resultado = pstmt.executeUpdate();// Ejecutamos la query
 			System.out.println(pstmt);
 			// Cerramos cosas
 			pstmt.close();

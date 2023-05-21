@@ -106,7 +106,6 @@ public class VentanaLogIn extends JFrame {
 		setVisible(true);
 	}
 
-
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
@@ -115,8 +114,10 @@ public class VentanaLogIn extends JFrame {
 	}
 
 	/**
-	 * Método encargado de comprobar que el usuario y contraseña que pone el usuario sean correctos 
-	 * @param vp
+	 * Método encargado de comprobar que el usuario y contraseña que pone el usuario
+	 * sean correctos
+	 * 
+	 * @param vp Clase VentanaPrincipal
 	 */
 	public void concederAcceso(VentanaPrincipal vp) {
 		String usua = txtUser.getText();
@@ -140,7 +141,7 @@ public class VentanaLogIn extends JFrame {
 	/**
 	 * Método encargado de mostrar un error en la pantalla
 	 * 
-	 * @param errors
+	 * @param errors String que se le pasa como parámetro 
 	 */
 	public void mostrarError(String errors) {
 		error.setText(errors);
@@ -149,7 +150,7 @@ public class VentanaLogIn extends JFrame {
 	/**
 	 * Método encargado de mostros los intentos restantes que te quedan
 	 * 
-	 * @param contt
+	 * @param contt Contador que se le pasa como parámetro
 	 */
 	public void mostrarErrorLeft(int contt) {
 		if (contt >= 4) {

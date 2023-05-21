@@ -14,7 +14,7 @@ import pmg.controlador.*;
 import pmg.modelo.*;
 
 /**
- * @author juanm
+ * @author Pablo
  *
  */
 public class VentanaAlumnos_Consulta extends JFrame {
@@ -25,8 +25,8 @@ public class VentanaAlumnos_Consulta extends JFrame {
 	private JTable tblAlumnos;
 	private DefaultTableModel tableModel;
 	private JButton btnAtras;
-	
-	//Getters necesarios
+
+	// Getters necesarios
 	public JComboBox<String> getAreasPi() {
 		return areasPi;
 	}
@@ -109,45 +109,54 @@ public class VentanaAlumnos_Consulta extends JFrame {
 	}
 
 	/**
-	 * Método que rellena la tabla
+	 * Método encargado de rellenar la tabla
+	 * 
+	 * @param alumnos
 	 */
 	public void cargarTabla(ArrayList<Alumno> alumnos) {
 
-	    // Verificar si ya se han agregado las columnas
-	    if (tableModel.getColumnCount() == 0) {
-	        // Especificamos el nombre de las columnas solo si no existen previamente
-	        tableModel.addColumn("Nombre y apellidos");
-	        tableModel.addColumn("Num_Expediente");
-	        tableModel.addColumn("Cod_Alumno");
+		// Verificar si ya se han agregado las columnas
+		if (tableModel.getColumnCount() == 0) {
+			// Especificamos el nombre de las columnas solo si no existen previamente
+			tableModel.addColumn("Nombre y apellidos");
+			tableModel.addColumn("Num_Expediente");
+			tableModel.addColumn("Cod_Alumno");
 
-	        tblAlumnos.getColumn("Nombre y apellidos").setPreferredWidth(125);
-	        tblAlumnos.getColumn("Num_Expediente").setPreferredWidth(75);
-	        tblAlumnos.getColumn("Cod_Alumno").setPreferredWidth(75);
-	    }
+			tblAlumnos.getColumn("Nombre y apellidos").setPreferredWidth(125);
+			tblAlumnos.getColumn("Num_Expediente").setPreferredWidth(75);
+			tblAlumnos.getColumn("Cod_Alumno").setPreferredWidth(75);
+		}
 
-	    // Limpiar los datos existentes en la tabla
-	    tableModel.setRowCount(0);
+		// Limpiar los datos existentes en la tabla
+		tableModel.setRowCount(0);
 
-	    for (Alumno al : alumnos) {
-	        Object[] fila = new Object[3];
-	        fila[0] = al.getNombre_ape();
-	        fila[1] = al.getNum_expediente();
-	        fila[2] = al.getCod_alumno();
-	        tableModel.addRow(fila);
-	    }
+		for (Alumno al : alumnos) { // Creamos un for que recorra el ArrayList y que en cada interación imprima el
+									// nombre, el número de expediente y el código de alumno
+			Object[] fila = new Object[3];
+			fila[0] = al.getNombre_ape();
+			fila[1] = al.getNum_expediente();
+			fila[2] = al.getCod_alumno();
+			tableModel.addRow(fila);
+		}
 	}
-	
+
 	/**
 	 * Método que devuelve el área seleccionada por el usuario
+	 * 
 	 * @return área (String)
 	 */
 	public String getArea() {
 		String area = (String) areasPi.getSelectedItem();
 		return area;
 	}
-	
+
+	/**
+	 */
 	/**
 	 * Método encargado de agregar un controlador a la ventana
+	 * 
+	 * @param ba ListenerBotonAtras
+	 * @param lc ListenerConsultas
 	 */
 	public void setControlador(ListenerBotonAtras ba, ListenerConsultas lc) {
 		btnAtras.addActionListener(ba);

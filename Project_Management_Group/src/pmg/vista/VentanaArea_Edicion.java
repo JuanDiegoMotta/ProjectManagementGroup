@@ -10,9 +10,9 @@ import javax.swing.*;
 
 import pmg.controlador.ListenerBotonAtras;
 
-
 /**
  * Clase VentanaArea_Edicion
+ * 
  * @author Pablo
  *
  */
@@ -30,7 +30,8 @@ public class VentanaArea_Edicion extends JFrame {
 
 	/**
 	 * Constructor de la clase VentanaArea_Edicion
-	 * @param titulo
+	 * 
+	 * @param titulo Titulo de la ventana
 	 */
 	public VentanaArea_Edicion(String titulo) {
 		super(titulo);
@@ -38,7 +39,8 @@ public class VentanaArea_Edicion extends JFrame {
 	}
 
 	/**
-	 * Método para inicializar componentes de la ventana, esta ventana construirá las cosas de la ventana VentanaArea_Edicion
+	 * Método para inicializar componentes de la ventana, esta ventana construirá
+	 * las cosas de la ventana VentanaArea_Edicion
 	 */
 	private void inicializarComponentes() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -96,7 +98,7 @@ public class VentanaArea_Edicion extends JFrame {
 	public void hacerVisible() {
 		setVisible(true);
 	}
-	
+
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */

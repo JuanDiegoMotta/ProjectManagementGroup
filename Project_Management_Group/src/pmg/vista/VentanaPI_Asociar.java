@@ -13,6 +13,12 @@ import pmg.controlador.ListenerBotonAtras;
 import pmg.controlador.ListenerConsultas;
 import pmg.modelo.Alumno;
 
+/**
+ * Clase VentanaPI_Asociar
+ * 
+ * @author Pablo
+ *
+ */
 public class VentanaPI_Asociar extends JFrame {
 
 	static final int ANCHO = 600;
@@ -27,6 +33,7 @@ public class VentanaPI_Asociar extends JFrame {
 	private JButton asociar;
 	private JLabel aviso;
 
+	// Getters necesarios
 	public JComboBox<String> getAreasPi() {
 		return areasPi;
 	}
@@ -127,12 +134,12 @@ public class VentanaPI_Asociar extends JFrame {
 		asociar.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		asociar.setBounds(419, 300, 120, 30);
 		getContentPane().add(asociar);
-		
+
 		aviso = new JLabel();
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		aviso.setBounds(10, 10, 120, 30);
 		getContentPane().add(aviso);
-		
+
 	}
 
 	/**
@@ -159,7 +166,7 @@ public class VentanaPI_Asociar extends JFrame {
 		tableModel.setRowCount(0);
 
 		for (Alumno al : alumnos) {
-			Object[] fila = new Object[1];
+			Object[] fila = new Object[1]; // Cremos uno objeto con el número de columnas que queremos
 			fila[0] = al.getNombre_ape();
 
 			tableModel.addRow(fila);

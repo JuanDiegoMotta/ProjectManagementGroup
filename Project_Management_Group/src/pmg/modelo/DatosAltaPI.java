@@ -5,6 +5,7 @@ package pmg.modelo;
 
 /**
  * Clase que guarda los datos del alta de un proyecto integrador
+ * 
  * @author juanm
  *
  */
@@ -16,20 +17,21 @@ public class DatosAltaPI {
 	private String nombre;
 	private String url;
 	private String nc_area;
-	
+
 	/**
 	 * Constructor con parámetros de DatosAltaPI
-	 * @param año año
-	 * @param curso curso (1 ó 2)
-	 * @param nota nota (del 1 al 10)
-	 * @param grupo grupo
+	 * 
+	 * @param año          año
+	 * @param curso        curso (1 ó 2)
+	 * @param nota         nota (del 1 al 10)
+	 * @param grupo        grupo
 	 * @param cod_proyecto codigo proyecto integrador
-	 * @param nombre nombre del proyecto
-	 * @param url url de github del proyecto
-	 * @param nc_area nombre corto del área
+	 * @param nombre       nombre del proyecto
+	 * @param url          url de github del proyecto
+	 * @param nc_area      nombre corto del área
 	 */
-	public DatosAltaPI(String año, String curso, String nota, String cod_proyecto, String nombre,
-			String url, String nc_area) {
+	public DatosAltaPI(String año, String curso, String nota, String cod_proyecto, String nombre, String url,
+			String nc_area) {
 		super();
 		this.año = año;
 		this.curso = curso;
@@ -39,8 +41,8 @@ public class DatosAltaPI {
 		this.url = url;
 		this.nc_area = nc_area;
 	}
-	
-	//Getters
+
+	// Getters
 	public String getAño() {
 		return año;
 	}
