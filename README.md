@@ -8,7 +8,11 @@
   <img src="https://img.shields.io/badge/rating-⭐⭐⭐⭐⭐-blueviolet">
 </p>
 
-Gracias por visitar el repositorio de nuestro proyecto en GitHub. Nos complace presentarte nuestra aplicación, la cual ha sido desarrollada con el objetivo de brindar una solución práctica y eficiente para la gestión de proyectos integradores.
+***
+
+#### Gracias por visitar el repositorio de nuestro proyecto en GitHub. Nos complace presentarte nuestra aplicación, la cual ha sido desarrollada con el objetivo de brindar una solución práctica y eficiente para la gestión de proyectos integradores.
+
+***
 
 ## Manual de usuario 📒
 
@@ -27,6 +31,8 @@ Gracias por visitar el repositorio de nuestro proyecto en GitHub. Nos complace p
 <p align="center">
   <img src="Documentación%20Prog/imagenes/ventanaPrincipal.png" width="45%">
 </p>
+
+***
 
 Lo primero que nos encontramos sería las siguientes opciones para los proyectos integradores:
 * dar de alta.
@@ -68,6 +74,8 @@ _Para la parte del alta, una vez introduzcamos todos los datos, nos generará el
   <img src="Documentación%20Prog/imagenes/ventanaConsultaPI.png" width="45%">
 </p>
 
+***
+
 Ahora pasamos a la parte que engloba a los alumnos de la base de datos, con las siguientes opciones:
 * dar de alta.
 * dar de baja. 
@@ -108,6 +116,8 @@ _Son prácticamente iguales a las anteriores mencionadas con mínimas diferencia
   <img src="Documentación%20Prog/imagenes/ventanaConsultaAlumnos.png" width="45%">
 </p>
 
+***
+
 Damos paso a la penúltima opción de nuestro menú, que constaria de todo lo relacionado con las áreas con las opciones:
 * dar de alta.
 * dar de baja. 
@@ -136,6 +146,8 @@ Damos paso a la penúltima opción de nuestro menú, que constaria de todo lo re
 <p align="center">
   <img src="Documentación%20Prog/imagenes/ventanaEdicionAreas.png" width="45%">
 </p>
+
+***
 
 ### **Ventana de ayuda**
 
