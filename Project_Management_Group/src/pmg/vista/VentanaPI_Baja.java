@@ -30,6 +30,8 @@ public class VentanaPI_Baja extends JFrame {
 	private JButton btnAtras;
 	private ImageIcon basura;
 	private JLabel aviso;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	// Getters
 	public JButton getBtnBorrar() {
@@ -97,6 +99,7 @@ public class VentanaPI_Baja extends JFrame {
 		btnBorrar = new JButton();
 		btnBorrar.setBackground(Color.decode("#BCD0C7"));
 		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnBorrar.setFocusable(false);
 		btnBorrar.setBounds(246, 131, 54, 48);
 		getContentPane().add(btnBorrar);
 		basura = new ImageIcon();
@@ -106,6 +109,7 @@ public class VentanaPI_Baja extends JFrame {
 		btnConsulta = new JButton("?");
 		btnConsulta.setBackground(Color.decode("#BCD0C7"));
 		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnConsulta.setFocusable(false);
 		btnConsulta.setBounds(102, 246, 46, 36);
 		getContentPane().add(btnConsulta);
 
@@ -119,15 +123,23 @@ public class VentanaPI_Baja extends JFrame {
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnAtras.setFocusable(false);
 		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
-    
+
 		// Inicializamos aviso
 		aviso = new JLabel("");
 		aviso.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		aviso.setBounds(62, 209, 433, 26);
 		getContentPane().add(aviso);
+
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 	}
 
 	/**
@@ -149,7 +161,7 @@ public class VentanaPI_Baja extends JFrame {
 			aviso.setText("Error al borrar el PI");
 		}
 	}
-	
+
 	public JButton getBtnConsulta() {
 		return btnConsulta;
 	}

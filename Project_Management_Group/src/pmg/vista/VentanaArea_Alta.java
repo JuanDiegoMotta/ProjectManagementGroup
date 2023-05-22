@@ -26,6 +26,8 @@ public class VentanaArea_Alta extends JFrame {
 	private JLabel aviso;
 	private JButton atras;
 	private JButton alta;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	/**
 	 * Constructor de la clase VentanaArea_Alta
@@ -34,7 +36,6 @@ public class VentanaArea_Alta extends JFrame {
 	 */
 	public VentanaArea_Alta(String titulo) {
 		super(titulo);
-		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 
 	}
@@ -62,13 +63,13 @@ public class VentanaArea_Alta extends JFrame {
 
 		// Se agrega nombreCorto
 		nombreCorto = new JTextField();
-		nombreCorto.setBounds(282, 81, 131, 25);
+		nombreCorto.setBounds(282, 72, 131, 25);
 		getContentPane().add(nombreCorto);
 
 		// Se agrega LNombre
-		LNombre = new JLabel("Nombre Corto: ");
+		LNombre = new JLabel("Nombre corto: ");
 		LNombre.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		LNombre.setBounds(128, 79, 117, 22);
+		LNombre.setBounds(137, 71, 117, 22);
 		getContentPane().add(LNombre);
 
 //		Se agrega LDescripción
@@ -98,6 +99,7 @@ public class VentanaArea_Alta extends JFrame {
 		atras = new JButton("ATRÁS");
 		atras.setBackground(Color.decode("#BCD0C7"));
 		atras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		atras.setFocusable(false);
 		atras.setBounds(52, 300, 120, 30);
 		getContentPane().add(atras);
 
@@ -105,8 +107,16 @@ public class VentanaArea_Alta extends JFrame {
 		alta = new JButton("ALTA");
 		alta.setBackground(Color.decode("#BCD0C7"));
 		alta.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		alta.setFocusable(false);
 		alta.setBounds(419, 300, 120, 30);
 		getContentPane().add(alta);
+		
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 
 		setSize(600, 400);
 		setLocationRelativeTo(null);

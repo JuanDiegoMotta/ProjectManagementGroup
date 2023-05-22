@@ -25,6 +25,8 @@ public class VentanaArea_Baja extends JFrame {
 	private JButton btnAtras;
 	private ImageIcon basura;
 	private JLabel aviso;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	// Getters
 	public JButton getBtnBorrar() {
@@ -42,7 +44,6 @@ public class VentanaArea_Baja extends JFrame {
 	 */
 	public VentanaArea_Baja(String titulo) {
 		super(titulo);
-		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 	}
 
@@ -88,6 +89,7 @@ public class VentanaArea_Baja extends JFrame {
 		btnBorrar = new JButton();
 		btnBorrar.setBackground(Color.decode("#BCD0C7"));
 		btnBorrar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnBorrar.setFocusable(false);
 		btnBorrar.setBounds(250, 152, 54, 48);
 		getContentPane().add(btnBorrar);
 		basura = new ImageIcon();
@@ -97,6 +99,7 @@ public class VentanaArea_Baja extends JFrame {
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnAtras.setFocusable(false);
 		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
 
@@ -104,6 +107,13 @@ public class VentanaArea_Baja extends JFrame {
 		aviso.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso.setBounds(88, 248, 385, 14);
 		getContentPane().add(aviso);
+		
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 	}
 
 	/**

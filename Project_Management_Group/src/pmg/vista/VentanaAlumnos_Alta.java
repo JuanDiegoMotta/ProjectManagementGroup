@@ -34,6 +34,8 @@ public class VentanaAlumnos_Alta extends JFrame {
 	private JButton btnAtras;
 	private JButton btnAlta;
 	private JLabel aviso;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	/**
 	 * Método que crea una nueva instancia de la ventana de alta de alumnos con el título.
@@ -42,7 +44,6 @@ public class VentanaAlumnos_Alta extends JFrame {
 	 */
 	public VentanaAlumnos_Alta(String titulo) {
 		super(titulo);
-		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 	}
 
@@ -101,7 +102,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 		getContentPane().add(lblArea);
 
 		lblCod = new JLabel("");
-		lblCod.setBounds(124, 241, 321, 30);
+		lblCod.setBounds(177, 300, 230, 30);
 		getContentPane().add(lblCod);
 
 		cmbxArea = new JComboBox<String>();
@@ -115,6 +116,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setBackground(Color.decode("#BCD0C7"));
+		btnAtras.setFocusable(false);
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
@@ -122,14 +124,22 @@ public class VentanaAlumnos_Alta extends JFrame {
 		// Creamos botón alta y lo agregamos a la ventana
 		btnAlta = new JButton("ALTA");
 		btnAlta.setBackground(Color.decode("#BCD0C7"));
+		btnAlta.setFocusable(false);
 		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAlta.setBounds(419, 300, 120, 30);
 		getContentPane().add(btnAlta);
 
 		aviso = new JLabel();
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		aviso.setBounds(183, 249, 314, 30);
+		aviso.setBounds(142, 245, 314, 30);
 		getContentPane().add(aviso);
+		
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 	}
 
 	/**

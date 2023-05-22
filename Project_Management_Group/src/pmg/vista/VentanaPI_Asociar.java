@@ -1,5 +1,6 @@
 package pmg.vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -32,6 +33,8 @@ public class VentanaPI_Asociar extends JFrame {
 	private JTextField txtnombre;
 	private JButton asociar;
 	private JLabel aviso;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	// Getters necesarios
 	public JComboBox<String> getAreasPi() {
@@ -89,7 +92,7 @@ public class VentanaPI_Asociar extends JFrame {
 
 		// Creamos el comboBox
 		areasPi = new JComboBox<String>();
-		areasPi.setBounds(424, 27, 115, 30);
+		areasPi.setBounds(424, 27, 115, 25);
 		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
 		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
 		areasPi.setModel(modeloComboBox);
@@ -116,6 +119,8 @@ public class VentanaPI_Asociar extends JFrame {
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnAtras.setFocusable(false);
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
 
@@ -127,11 +132,13 @@ public class VentanaPI_Asociar extends JFrame {
 
 		// Creamos el textfield del nombre del proyecto
 		txtnombre = new JTextField();
-		txtnombre.setBounds(224, 27, 115, 30);
+		txtnombre.setBounds(224, 27, 115, 25);
 		getContentPane().add(txtnombre);
 
 		asociar = new JButton("ASOCIAR");
 		asociar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		asociar.setFocusable(false);
+		asociar.setBackground(Color.decode("#BCD0C7"));
 		asociar.setBounds(419, 300, 120, 30);
 		getContentPane().add(asociar);
 
@@ -139,6 +146,13 @@ public class VentanaPI_Asociar extends JFrame {
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		aviso.setBounds(10, 10, 120, 30);
 		getContentPane().add(aviso);
+		
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 
 	}
 

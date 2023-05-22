@@ -41,10 +41,11 @@ public class VentanaPI_Alta extends JFrame {
 	private JButton btnAlta;
 	private JTextField txtURL;
 	private JLabel lblAviso;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	public VentanaPI_Alta(String titulo) {
 		super(titulo);
-		getContentPane().setBackground(Color.decode("#A9B2AC"));
 		inicializarComponentes();
 	}
 
@@ -166,15 +167,16 @@ public class VentanaPI_Alta extends JFrame {
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setBounds(42, 300, 120, 30);
+		btnAtras.setFocusable(false);
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(btnAtras);
-
 
 		// Inicializamos btnAlta
 
 		btnAlta = new JButton("ALTA");
 		btnAlta.setBackground(Color.decode("#BCD0C7"));
 		btnAlta.setBounds(419, 300, 120, 30);
+		btnAlta.setFocusable(false);
 		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(btnAlta);
 
@@ -195,6 +197,13 @@ public class VentanaPI_Alta extends JFrame {
 		lblAviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblAviso.setBounds(221, 295, 169, 40);
 		getContentPane().add(lblAviso);
+
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 
 	}
 

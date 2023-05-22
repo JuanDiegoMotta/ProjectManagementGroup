@@ -38,6 +38,8 @@ public class VentanaPI_Edicion extends JFrame {
 	private JButton btnRellenar;
 	private ImageIcon rellenar;
 	private JLabel lblAviso;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 	
 	//Getters necesarios
 	public JButton getBtnGuardar() {
@@ -133,26 +135,44 @@ public class VentanaPI_Edicion extends JFrame {
 
 		// Inicializamos txtNombre
 		txtNombre = new JTextField();
-		txtNombre.setBounds(320, 75, 100, 30);
+		txtNombre.setBounds(297, 80, 211, 25);
 		getContentPane().add(txtNombre);
 
 		// Inicializamos spnrCurso
 		spnrCurso = new JSpinner();
 		spnrCurso.setModel(new SpinnerNumberModel(1, 1, 2, 1));
-		spnrCurso.setBounds(320, 116, 30, 30);
+		spnrCurso.setBounds(297, 121, 60, 25);
 		getContentPane().add(spnrCurso);
     
   // Inicializamos spnrNota
 		spnrNota = new JSpinner();
 		spnrNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spnrNota.setBounds(319, 157, 30, 30);
+		spnrNota.setBounds(297, 162, 60, 25);
 		getContentPane().add(spnrNota);
 
 		// Inicializamos cmbxAno
 		cmbxAno = new JComboBox<String>();
-		cmbxAno.addItem("1");
-		cmbxAno.addItem("2");
-		cmbxAno.setBounds(319, 198, 40, 30);
+		cmbxAno.addItem("2023");
+		cmbxAno.addItem("2024");
+		cmbxAno.addItem("2025");
+		cmbxAno.addItem("2026");
+		cmbxAno.addItem("2027");
+		cmbxAno.addItem("2028");
+		cmbxAno.addItem("2029");
+		cmbxAno.addItem("2030");
+		cmbxAno.addItem("2031");
+		cmbxAno.addItem("2032");
+		cmbxAno.addItem("2033");
+		cmbxAno.addItem("2034");
+		cmbxAno.addItem("2035");
+		cmbxAno.addItem("2036");
+		cmbxAno.addItem("2037");
+		cmbxAno.addItem("2038");
+		cmbxAno.addItem("2039");
+		cmbxAno.addItem("2040");
+		cmbxAno.addItem("2041");
+		cmbxAno.addItem("2042");
+		cmbxAno.setBounds(297, 204, 60, 25);
 		getContentPane().add(cmbxAno);
 
 		// Inicializamos cmbxArea
@@ -161,30 +181,36 @@ public class VentanaPI_Edicion extends JFrame {
 		cmbxArea.addItem("DAM");
 		cmbxArea.addItem("ASIR");
 		cmbxArea.addItem("A3DV");
-		cmbxArea.setBounds(319, 239, 60, 30);
+		cmbxArea.setBounds(297, 244, 60, 25);
 		getContentPane().add(cmbxArea);
 
 		// Inicializamos btnAtras
-		btnAtras = new JButton("Atrás");
+		btnAtras = new JButton("ATRÁS");
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnAtras.setFocusable(false);
 		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
 
 		// Inicializamos btnGuardar
-		btnGuardar = new JButton("Guardar");
+		btnGuardar = new JButton("GUARDAR");
+		btnGuardar.setBackground(Color.decode("#BCD0C7"));
 		btnGuardar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnGuardar.setFocusable(false);
 		btnGuardar.setBounds(419, 300, 120, 30);
 		getContentPane().add(btnGuardar);
     
 		// Inicializamos txtCod
 		txtCod = new JTextField();
-		txtCod.setBounds(320, 32, 100, 30);
+		txtCod.setBounds(297, 34, 145, 25);
 		getContentPane().add(txtCod);
 		txtCod.setColumns(10);
 		
     // Inicializamos btnRellenar
 		btnRellenar = new JButton();
-		btnRellenar.setBounds(452, 29, 42, 37);
+		btnRellenar.setBackground(Color.decode("#BCD0C7"));
+		btnRellenar.setBounds(471, 29, 37, 30);
+		btnRellenar.setFocusable(false);
 		getContentPane().add(btnRellenar);
 		rellenar = new ImageIcon();
 		btnRellenar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
@@ -194,6 +220,13 @@ public class VentanaPI_Edicion extends JFrame {
 		lblAviso.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAviso.setBounds(172, 310, 237, 14);
 		getContentPane().add(lblAviso);
+		
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 
 	}
 	/**

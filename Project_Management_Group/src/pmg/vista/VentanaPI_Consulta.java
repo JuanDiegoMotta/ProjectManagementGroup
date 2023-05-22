@@ -28,6 +28,8 @@ public class VentanaPI_Consulta extends JFrame {
 	private JTable tblPi;
 	private DefaultTableModel tableModel;
 	private JButton btnAtras;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	// Getters necesarios
 	public JComboBox<String> getAreasPi() {
@@ -68,12 +70,12 @@ public class VentanaPI_Consulta extends JFrame {
 		// Se agrega la etiqueta Área
 		lblArea = new JLabel("Área: ");
 		lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblArea.setBounds(179, 35, 70, 20);
+		lblArea.setBounds(188, 34, 70, 20);
 		getContentPane().add(lblArea);
 
 		// Creamos el comboBox
 		areasPi = new JComboBox<String>();
-		areasPi.setBounds(282, 34, 115, 29);
+		areasPi.setBounds(268, 34, 115, 25);
 		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
 		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
 		areasPi.setModel(modeloComboBox);
@@ -100,9 +102,18 @@ public class VentanaPI_Consulta extends JFrame {
 
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnAtras.setFocusable(false);
 		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
+		
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 	}
 
 	/**

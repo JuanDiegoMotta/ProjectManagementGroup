@@ -3,6 +3,7 @@
  */
 package pmg.vista;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 
@@ -34,6 +35,8 @@ public class VentanaAlumnos_Edicion extends JFrame {
 		private JButton btnGuardar;
 		private JButton btnRellenar;
 		private ImageIcon rellenar;
+		private ImageIcon fondo;
+		private JLabel lblFondo;
 
 		//Getters necesarios
 		public JButton getBtnGuardar() {
@@ -96,7 +99,7 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			txtNombre.setBounds(270, 121, 137, 20);
 			getContentPane().add(txtNombre);
 
-			lblNumExp = new JLabel("Numero Expediente:");
+			lblNumExp = new JLabel("Número Expediente:");
 			lblNumExp.setBounds(107, 154, 156, 30);
 			lblNumExp.setFont(new Font("Segoe UI", Font.BOLD, 14));
 			getContentPane().add(lblNumExp);
@@ -133,6 +136,8 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			// Creamos botón atrás y lo agregamos a la ventana
 			btnAtras = new JButton("ATRÁS");
 			btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+			btnAtras.setBackground(Color.decode("#BCD0C7"));
+			btnAtras.setFocusable(false);
 			btnAtras.setBounds(52, 300, 120, 30);
 			getContentPane().add(btnAtras);
 			
@@ -140,12 +145,16 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			// Creamos botón alta y lo agregamos a la ventana
 			btnGuardar = new JButton("GUARDAR");
 			btnGuardar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+			btnGuardar.setBackground(Color.decode("#BCD0C7"));
+			btnGuardar.setFocusable(false);
 			btnGuardar.setBounds(419, 300, 120, 30);
 			getContentPane().add(btnGuardar);
 			
 			btnRellenar = new JButton();
 			btnRellenar.setFont(new Font("Segoe UI", Font.BOLD, 14));
-			btnRellenar.setBounds(417, 71, 52, 39);
+			btnRellenar.setBackground(Color.decode("#BCD0C7"));
+			btnRellenar.setBounds(417, 73, 36, 30);
+			btnRellenar.setFocusable(false);
 			getContentPane().add(btnRellenar);
 			rellenar = new ImageIcon();
 			btnRellenar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
@@ -154,6 +163,13 @@ public class VentanaAlumnos_Edicion extends JFrame {
 			lblAviso.setHorizontalAlignment(SwingConstants.CENTER);
 			lblAviso.setBounds(52, 258, 458, 14);
 			getContentPane().add(lblAviso);
+			
+			// Fondo de pantalla
+			lblFondo = new JLabel();
+			getContentPane().add(lblFondo);
+			lblFondo.setBounds(0, 0, 600, 400);
+			fondo = new ImageIcon("../img/fondo.png");
+			lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 			
 		}
 		
