@@ -187,7 +187,6 @@ public class VentanaAlumnos_Alta extends JFrame {
 		String numExp = txtNumExp.getText();
 		String area = cmbxArea.getSelectedItem().toString();
 		String codAlumno = generarCodigo();
-		System.out.println("vala.getDatos, area: "+area);
 
 		DatosAltaAlumno datos = new DatosAltaAlumno(nombreCompleto, numExp, codAlumno, area);
 

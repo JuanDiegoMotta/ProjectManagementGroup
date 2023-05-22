@@ -74,7 +74,6 @@ public class AccesoBBDD {
 		String exp = datos.getNumExp();
 		String area = datos.getArea();
 		String cod = datos.getCodAlumno();
-		System.out.println("AccesoBBDD, datos.getArea(): "+area);
 		// Creamos la query del prepared statement
 		String query = "INSERT INTO ALUMNO (num_expediente, nombre_ape, cod_alumno, area) VALUES (?, ?, ?, ?)";
 		PreparedStatement pstmt;
