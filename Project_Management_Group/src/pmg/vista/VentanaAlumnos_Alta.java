@@ -198,7 +198,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 		String area = cmbxArea.getSelectedItem().toString();
 		String codAlumno = generarCodigo();
 
-		DatosAltaAlumno datos = new DatosAltaAlumno(nombreCompleto, numExp, area, codAlumno);
+		DatosAltaAlumno datos = new DatosAltaAlumno(nombreCompleto, numExp, codAlumno, area);
 
 		return datos;
 	}
