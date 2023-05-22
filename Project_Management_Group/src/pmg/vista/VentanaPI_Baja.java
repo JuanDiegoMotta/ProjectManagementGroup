@@ -1,6 +1,6 @@
-	/**
- * 
- */
+/**
+* 
+*/
 package pmg.vista;
 
 import javax.swing.*;
@@ -13,6 +13,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
+ * Clase VentanaPI_Baja
+ * 
  * @author juanm
  *
  */
@@ -29,14 +31,17 @@ public class VentanaPI_Baja extends JFrame {
 	private ImageIcon basura;
 	private JLabel aviso;
 
-	//Getters
+	// Getters
 	public JButton getBtnBorrar() {
 		return btnBorrar;
 	}
 
-
 	public JLabel getAviso() {
 		return aviso;
+	}
+
+	public String getCodigo() {
+		return txtCod.getText();
 	}
 
 	/**
@@ -116,7 +121,8 @@ public class VentanaPI_Baja extends JFrame {
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnAtras.setBounds(42, 300, 120, 30);
 		getContentPane().add(btnAtras);
-		
+    
+		// Inicializamos aviso
 		aviso = new JLabel("");
 		aviso.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
@@ -130,17 +136,10 @@ public class VentanaPI_Baja extends JFrame {
 	public void hacerVisible() {
 		setVisible(true);
 	}
-	
 
 	/**
-	 * Método que devuelve el código del PI por borrar
-	 * @return
-	 */
-	public String getCodigo() {
-		return txtCod.getText();
-	}
-	/**
 	 * Método que mostrará a través de un label si el PI ha sido borrado o no
+	 * 
 	 * @param caso booleano (true o false)
 	 */
 	public void mostrarAviso(boolean caso) {
@@ -149,7 +148,6 @@ public class VentanaPI_Baja extends JFrame {
 		} else {
 			aviso.setText("Error al borrar el PI");
 		}
-
 	}
 	
 	public JButton getBtnConsulta() {
@@ -158,6 +156,9 @@ public class VentanaPI_Baja extends JFrame {
 
 	/**
 	 * Método encargado de agregar un controlador a la ventana
+	 * 
+	 * @param ba Clase ListenerBotonAtras
+	 * @param bb Clase ListenerBotonBaja
 	 */
 	public void setControlador(ListenerBotonAtras ba, ListenerBotonBaja bb, ListenerInterrog bc) {
 		btnAtras.addActionListener(ba);

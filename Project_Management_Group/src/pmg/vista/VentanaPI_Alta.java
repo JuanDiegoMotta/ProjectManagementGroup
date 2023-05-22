@@ -61,6 +61,9 @@ public class VentanaPI_Alta extends JFrame {
 		return lblAviso;
 	}
 
+	/**
+	 * Método para inicializar los componentes de la ventana
+	 */
 	public void inicializarComponentes() {
 		// Configuramos layout a absoluto
 		getContentPane().setLayout(null);
@@ -75,26 +78,25 @@ public class VentanaPI_Alta extends JFrame {
 		lblGrupo.setBounds(133, 25, 130, 30);
 		getContentPane().add(lblGrupo);
 
+		// Inicializamos lblCurso
 		lblCurso = new JLabel("Curso:");
 		lblCurso.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblCurso.setBounds(221, 102, 42, 30);
 		getContentPane().add(lblCurso);
 
-//		lblComponentes = new JLabel("Componentes:");
-//		lblComponentes.setFont(new Font("Segoe UI", Font.BOLD, 14));
-//		lblComponentes.setBounds(162, 121, 116, 30);
-//		getContentPane().add(lblComponentes);
-
+		// Inicializamos lblNota
 		lblNota = new JLabel("Nota:");
 		lblNota.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblNota.setBounds(221, 141, 42, 30);
 		getContentPane().add(lblNota);
 
+		// Inicializamos lblAno
 		lblAno = new JLabel("Año:");
 		lblAno.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblAno.setBounds(226, 182, 37, 30);
 		getContentPane().add(lblAno);
 
+		// Inicializamos lblArea
 		lblArea = new JLabel("Área:");
 		lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblArea.setBounds(221, 223, 37, 30);
@@ -103,35 +105,28 @@ public class VentanaPI_Alta extends JFrame {
 		lblCod = new JLabel("");
 		lblCod.setForeground(new Color(0, 0, 0));
 		lblCod.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
 		lblCod.setBounds(133, 264, 321, 30);
 		getContentPane().add(lblCod);
 
+		// Inicializamos txtNombre
 		txtNombre = new JTextField();
 		txtNombre.setBounds(296, 32, 211, 25);
 		getContentPane().add(txtNombre);
 
+		// Inicializamos spnrCurso
 		spnrCurso = new JSpinner();
 		spnrCurso.setModel(new SpinnerNumberModel(1, 1, 2, 1));
 		spnrCurso.setBounds(296, 109, 60, 25);
 		getContentPane().add(spnrCurso);
 
-//		listAlumnos = new JList<Alumno>();
-//		DefaultListModel<Alumno> dlm = new DefaultListModel<Alumno>();
-//		dlm.addElement(new Alumno("Alumno1", "Apellidos", "12345678A"));
-//		dlm.addElement(new Alumno("Alumno2", "Apellidos", "12345678E"));
-//		dlm.addElement(new Alumno("Alumno3", "Apellidos", "12345678C"));
-//		dlm.addElement(new Alumno("Alumno4", "Apellidos", "12345678B"));
-//		dlm.addElement(new Alumno("Alumno5", "Apellidos", "12345678D"));
-//		dlm.addElement(new Alumno("Alumno6", "Apellidos", "12345678F"));
-//		listAlumnos.setModel(dlm);
-//		listAlumnos.setBounds(320, 120, 100, 30);
-//		getContentPane().add(listAlumnos);
-
+		// Inicializamos spnrNota
 		spnrNota = new JSpinner();
 		spnrNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
 		spnrNota.setBounds(296, 148, 60, 25);
 		getContentPane().add(spnrNota);
 
+		// Inicializamos el JComboBox de cmbxAno
 		cmbxAno = new JComboBox<String>();
 		cmbxAno.addItem("2023");
 		cmbxAno.addItem("2024");
@@ -156,6 +151,7 @@ public class VentanaPI_Alta extends JFrame {
 		cmbxAno.setBounds(296, 189, 60, 25);
 		getContentPane().add(cmbxAno);
 
+		// Inicializamos cmbxArea
 		cmbxArea = new JComboBox<String>();
 		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
 		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
@@ -166,30 +162,35 @@ public class VentanaPI_Alta extends JFrame {
 		cmbxArea.setBounds(296, 230, 60, 25);
 		getContentPane().add(cmbxArea);
 
+		// Inicializamos btnAtras
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setBackground(Color.decode("#BCD0C7"));
 		btnAtras.setBounds(42, 300, 120, 30);
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
-
 		getContentPane().add(btnAtras);
+
+
+		// Inicializamos btnAlta
 
 		btnAlta = new JButton("ALTA");
 		btnAlta.setBackground(Color.decode("#BCD0C7"));
 		btnAlta.setBounds(419, 300, 120, 30);
 		btnAlta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-
 		getContentPane().add(btnAlta);
 
+		// Inicializamos lblUrl
 		lblURL = new JLabel("Código git:");
 		lblURL.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblURL.setBounds(188, 63, 75, 30);
 		getContentPane().add(lblURL);
 
+		// Inicializamos txtURL
 		txtURL = new JTextField();
 		txtURL.setBounds(296, 70, 211, 25);
 		getContentPane().add(txtURL);
 		txtURL.setColumns(10);
 
+		// Inicializamos lblAviso
 		lblAviso = new JLabel("");
 		lblAviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		lblAviso.setBounds(221, 295, 169, 40);
@@ -197,11 +198,15 @@ public class VentanaPI_Alta extends JFrame {
 
 	}
 
+	/**
+	 * Método encargado de devolver un objeto de DatosAltaPI
+	 * 
+	 * @return
+	 */
 	public DatosAltaPI getDatos() {
-
 		JTextField[] textFields = { txtNombre, txtURL };
-
-		for (JTextField textField : textFields) {
+		for (JTextField textField : textFields) { // Comprueba que los txtFields estén rellenos y si no lo están envia
+													// un mensaje
 			if (textField.getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Faltan campos por completar");
 				return null; // Si hay un campo vacío, retornamos null o puedes manejarlo de otra manera

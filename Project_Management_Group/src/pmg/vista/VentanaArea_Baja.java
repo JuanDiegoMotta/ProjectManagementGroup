@@ -9,10 +9,9 @@ import pmg.controlador.ListenerBotonAtras;
 import pmg.controlador.ListenerBotonBaja;
 
 /**
- * @author juanm
+ * Clase de la ventana gráfica áreas que da de baja el área según su código.
  * 
- *         Clase de la ventana gráfica áreas que da de baja el área según su
- *         código.
+ * @author juanm
  *
  */
 public class VentanaArea_Baja extends JFrame {
