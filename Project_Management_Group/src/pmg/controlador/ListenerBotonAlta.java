@@ -59,7 +59,6 @@ public class ListenerBotonAlta implements ActionListener {
 	public void altaAlumnos() {
 		//Se recogen los datos introducidos por el usuario
 		DatosAltaAlumno datos = vala.getDatos();
-		System.out.println("ListenerBotonAlta, datos.getArea(): "+datos.getArea());
 		//Se crea un acceso a la bbdd y su conexión
 		acceso = new AccesoBBDD();
 		Connection con = acceso.getConexion();
