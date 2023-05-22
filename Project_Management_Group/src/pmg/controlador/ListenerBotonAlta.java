@@ -65,7 +65,8 @@ public class ListenerBotonAlta implements ActionListener {
 		//Comprobamos si el expediente es único
 		if (!acceso.existeExpedienteAlumno(con, datos.getNumExp())) {
 			//Se modifica el label de la ventana Alumnos_Alta si en función de si se realiza la operación o no
-			vala.mostrarAviso(acceso.altaAlumno(con, datos)); //el método devuleve true o false			
+			vala.mostrarAviso(acceso.altaAlumno(con, datos)); //el método devuleve true o false
+			acceso.setDefaultPI(con, datos);
 		} else {
 			vala.getAviso().setText("Número de expediente no válido");
 			vala.getLblCod().setText("");

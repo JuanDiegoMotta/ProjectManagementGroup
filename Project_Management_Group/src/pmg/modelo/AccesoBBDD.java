@@ -98,6 +98,49 @@ public class AccesoBBDD {
 		return (resultado == 1) ? true : false;
 	}
 
+	public void setDefaultPI(Connection con, DatosAltaAlumno datos) {
+		// Guardamos los datos en variables
+		String nombre = datos.getNombreCompleto();
+		String exp = datos.getNumExp();
+		String area = datos.getArea();
+		String cod = datos.getCodAlumno();
+		// Creamos la query del prepared statement
+		String query = "INSERT INTO ProyectoIntegrador_Alumno (cod_alumno, cod_proyecto) VALUES (?, ?)";
+		PreparedStatement pstmt;
+		int resultado = 0;
+		try {
+			pstmt = con.prepareStatement(query);
+			// En función del área a la que pertenezca el alumno, se le asignara el "sin
+			// proyecto" correspondiente
+			switch (area) {
+			case "DAW":
+				pstmt.setString(1, cod);
+				pstmt.setString(2, "SDAW");
+				break;
+			case "DAM":
+				pstmt.setString(1, cod);
+				pstmt.setString(2, "SDAM");
+				break;
+			case "ASIR":
+				pstmt.setString(1, cod);
+				pstmt.setString(2, "SASIR");
+				break;
+			case "A3DV":
+				pstmt.setString(1, cod);
+				pstmt.setString(2, "SA3DV");
+				break;
+			}
+			resultado = pstmt.executeUpdate();
+			// Imprimimos la query ejecutada
+			System.out.println(pstmt);
+			// cerramos cosas
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * Método que da de alta el área a la base de datos
 	 * 
@@ -579,11 +622,12 @@ public class AccesoBBDD {
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
-	
+
 	/**
 	 * Método getInfoAlumno que devuelve la información de un alumno según su código
-	 * @param con Objeto de tipo Connection
-	 * @param cod_alumno Código del alumno 
+	 * 
+	 * @param con        Objeto de tipo Connection
+	 * @param cod_alumno Código del alumno
 	 * @return información del alumno a través de un objeto de DatosAltaAlumno
 	 */
 	public DatosAltaAlumno getInfoAlumno(Connection con, String cod_alumno) {
@@ -596,12 +640,12 @@ public class AccesoBBDD {
 			PreparedStatement pstmt = con.prepareStatement(query);
 			pstmt.setString(1, cod_alumno);
 			rset = pstmt.executeQuery();
-			if(rset.next()) {
+			if (rset.next()) {
 				num_exp = rset.getString(1);
 				nombre_ape = rset.getString(2);
 				area = rset.getString(4);
 				System.out.println(pstmt);
-				//cerramos cosas
+				// cerramos cosas
 				rset.close();
 				pstmt.close();
 			}
@@ -612,11 +656,12 @@ public class AccesoBBDD {
 		DatosAltaAlumno datosBaja = new DatosAltaAlumno(nombre_ape, num_exp, cod_alumno, area);
 		return datosBaja;
 	}
-	
+
 	/**
 	 * Método que se encarga de ejcutar la query para recoger los datos de un área
 	 * según su nombre corto
-	 * @param con Instancia de tipo Connection
+	 * 
+	 * @param con     Instancia de tipo Connection
 	 * @param nc_area nombre corto del área
 	 * @return objeto de DatosAltaArea
 	 */
@@ -629,11 +674,11 @@ public class AccesoBBDD {
 			PreparedStatement pstmt = con.prepareStatement(query);
 			pstmt.setString(1, nc_area);
 			rset = pstmt.executeQuery();
-			if(rset.next()) {
+			if (rset.next()) {
 				descripcion = rset.getString(3);
 				cod_area = rset.getString(2);
 				System.out.println(pstmt);
-				//cerramos cosas
+				// cerramos cosas
 				rset.close();
 				pstmt.close();
 			}
@@ -644,12 +689,13 @@ public class AccesoBBDD {
 		DatosAltaArea datosBaja = new DatosAltaArea(nc_area, cod_area, descripcion);
 		return datosBaja;
 	}
-	
+
 	/**
-	 * Método que se encarga de conseguir la información de un PI según su código de 
-	 * proyecto 
+	 * Método que se encarga de conseguir la información de un PI según su código de
+	 * proyecto
+	 * 
 	 * @param con Objeto de tipo Connection
-	 * @param cod Código del proyecto 
+	 * @param cod Código del proyecto
 	 * @return objeto de DatosAltaPI
 	 */
 	public DatosAltaPI getInfoPI(Connection con, String cod) {
@@ -665,7 +711,7 @@ public class AccesoBBDD {
 			PreparedStatement pstmt = con.prepareStatement(query);
 			pstmt.setString(1, cod);
 			rset = pstmt.executeQuery();
-			if(rset.next()) {
+			if (rset.next()) {
 				ano = rset.getString(1);
 				curso = rset.getString(2);
 				nota = rset.getString(3);
@@ -673,7 +719,7 @@ public class AccesoBBDD {
 				url = rset.getString(6);
 				nc_area = rset.getString(7);
 				System.out.println(pstmt);
-				//cerramos cosas
+				// cerramos cosas
 				rset.close();
 				pstmt.close();
 			}
