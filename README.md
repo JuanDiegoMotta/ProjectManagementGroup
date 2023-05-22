@@ -92,7 +92,7 @@ Para borrarlo o editarlo solo nos haría falta el nombre corto, y darle a sus re
 Por último, disponemos de una ventana de ayuda, la cual mostrará un pequeño mensaje y al terminar el párrafo, nuestro e-mail para que se pongan en contacto con nosotros si tienen alguna duda que les quede por resolver.
 
 <p align="center">
-  <img src="Documentación%20Prog/imagenes/ventanaAyuda.png" width="45%">
+  <img src="Documentación%20Prog/imagenes/ventanaAyudaBuena.png" width="45%">
 </p>
 
 
