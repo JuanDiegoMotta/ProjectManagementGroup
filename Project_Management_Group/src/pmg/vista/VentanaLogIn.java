@@ -4,6 +4,7 @@
 package pmg.vista;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -32,6 +33,8 @@ public class VentanaLogIn extends JFrame {
 	private JLabel errorCont;
 	private int cont;
 	private ImageIcon logo;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	/**
 	 * Constructor con parametros de VentanaLogIn
@@ -39,7 +42,6 @@ public class VentanaLogIn extends JFrame {
 	 * @param titulo titulo de la ventana
 	 */
 	public VentanaLogIn() {
-		getContentPane().setBackground(Color.decode("#A9B2AC"));
 //		super(titulo);
 		inicializarComponentes();
 	}
@@ -78,6 +80,7 @@ public class VentanaLogIn extends JFrame {
 		btnLogin = new JButton("LOG-IN");
 		btnLogin.setBackground(Color.decode("#BCD0C7"));
 		btnLogin.setBounds(219, 250, 120, 30);
+		btnLogin.setFocusable(false);
 		btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(btnLogin);
 
@@ -97,6 +100,12 @@ public class VentanaLogIn extends JFrame {
 		errorCont.setBounds(219, 322, 181, 20);
 		errorCont.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		getContentPane().add(errorCont);
+
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 
 		// Se le da tamaño y posicion a la ventana
 		setSize(600, 400);
@@ -145,7 +154,7 @@ public class VentanaLogIn extends JFrame {
 	/**
 	 * Método encargado de mostrar un error en la pantalla
 	 * 
-	 * @param errors String que se le pasa como parámetro 
+	 * @param errors String que se le pasa como parámetro
 	 */
 	public void mostrarError(String errors) {
 		error.setText(errors);

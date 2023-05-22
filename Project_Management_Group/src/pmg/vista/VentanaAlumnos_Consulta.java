@@ -25,6 +25,8 @@ public class VentanaAlumnos_Consulta extends JFrame {
 	private JTable tblAlumnos;
 	private DefaultTableModel tableModel;
 	private JButton btnAtras;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	// Getters necesarios
 	public JComboBox<String> getAreasPi() {
@@ -98,8 +100,17 @@ public class VentanaAlumnos_Consulta extends JFrame {
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
 		btnAtras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		btnAtras.setBackground(Color.decode("#BCD0C7"));
+		btnAtras.setFocusable(false);
 		btnAtras.setBounds(52, 300, 120, 30);
 		getContentPane().add(btnAtras);
+
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 	}
 
 	/**

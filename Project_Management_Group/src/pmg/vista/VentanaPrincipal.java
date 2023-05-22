@@ -41,6 +41,8 @@ public class VentanaPrincipal extends JFrame {
 	private JScrollPane scrpContenedor;
 	private ImageIcon logo;
 	private JMenuItem pi_asociar;
+	private ImageIcon fondo;
+	private JLabel lblFondo;
 
 	JMenuItem ayudaMenuItem;
 
@@ -55,7 +57,6 @@ public class VentanaPrincipal extends JFrame {
 	 * @param titulo titulo de la ventana principal
 	 */
 	public VentanaPrincipal() {
-		getContentPane().setBackground(Color.decode("#A9B2AC"));
 //		super(titulo);
 		inicializarComponentes();
 	}
@@ -134,13 +135,23 @@ public class VentanaPrincipal extends JFrame {
 
 		// Texto de bienvenida
 		JTextArea txtrBienvenidoAProject = new JTextArea();
-		txtrBienvenidoAProject.setBackground(Color.decode("#A9B2AC"));
-		txtrBienvenidoAProject.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		txtrBienvenidoAProject.setText("BIENVENIDO A PROJECT MANAGEMENT GROUP, ESTAMOS ENCANTADOS DE SERVIRTE.");
+		txtrBienvenidoAProject.setFont(new Font("Segoe UI", Font.BOLD, 16));
+		txtrBienvenidoAProject.setText("BIENVENIDO A PROJECT MANAGEMENT GROUP");
 		txtrBienvenidoAProject.setLineWrap(true);
-		txtrBienvenidoAProject.setBounds(128, 174, 322, 50);
+		txtrBienvenidoAProject.setBounds(97, 161, 379, 50);
 		txtrBienvenidoAProject.setEditable(false);
+		txtrBienvenidoAProject.setOpaque(false);
 		getContentPane().add(txtrBienvenidoAProject);
+		
+		// Texto de bienvenida
+		JTextArea txtrBienvenidoAProject1 = new JTextArea();
+		txtrBienvenidoAProject1.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		txtrBienvenidoAProject1.setText("ESTAREMOS ENCANTADOS DE SERVIRLE");
+		txtrBienvenidoAProject1.setLineWrap(true);
+		txtrBienvenidoAProject1.setBounds(138, 208, 285, 50);
+		txtrBienvenidoAProject1.setEditable(false);
+		txtrBienvenidoAProject1.setOpaque(false);
+		getContentPane().add(txtrBienvenidoAProject1);
 
 		// Aquí iría el logo
 		JLabel lblNewLabel = new JLabel();
@@ -148,6 +159,13 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(lblNewLabel);
 		logo = new ImageIcon("../img/logoPMG.png");
 		lblNewLabel.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/logoPMG.png")));
+		
+		// Fondo de pantalla
+		lblFondo = new JLabel();
+		getContentPane().add(lblFondo);
+		lblFondo.setBounds(0, 0, 600, 400);
+		fondo = new ImageIcon("../img/fondo.png");
+		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 
 		setSize(600, 400);
 	}
@@ -156,6 +174,7 @@ public class VentanaPrincipal extends JFrame {
 	 * Método que crea el menú
 	 */
 	public void crearMenu() {
+
 		// Se crea el JMenuBar
 		menuBar = new JMenuBar();
 		menuBar.setForeground(new Color(255, 255, 255));
@@ -164,84 +183,100 @@ public class VentanaPrincipal extends JFrame {
 
 		// El primer JMenu es el de Proyectos integradores -> PI
 		mnPI = new JMenu("PI");
+		mnPI.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		mnPI.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnPI);
 
 		// Añadimos los items (pestañas desplegables) al mnPI
 		pi_alta = new JMenuItem("Alta");
+		pi_alta.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		pi_alta.setForeground(new Color(255, 255, 255));
 		pi_alta.setBackground(Color.decode("#898980"));
 		mnPI.add(pi_alta);
 
 		pi_baja = new JMenuItem("Baja");
+		pi_baja.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		pi_baja.setForeground(new Color(255, 255, 255));
 		pi_baja.setBackground(Color.decode("#898980"));
 		mnPI.add(pi_baja);
 
 		pi_edicion = new JMenuItem("Editar");
+		pi_edicion.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		pi_edicion.setForeground(new Color(255, 255, 255));
 		pi_edicion.setBackground(Color.decode("#898980"));
 		mnPI.add(pi_edicion);
 
 		pi_consulta = new JMenuItem("Consultar");
+		pi_consulta.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		pi_consulta.setForeground(new Color(255, 255, 255));
 		pi_consulta.setBackground(Color.decode("#898980"));
 		mnPI.add(pi_consulta);
 
 		pi_asociar = new JMenuItem("Asociar alumno");
+		pi_asociar.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		pi_asociar.setForeground(new Color(255, 255, 255));
 		pi_asociar.setBackground(Color.decode("#898980"));
 		mnPI.add(pi_asociar);
 
 		// Creamos el otro JMenu de Alumnos
 		mnAlumnos = new JMenu("Alumnos");
+		mnAlumnos.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		mnAlumnos.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnAlumnos);
 
 		// Añadimos items a mnAlumnos
 		alumnos_alta = new JMenuItem("Alta");
+		alumnos_alta.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		alumnos_alta.setForeground(new Color(255, 255, 255));
 		alumnos_alta.setBackground(Color.decode("#898980"));
 		mnAlumnos.add(alumnos_alta);
 
 		alumnos_baja = new JMenuItem("Baja");
+		alumnos_baja.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		alumnos_baja.setForeground(new Color(255, 255, 255));
 		alumnos_baja.setBackground(Color.decode("#898980"));
 		mnAlumnos.add(alumnos_baja);
 
 		alumnos_edicion = new JMenuItem("Editar");
+		alumnos_edicion.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		alumnos_edicion.setForeground(new Color(255, 255, 255));
 		alumnos_edicion.setBackground(Color.decode("#898980"));
 		mnAlumnos.add(alumnos_edicion);
 
 		alumnos_consulta = new JMenuItem("Consultar");
+		alumnos_consulta.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		alumnos_consulta.setForeground(new Color(255, 255, 255));
 		alumnos_consulta.setBackground(Color.decode("#898980"));
 		mnAlumnos.add(alumnos_consulta);
 
 		// Creamos otro JMenu de Areas
 		mnAreas = new JMenu("Areas");
+		mnAreas.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		mnAreas.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnAreas);
 
 		// Añadimos items a mnAreas
 		area_alta = new JMenuItem("Alta");
+		area_alta.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		area_alta.setForeground(new Color(255, 255, 255));
 		area_alta.setBackground(Color.decode("#898980"));
 		mnAreas.add(area_alta);
 
 		area_baja = new JMenuItem("Baja");
+		area_baja.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		area_baja.setForeground(new Color(255, 255, 255));
 		area_baja.setBackground(Color.decode("#898980"));
 		mnAreas.add(area_baja);
 
 		area_edicion = new JMenuItem("Editar");
+		area_edicion.setFont(new Font("Segoe UI", Font.BOLD, 13));
 		area_edicion.setForeground(new Color(255, 255, 255));
 		area_edicion.setBackground(Color.decode("#898980"));
 		mnAreas.add(area_edicion);
 
 		// Creamos otro JMenu de Ayuda
 		mnAyuda = new JMenuItem("Ayuda");
+		mnAyuda.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		mnAyuda.setForeground(new Color(255, 255, 255));
 		mnAyuda.setBackground(Color.decode("#898980"));
 		menuBar.add(mnAyuda);
