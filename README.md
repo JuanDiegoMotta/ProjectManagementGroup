@@ -160,6 +160,6 @@ Damos paso a la penúltima opción de nuestro menú, que constaria de todo lo re
 
 ## Autores ✒️
 
-* **Juan Pablo Motta** - *Desarrollador* - [JuanDiegoMotta](https://github.com/JuanDiegoMotta)
+* **Juan Diego Motta** - *Desarrollador* - [JuanDiegoMotta](https://github.com/JuanDiegoMotta)
 * **Pablo Naranjo Cid** - *Desarrollador* - [AlPablo14](https://github.com/AlPablo14)
 * **Jorge Burgos Barrera** - *Desarrollador* - [jorgeBurgosBr](https://github.com/jorgeBurgosBr)
