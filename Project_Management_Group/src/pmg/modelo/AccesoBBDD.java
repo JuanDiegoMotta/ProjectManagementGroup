@@ -574,13 +574,13 @@ public class AccesoBBDD {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		String query3 = "INSERT INTO ProyectoIntegrador_Alumno (cod_alumno, cod_proyecto) VALUES (?, ?)";// Creamos la
+		String query3 = "UPDATE ProyectoIntegrador_Alumno SET cod_proyecto = ? WHERE cod_alumno = ?";// Creamos la
 																											// query3
 		int resultado = 0;// Creamos resultado
 		try {
 			PreparedStatement pstmt3 = con.prepareStatement(query3);// Creamos el PreparedStatement y le damos valor
-			pstmt3.setString(1, cod_alumno);
-			pstmt3.setString(2, cod_proyecto);
+			pstmt3.setString(1, cod_proyecto);
+			pstmt3.setString(2, cod_alumno);
 			resultado = pstmt3.executeUpdate();// Ejecutamos la query3
 			System.out.println(pstmt3);
 			// Cerramos cosas
@@ -729,6 +729,73 @@ public class AccesoBBDD {
 		}
 		DatosAltaPI datosBaja = new DatosAltaPI(ano, curso, nota, cod, nombre, url, nc_area);
 		return datosBaja;
+	}
+
+	/**
+	 * Método que devuelve un arraylist con los registros de la tabla ProyectoIntegrador_Alumno de un área determinada
+	 * @param con Instancia de tipo Connection
+	 * @param area area del proyecto y alumno
+	 * @return ArrayList de DatosAsociaciones
+	 */
+	public ArrayList<DatosAsociaciones> getAsociaciones(Connection con, String area) {
+		ArrayList<DatosAsociaciones> datos = new ArrayList<>();
+		String query = "SELECT a.nombre_ape, p.nombre \r\n"
+				+ "FROM Alumno a, ProyectoIntegrador p, ProyectoIntegrador_Alumno pa\r\n"
+				+ "WHERE a.cod_alumno = pa.cod_alumno AND p.cod_proyecto = pa.cod_proyecto AND a.area = ? ORDER BY p.nombre ASC;";
+		ResultSet rset;
+		String nombreAl;
+		String nombrePI;
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, area);
+			rset = pstmt.executeQuery();
+			System.out.println(pstmt);
+			while (rset.next()) {
+				nombreAl = rset.getString(1);
+				nombrePI = rset.getString(2);
+				datos.add(new DatosAsociaciones(nombreAl, nombrePI));
+			}
+			// cerramos cosas
+			rset.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return datos;
+	}
+	
+	/**
+	 * Método que comprueba que el área del PI y el área del Alumno seleccionados en la ventana PI_Asociar son iguales
+	 * @param nombrePI nombre del PI (String)
+	 * @param nombreAl nombre alumno (String)
+	 * @return booleano true (si son iguales) o false (si no lo son)
+	 */
+	public boolean concuerdanAreas(String nombrePI, String nombreAl) {
+		String query = "SELECT p.nc_area, a.area FROM ProyectoIntegrador p, Alumno a WHERE p.nombre = '"+nombrePI+"' AND a.nombre_ape = '"+nombreAl+"'";
+		ResultSet rset;
+		String areaPI = "a";
+		String areaAl = "b";
+		try {
+			Statement stmt = con.createStatement();
+			rset = stmt.executeQuery(query);
+			if(rset.next()) {
+				areaPI = rset.getString(1);
+				areaAl = rset.getString(2);
+			}
+			System.out.println(stmt);
+			// cerramos cosas
+			rset.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(areaPI.equals(areaAl)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

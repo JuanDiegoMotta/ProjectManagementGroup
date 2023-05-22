@@ -48,7 +48,7 @@ public class ListenerConsultas implements ItemListener {
 			}
 		} else if (source == vpiaso.getAreasPi()) {
 			if (e.getStateChange() == ItemEvent.SELECTED) {
-				rellenarTablaAlumnos(((String) e.getItem()), vpiaso);
+				rellenarTablaAsociar((String) e.getItem());
 			}
 		} else if (source == vpicon.getAreasPi()) {
 			if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -64,9 +64,7 @@ public class ListenerConsultas implements ItemListener {
 		if (o instanceof VentanaAlumnos_Consulta) {
 			vac.cargarTabla(acceso.getAlumnos(con, area));
 
-		} else if (o instanceof VentanaPI_Asociar) {
-			vpiaso.cargarTabla(acceso.getAlumnos(con, area));
-		}
+		} 
 		acceso.cerrarConexion();
 	}
 
@@ -76,6 +74,13 @@ public class ListenerConsultas implements ItemListener {
 		vpicon.cargarTabla(acceso.getProyetos(con, area));
 		acceso.cerrarConexion();
 
+	}
+	
+	public void rellenarTablaAsociar(String area) {
+		acceso = new AccesoBBDD();
+		Connection con = acceso.getConexion();
+		vpiaso.cargarTabla(acceso.getAsociaciones(con, area));
+		acceso.cerrarConexion();
 	}
 
 }

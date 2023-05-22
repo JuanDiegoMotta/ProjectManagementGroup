@@ -13,6 +13,7 @@ import pmg.controlador.ListenerBotonAsociar;
 import pmg.controlador.ListenerBotonAtras;
 import pmg.controlador.ListenerConsultas;
 import pmg.modelo.Alumno;
+import pmg.modelo.DatosAsociaciones;
 
 /**
  * Clase VentanaPI_Asociar
@@ -26,7 +27,7 @@ public class VentanaPI_Asociar extends JFrame {
 	static final int ALTO = 400;
 	private JLabel lblArea;
 	private JComboBox<String> areasPi;
-	private JTable tblAlumnos;
+	private JTable tblAsociaciones;
 	private DefaultTableModel tableModel;
 	private JButton btnAtras;
 	private JLabel nombre;
@@ -42,7 +43,7 @@ public class VentanaPI_Asociar extends JFrame {
 	}
 
 	public JTable getTblAlumnos() {
-		return tblAlumnos;
+		return tblAsociaciones;
 	}
 
 	public DefaultTableModel getTableModel() {
@@ -96,6 +97,7 @@ public class VentanaPI_Asociar extends JFrame {
 		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
 		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
 		areasPi.setModel(modeloComboBox);
+		areasPi.setSelectedIndex(-1);
 		getContentPane().add(areasPi);
 
 		// Creamos el espacio donde vamos a colocar nuestra tabla
@@ -104,8 +106,8 @@ public class VentanaPI_Asociar extends JFrame {
 		getContentPane().add(scrpTabla);
 
 		// Creamos la tabla y el modelo predeterminado
-		tblAlumnos = new JTable();
-		scrpTabla.setViewportView(tblAlumnos);
+		tblAsociaciones = new JTable();
+		scrpTabla.setViewportView(tblAsociaciones);
 
 		tableModel = new DefaultTableModel() {
 			@Override
@@ -114,7 +116,7 @@ public class VentanaPI_Asociar extends JFrame {
 				return false;
 			}
 		};
-		tblAlumnos.setModel(tableModel);
+		tblAsociaciones.setModel(tableModel);
 
 		// Creamos botón atrás y lo agregamos a la ventana
 		btnAtras = new JButton("ATRÁS");
@@ -143,8 +145,9 @@ public class VentanaPI_Asociar extends JFrame {
 		getContentPane().add(asociar);
 
 		aviso = new JLabel();
-		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		aviso.setBounds(10, 10, 120, 30);
+		aviso.setHorizontalAlignment(SwingConstants.CENTER);
+		aviso.setFont(new Font("Segoe UI", Font.BOLD, 11));
+		aviso.setBounds(182, 300, 227, 30);
 		getContentPane().add(aviso);
 		
 		// Fondo de pantalla
@@ -166,23 +169,29 @@ public class VentanaPI_Asociar extends JFrame {
 	/**
 	 * Método que rellena la tabla
 	 */
-	public void cargarTabla(ArrayList<Alumno> alumnos) {
+	public void cargarTabla(ArrayList<DatosAsociaciones> datos) {
 
 		// Verificar si ya se han agregado las columnas
 		if (tableModel.getColumnCount() == 0) {
 			// Especificamos el nombre de las columnas solo si no existen previamente
 			tableModel.addColumn("Alumnos");
-			tblAlumnos.getColumn("Alumnos").setPreferredWidth(125);
-			tblAlumnos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			tblAsociaciones.getColumn("Alumnos").setPreferredWidth(125);
+			tblAsociaciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			
+			//Añadimos columna proyectos
+			tableModel.addColumn("Proyectos");
+			tblAsociaciones.getColumn("Proyectos").setPreferredWidth(125);
+
+			
 		}
 
 		// Limpiar los datos existentes en la tabla
 		tableModel.setRowCount(0);
 
-		for (Alumno al : alumnos) {
-			Object[] fila = new Object[1]; // Cremos uno objeto con el número de columnas que queremos
-			fila[0] = al.getNombre_ape();
-
+		for (DatosAsociaciones registro : datos) {
+			Object[] fila = new Object[2]; // Cremos uno objeto con el número de columnas que queremos
+			fila[0] = registro.getNombreAl();
+			fila[1] = registro.getNombrePI();
 			tableModel.addRow(fila);
 		}
 	}
