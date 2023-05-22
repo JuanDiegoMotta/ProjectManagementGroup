@@ -24,6 +24,8 @@
   <img src="Documentación%20Prog/imagenes/ventanaLogin.png" width="45%">
 </p>
 
+***
+
 ### **Ventana principal del menú**
 
 > Una vez hayamos iniciado sesión de manera correcta, nos aparecerá la ventana principal del programa que es con la que nos moveremos a través de las pantallas. Esta ventana principal está compuesta por el menú, tiene distintas opciones como podemos ver en la siguiente imagen.
