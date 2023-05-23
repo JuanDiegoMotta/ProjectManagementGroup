@@ -133,7 +133,7 @@ public class VentanaLogIn extends JFrame {
 	 * @param vp Clase VentanaPrincipal
 	 */
 	public void concederAcceso(VentanaPrincipal vp) {
-		String usua = txtUser.getText();
+		String usua = txtUser.getText().trim();
 		String passwo = String.valueOf(txtPwd.getPassword());
 		if (usua.equals(USUARIO)) {
 			if (passwo.equals(CONTRASEÑA)) {
@@ -142,7 +142,7 @@ public class VentanaLogIn extends JFrame {
 			} else {
 				cont++;
 				mostrarErrorLeft(cont);
-				mostrarError("Contraseñá incorrecta");
+				mostrarError("Contraseña incorrecta");
 
 			}
 		} else {
