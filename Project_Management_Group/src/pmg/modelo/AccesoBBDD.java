@@ -19,7 +19,6 @@ public class AccesoBBDD {
 	private String usuario = "root";
 	private String pword = "root";
 	private Connection con = null;
-	static private int cont;
 
 	/**
 	 * Constructor de la clase AccesoBBDD
@@ -113,26 +112,6 @@ public class AccesoBBDD {
 		int resultado = 0;
 		try {
 			pstmt = con.prepareStatement(query);
-			// En función del área a la que pertenezca el alumno, se le asignara el "sin
-			// proyecto" correspondiente
-//			switch (area) {
-//			case "DAW":
-//				pstmt.setString(1, cod);
-//				pstmt.setString(2, "SDAW");
-//				break;
-//			case "DAM":
-//				pstmt.setString(1, cod);
-//				pstmt.setString(2, "SDAM");
-//				break;
-//			case "ASIR":
-//				pstmt.setString(1, cod);
-//				pstmt.setString(2, "SASIR");
-//				break;
-//			case "A3DV":
-//				pstmt.setString(1, cod);
-//				pstmt.setString(2, "SA3DV");
-//				break;
-//			}
 			pstmt.setString(1, cod);
 			pstmt.setString(2, "S" + datos.getArea());
 			resultado = pstmt.executeUpdate();
@@ -838,6 +817,97 @@ public class AccesoBBDD {
 			e.printStackTrace();
 		}
 		return areas;
+	}
+
+	/**
+	 * Método que se encarga de hacer un update de la descripción del área pasada
+	 * por parámetro
+	 * 
+	 * @param con         Instancia de Connection
+	 * @param descripcion Descripción del area modificada (String)
+	 * @param area        area que se modifica (String)
+	 * @return
+	 */
+	public boolean updateArea(Connection con, String descripcion, String area) {
+		String query = "UPDATE AREA SET descripcion = ? WHERE nombre_corto = ?";
+		int registros = 0;
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, descripcion);
+			pstmt.setString(2, area);
+			System.out.println(pstmt);
+			registros = pstmt.executeUpdate();
+			// cerramos cosas
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (registros != 0) ? true : false;
+	}
+
+	/**
+	 * Método que hace un update con datos modificados de una alumno que se pasan
+	 * por parámetros
+	 * 
+	 * @param con        Instancia de Connection
+	 * @param cod_alumno código del alumno a modificar
+	 * @param nombre_ape nombre y apellido del alumno
+	 * @return
+	 */
+	public boolean updateAlumno(Connection con, String cod_alumno, String nombre_ape) {
+		String query = "UPDATE ALUMNO SET nombre_ape = ? WHERE cod_alumno = ?";
+		int registros = 0;
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, nombre_ape);
+			pstmt.setString(2, cod_alumno);
+			System.out.println(pstmt);
+			registros = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (registros != 0) ? true : false;
+	}
+
+	/**
+	 * Método que hace un update en la base de datos de un PI que se está editando.
+	 * 
+	 * @param con          Instancia de tipo connection
+	 * @param cod_proyecto código del proyecto que se quiere modificar (String)
+	 * @param nombre       nombre del proyecto (String)
+	 * @param curso        curso (String)
+	 * @param nota         nota (String)
+	 * @param ano          año (String)
+	 * @param url          url de github (String)
+	 * @return true si se realiza el update, sino false
+	 * @throws SQLIntegrityConstraintViolationException Excepción lanzada si se
+	 *                                                  intenta modificar el nombre
+	 *                                                  a uno ya exitente
+	 */
+	public boolean updatePI(Connection con, String cod_proyecto, String nombre, String curso, String nota, String ano,
+			String url) throws SQLIntegrityConstraintViolationException {
+		String query = "UPDATE ProyectoIntegrador SET nombre = ?, curso = ?, nota = ?, ano = ? WHERE cod_proyecto = ?";
+		int registros = 0;
+		try {
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.setString(1, nombre);
+			pstmt.setString(2, curso);
+			pstmt.setString(3, nota);
+			pstmt.setString(4, ano);
+			pstmt.setString(5, cod_proyecto);
+			System.out.println(pstmt);
+			registros = pstmt.executeUpdate();
+			// cerramos cosas
+			pstmt.close();
+		} catch (SQLIntegrityConstraintViolationException e1) {
+			throw new SQLIntegrityConstraintViolationException();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return (registros != 0) ? true : false;
 	}
 
 }

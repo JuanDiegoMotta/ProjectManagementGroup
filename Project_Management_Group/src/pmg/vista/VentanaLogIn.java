@@ -145,7 +145,7 @@ public class VentanaLogIn extends JFrame {
 
 			}
 		} else {
-			mostrarError("Usuario no valido");
+			mostrarError("Usuario no válido");
 		}
 
 	}

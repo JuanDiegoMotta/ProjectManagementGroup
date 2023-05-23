@@ -42,6 +42,8 @@ public class VentanaPI_Edicion extends JFrame {
 	private ImageIcon fondo;
 	private JLabel lblFondo;
 	private ArrayList<String> areasList;
+	private JLabel lblGit;
+	private JTextField txtGit;
 	
 	//Getters necesarios
 	public JButton getBtnGuardar() {
@@ -83,6 +85,9 @@ public class VentanaPI_Edicion extends JFrame {
 	public void setAreasList(ArrayList<String> areas) {
 		areasList = areas;
 	}
+	public JTextField getTxtGit() {
+		return txtGit;
+	}
 
 
 	/**
@@ -118,25 +123,25 @@ public class VentanaPI_Edicion extends JFrame {
 		// Inicializamos lblCurso
 		lblCurso = new JLabel("Curso:");
 		lblCurso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblCurso.setBounds(221, 116, 42, 30);
+		lblCurso.setBounds(221, 146, 42, 30);
 		getContentPane().add(lblCurso);
 
 		// Inicializamos lblNota
 		lblNota = new JLabel("Nota:");
 		lblNota.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblNota.setBounds(221, 159, 60, 30);
+		lblNota.setBounds(221, 189, 60, 30);
 		getContentPane().add(lblNota);
 
 		// Inicializamos lblAno
 		lblAno = new JLabel("Año:");
 		lblAno.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblAno.setBounds(225, 199, 42, 30);
+		lblAno.setBounds(225, 229, 42, 30);
 		getContentPane().add(lblAno);
 
 		// Inicializamos lblArea
 		lblArea = new JLabel("Área:");
 		lblArea.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblArea.setBounds(225,239, 37, 30);
+		lblArea.setBounds(225,269, 37, 30);
 		getContentPane().add(lblArea);
 
 		// Inicializamos lblCod
@@ -153,13 +158,13 @@ public class VentanaPI_Edicion extends JFrame {
 		// Inicializamos spnrCurso
 		spnrCurso = new JSpinner();
 		spnrCurso.setModel(new SpinnerNumberModel(1, 1, 2, 1));
-		spnrCurso.setBounds(297, 121, 60, 25);
+		spnrCurso.setBounds(297, 151, 60, 25);
 		getContentPane().add(spnrCurso);
     
   // Inicializamos spnrNota
 		spnrNota = new JSpinner();
 		spnrNota.setModel(new SpinnerNumberModel(0, 0, 10, 1));
-		spnrNota.setBounds(297, 162, 60, 25);
+		spnrNota.setBounds(297, 192, 60, 25);
 		getContentPane().add(spnrNota);
 
 		// Inicializamos cmbxAno
@@ -184,12 +189,12 @@ public class VentanaPI_Edicion extends JFrame {
 		cmbxAno.addItem("2040");
 		cmbxAno.addItem("2041");
 		cmbxAno.addItem("2042");
-		cmbxAno.setBounds(297, 204, 60, 25);
+		cmbxAno.setBounds(297, 234, 60, 25);
 		getContentPane().add(cmbxAno);
 
 		// Inicializamos cmbxArea
 		cmbxArea = new JComboBox<String>();
-		cmbxArea.setBounds(297, 244, 60, 25);
+		cmbxArea.setBounds(297, 274, 60, 25);
 		getContentPane().add(cmbxArea);
 
 		// Inicializamos btnAtras
@@ -223,28 +228,44 @@ public class VentanaPI_Edicion extends JFrame {
 		rellenar = new ImageIcon();
 		btnRellenar.setIcon(new ImageIcon(VentanaAlumnos_Baja.class.getResource("/img/rellenar.png")));
 
+		//Inicializamos lblGit
+		lblGit = new JLabel("Git URL:");
+		lblGit.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		lblGit.setBounds(210, 121, 53, 14);
+		getContentPane().add(lblGit);
+		
+		//Inicializamos txtGit
+		txtGit = new JTextField();
+		txtGit.setBounds(297, 116, 211, 24);
+		getContentPane().add(txtGit);
+		txtGit.setColumns(10);
     // Inicializamos lblAviso
 		lblAviso = new JLabel((String) null);
 		lblAviso.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAviso.setBounds(172, 310, 237, 14);
 		getContentPane().add(lblAviso);
-		
 		// Fondo de pantalla
 		lblFondo = new JLabel();
+		lblFondo.setBackground(Color.BLACK);
 		getContentPane().add(lblFondo);
 		lblFondo.setBounds(0, 0, 600, 400);
 		fondo = new ImageIcon("../img/fondo.png");
 		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
+		
+		
+		
 
 	}
+
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 * 
 	 * @param ba Clase ListenerBotonAtras
 	 */
-	public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm) {
+	public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm, ListenerGuardar lg) {
 		btnAtras.addActionListener(ba);
 		btnRellenar.addActionListener(lm);
+		btnGuardar.addActionListener(lg);
 	}
 
 	/**
@@ -265,5 +286,17 @@ public class VentanaPI_Edicion extends JFrame {
 			cmbxArea.addItem(area);
 		}
 	}
-
+	
+	/**
+	 * Actualiza el texto del componente de aviso y el componente lblCod en función del resultado.
+	 *
+	 * @param caso indica si la operación fue exitosa (true) o no (false)
+	 */
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			lblAviso.setText("PI editado correctamente");
+		} else {
+			lblAviso.setText("Error al editar PI");
+		}
+	}
 }
