@@ -5,6 +5,8 @@ package pmg.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import pmg.modelo.AccesoBBDD;
 import pmg.vista.*;
@@ -36,7 +38,29 @@ public class ListenerGuardar implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		Object source = e.getSource();
+		acceso = new AccesoBBDD();
+		Connection con = acceso.getConexion();
+		if(source == vare.getBtnGuardar()) { //Si es el btn de VentanaArea_Edicion
+			vare.mostrarAviso(acceso.updateArea(con, vare.getTxtDescripcion().getText(), vare.getTxtNombreCorto().getText()));
+		} else if (source == vae.getBtnGuardar()) {
+			String nombre_ape = vae.getTxtNombre().getText();
+			vae.mostrarAviso(acceso.updateAlumno(con, vae.getTxtCod().getText(), nombre_ape));
+		} else if (source == vpie.getBtnGuardar()) {
+			String cod_proyecto = vpie.getTxtCod().getText();
+			String nombre = vpie.getTxtNombre().getText();
+			String curso = String.valueOf((int) vpie.getSpnrCurso().getValue());
+			String nota = String.valueOf((int) vpie.getSpnrNota().getValue());
+			String ano = (String) vpie.getCmbxAno().getSelectedItem();
+			String url = vpie.getTxtGit().getText();
+			
+			try {
+				vpie.mostrarAviso(acceso.updatePI(con, cod_proyecto, nombre, curso, nota, ano, url));
+			} catch (SQLIntegrityConstraintViolationException e1) {
+				vpie.getLblAviso().setText("Nombre ya existe en la BBDD");
+			}				
+		}
+		acceso.cerrarConexion();
 
 	}
 

@@ -146,9 +146,22 @@ public class VentanaArea_Edicion extends JFrame {
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm) {
+	public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm, ListenerGuardar lg) {
 		atras.addActionListener(ba);
 		btnRellenar.addActionListener(lm);
+		btnGuardar.addActionListener(lg);
+	}
+	/**
+	 * Actualiza el texto del componente de aviso en función del resultado.
+	 *
+	 * @param caso indica si la operación fue exitosa (true) o no (false)
+	 */
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			lblAviso.setText("Área editada correctamente");
+		} else {
+			lblAviso.setText("Error al editar el área");
+		}
 	}
 
 }

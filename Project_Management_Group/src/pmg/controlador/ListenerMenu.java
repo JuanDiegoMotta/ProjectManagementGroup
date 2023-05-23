@@ -91,6 +91,7 @@ public class ListenerMenu implements ActionListener {
 		    } else if (source == VPpal.getPi_edicion()) {
 		        VPI_edicion.hacerVisible(); // Mostrar la ventana VentanaPI_Edicion
 		    	VPI_edicion.setAreasList(acceso.conseguirAreas(con));
+		    	VPI_edicion.getBtnGuardar().setEnabled(false);
 		    	VPI_edicion.rellenarComboBox();
 		        VPpal.dispose();
 		    } else if (source == VPpal.getPi_consulta()) {
@@ -121,6 +122,7 @@ public class ListenerMenu implements ActionListener {
 		    } else if (source == VPpal.getAlumnos_edicion()) {
 		        VAl_edicion.hacerVisible(); // Mostrar la ventana VentanaAlumnos_Edicion
 		        VAl_edicion.setAreasList(acceso.conseguirAreas(con));
+		        VAl_edicion.getBtnGuardar().setEnabled(false);
 		        VAl_edicion.rellenarComboBox();
 		        VPpal.dispose();
 		    } else if (source == VPpal.getArea_alta()) {
@@ -131,6 +133,7 @@ public class ListenerMenu implements ActionListener {
 		        VPpal.dispose();
 		    } else if (source == VPpal.getArea_edicion()) {
 		        VAr_edicion.hacerVisible(); // Mostrar la ventana VentanaArea_Edicion
+		        VAr_edicion.getBtnGuardar().setEnabled(false);
 		        VPpal.dispose();
 		    } else if (source == VPpal.getMnAyuda()) { 
 		    	Vay.hacerVisible(); //Mostrar la ventana VentanaAyuda

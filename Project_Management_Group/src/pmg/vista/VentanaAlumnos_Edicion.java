@@ -184,9 +184,10 @@ public class VentanaAlumnos_Edicion extends JFrame {
 	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 */
-	public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm) {
+	public void setControlador(ListenerBotonAtras ba, ListenerMostrar lm, ListenerGuardar lg) {
 		btnAtras.addActionListener(ba);
 		btnRellenar.addActionListener(lm);
+		btnGuardar.addActionListener(lg);
 	}
 
 	/**
@@ -198,6 +199,19 @@ public class VentanaAlumnos_Edicion extends JFrame {
 		}
 		for (String area : areasList) {
 			cmbxArea.addItem(area);
+		}
+	}
+	
+	/**
+	 * Actualiza el texto del componente de aviso y el componente lblCod en función del resultado.
+	 *
+	 * @param caso indica si la operación fue exitosa (true) o no (false)
+	 */
+	public void mostrarAviso(boolean caso) {
+		if (caso) {
+			lblAviso.setText("Alumno editado correctamente");
+		} else {
+			lblAviso.setText("Error al editar el alumno");
 		}
 	}
 }

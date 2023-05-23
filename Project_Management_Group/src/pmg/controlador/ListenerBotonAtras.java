@@ -94,10 +94,16 @@ public class ListenerBotonAtras implements ActionListener {
 	 * al hacer la consulta para editar
 	 */
 	public void hacerEditable() {
+		//VentanaAlumno_Edicion
 		vae.getTxtCod().setEditable(true);
+		vae.getTxtNumExp().setEditable(true);
+		vae.getCmbxArea().setEnabled(true);
+		//VentanaArea_Edicion
 		vare.getTxtNombreCorto().setEditable(true);
+		//VentanaPI_Edicion
 		vpie.getTxtCod().setEditable(true);
 		vpie.getCmbxArea().setEnabled(true);
+		
 		
 	}
 
