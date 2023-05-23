@@ -94,13 +94,13 @@ public class VentanaArea_Alta extends JFrame {
 //		Se agrega mensaje
 		mensaje = new JLabel("");
 		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		mensaje.setBounds(182, 229, 254, 22);
+		mensaje.setBounds(181, 237, 267, 22);
 		getContentPane().add(mensaje);
 
 //		Se agrega aviso
 		aviso = new JLabel("");
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		aviso.setBounds(199, 252, 214, 22);
+		aviso.setBounds(199, 284, 214, 22);
 		getContentPane().add(aviso);
 
 //		Se agrega el botón de atrás

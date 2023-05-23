@@ -60,19 +60,19 @@ public class VentanaAlumnos_Alta extends JFrame {
 	public JLabel getLblCod() {
 		return lblCod;
 	}
-	
+
 	public void setAreasList(ArrayList<String> areas) {
 		areasList = areas;
 	}
 
-
 	/**
-	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra
+	 * aplicación.
 	 */
 	public void inicializarComponentes() {
 		// Configuramos layout a absoluto
 		getContentPane().setLayout(null);
-		
+
 		// Determina que hace la app al cerrar la ventana
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -114,7 +114,8 @@ public class VentanaAlumnos_Alta extends JFrame {
 		getContentPane().add(lblArea);
 
 		lblCod = new JLabel("");
-		lblCod.setBounds(177, 300, 230, 30);
+		lblCod.setFont(new Font("Segoe UI", Font.BOLD, 14));
+		lblCod.setBounds(158, 257, 283, 30);
 		getContentPane().add(lblCod);
 
 		cmbxArea = new JComboBox<String>();
@@ -139,13 +140,14 @@ public class VentanaAlumnos_Alta extends JFrame {
 
 		aviso = new JLabel();
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		aviso.setBounds(142, 245, 314, 30);
+		aviso.setBounds(179, 300, 230, 30);
 		getContentPane().add(aviso);
-		
+
 		// Fondo de pantalla
 		lblFondo = new JLabel();
 		getContentPane().add(lblFondo);
 		lblFondo.setBounds(0, 0, 600, 400);
+		lblFondo.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		fondo = new ImageIcon("../img/fondo.png");
 		lblFondo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/img/fondo.png")));
 	}
@@ -153,17 +155,18 @@ public class VentanaAlumnos_Alta extends JFrame {
 	/**
 	 * Método que establece los controladores de eventos para los botones.
 	 *
-	 * @param ba el controlador para el botón atrás
+	 * @param ba  el controlador para el botón atrás
 	 * @param bal el controlador para el botón alta
 	 */
-	
+
 	public void setControlador(ListenerBotonAtras ba, ListenerBotonAlta bal) {
 		btnAtras.addActionListener(ba);
 		btnAlta.addActionListener(bal);
 	}
 
 	/**
-	 * Método que genera un código alfanumérico de 6 caracteres y lo añade a la label lblCod.
+	 * Método que genera un código alfanumérico de 6 caracteres y lo añade a la
+	 * label lblCod.
 	 *
 	 * @return el código generado
 	 */
@@ -182,10 +185,12 @@ public class VentanaAlumnos_Alta extends JFrame {
 	}
 
 	/**
-	 * Método que obtiene los datos ingresados en los campos de texto del alta del alumno.
-	 * Si algún campo está vacío, muestra un mensaje de error y retorna null.
+	 * Método que obtiene los datos ingresados en los campos de texto del alta del
+	 * alumno. Si algún campo está vacío, muestra un mensaje de error y retorna
+	 * null.
 	 *
-	 * @return los datos ingresados en forma de objeto DatosAltaAlumno, o null si algún campo está vacío
+	 * @return los datos ingresados en forma de objeto DatosAltaAlumno, o null si
+	 *         algún campo está vacío
 	 */
 	public DatosAltaAlumno getDatos() {
 
@@ -212,7 +217,8 @@ public class VentanaAlumnos_Alta extends JFrame {
 	}
 
 	/**
-	 * Actualiza el texto del componente de aviso y el componente lblCod en función del resultado.
+	 * Actualiza el texto del componente de aviso y el componente lblCod en función
+	 * del resultado.
 	 *
 	 * @param caso indica si la operación fue exitosa (true) o no (false)
 	 */
@@ -231,15 +237,15 @@ public class VentanaAlumnos_Alta extends JFrame {
 	public void hacerVisible() {
 		setVisible(true);
 	}
-	
+
 	/**
 	 * Método que rellena el ComboBox de areas con las areas en areasList
 	 */
 	public void rellenarComboBox() {
-		if (cmbxArea.getItemCount()>0) {
+		if (cmbxArea.getItemCount() > 0) {
 			cmbxArea.removeAllItems();
 		}
-		for(String area: areasList) {			
+		for (String area : areasList) {
 			cmbxArea.addItem(area);
 		}
 	}

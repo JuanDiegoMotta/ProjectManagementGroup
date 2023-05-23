@@ -110,13 +110,13 @@ public class VentanaPI_Baja extends JFrame {
 		btnConsulta.setBackground(Color.decode("#BCD0C7"));
 		btnConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnConsulta.setFocusable(false);
-		btnConsulta.setBounds(102, 246, 46, 36);
+		btnConsulta.setBounds(103, 197, 46, 36);
 		getContentPane().add(btnConsulta);
 
 		// Se agrega la etiqueta de la consulta de alumnos
 		lblConsulta = new JLabel("¿Quieres consultar los proyectos existentes?");
 		lblConsulta.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblConsulta.setBounds(169, 246, 353, 36);
+		lblConsulta.setBounds(161, 197, 353, 36);
 		getContentPane().add(lblConsulta);
 
 		// Creamos botón atrás y lo agregamos a la ventana
@@ -131,7 +131,7 @@ public class VentanaPI_Baja extends JFrame {
 		aviso = new JLabel("");
 		aviso.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		aviso.setBounds(62, 209, 433, 26);
+		aviso.setBounds(81, 246, 383, 26);
 		getContentPane().add(aviso);
 
 		// Fondo de pantalla
