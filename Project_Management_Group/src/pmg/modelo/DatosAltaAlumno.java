@@ -46,4 +46,5 @@ public class DatosAltaAlumno {
 	public String getCodAlumno() {
 		return codAlumno;
 	}
+	
 }
