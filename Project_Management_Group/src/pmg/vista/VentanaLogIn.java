@@ -14,9 +14,9 @@ import pmg.controlador.ListenerBoton;
 import java.awt.Color;
 
 /**
- * Clase de la ventana gráfica del log-in
+ * Clase de la ventana gráfica para el inicio de sesión en nuestra aplicación
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class VentanaLogIn extends JFrame {
@@ -39,7 +39,7 @@ public class VentanaLogIn extends JFrame {
 	/**
 	 * Constructor con parametros de VentanaLogIn
 	 * 
-	 * @param titulo titulo de la ventana
+	 * @param titulo titulo de la ventana de inicio de sesión
 	 */
 	public VentanaLogIn() {
 //		super(titulo);
@@ -47,8 +47,7 @@ public class VentanaLogIn extends JFrame {
 	}
 
 	/**
-	 * Método que se encarga de inicializar los componentes y colocarlos en la
-	 * ventana
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 		// Se configura el layout a absolute

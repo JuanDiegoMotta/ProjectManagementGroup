@@ -12,9 +12,9 @@ import javax.swing.*;
 import pmg.controlador.*;
 
 /**
- * Clase VentanaArea_Edicion
+ * Clase de la ventana gráfica de áreas, que permite editar la descripción de un área según su nombre corto.
  * 
- * @author Pablo
+ * @author PMG
  *
  */
 public class VentanaArea_Edicion extends JFrame {
@@ -55,7 +55,7 @@ public class VentanaArea_Edicion extends JFrame {
 	/**
 	 * Constructor de la clase VentanaArea_Edicion
 	 * 
-	 * @param titulo Titulo de la ventana
+	 * @param titulo Titulo de la ventana de edición de áreas
 	 */
 	public VentanaArea_Edicion(String titulo) {
 		super(titulo);
@@ -63,12 +63,15 @@ public class VentanaArea_Edicion extends JFrame {
 	}
 
 	/**
-	 * Método para inicializar componentes de la ventana, esta ventana construirá
-	 * las cosas de la ventana VentanaArea_Edicion
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	private void inicializarComponentes() {
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		// Configuramos el layout a null.
 		getContentPane().setLayout(null);
+
+		// Determina que hace la app al cerrar la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// Se agrega nombreCorto
 		txtNombreCorto = new JTextField();

@@ -18,7 +18,7 @@ import java.awt.Font;
 /**
  * Clase de la ventana gráfica principal que contiene el menú
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class VentanaPrincipal extends JFrame {
@@ -43,7 +43,6 @@ public class VentanaPrincipal extends JFrame {
 	private JMenuItem pi_asociar;
 	private ImageIcon fondo;
 	private JLabel lblFondo;
-
 	JMenuItem ayudaMenuItem;
 
 	// Getters necesarios
@@ -52,7 +51,7 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	/**
-	 * Constructor con parámetros de VentanaPrincipal
+	 * Constructor de la clase VentanaPrincipal
 	 * 
 	 * @param titulo titulo de la ventana principal
 	 */
@@ -115,7 +114,7 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	/**
-	 * Método que inicializa los componentes
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 		// Configuramos el layout a null
@@ -286,7 +285,7 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	/**
-	 * Método para hacer visible
+	 * Método para hacer visible la ventana
 	 */
 	public void hacerVisible() {
 		setVisible(true);

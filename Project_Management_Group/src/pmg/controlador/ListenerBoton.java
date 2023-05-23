@@ -7,10 +7,11 @@ import pmg.modelo.AccesoBBDD;
 import pmg.vista.*;
 
 /**
- * @author Pablo
- *
  * Clase que implementa la interfaz ActionListener para el login.
  * Proporciona el manejo de eventos cuando se hace clic en el botón de login.
+ * 
+ * @author PMG
+ *
  * 
  */
 public class ListenerBoton implements ActionListener {

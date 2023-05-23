@@ -11,6 +11,13 @@ import org.junit.jupiter.api.Test;
 import pmg.modelo.DatosAltaAlumno;
 import pmg.vista.VentanaAlumnos_Alta;
 
+
+/**
+ * Clase para los diferentes test de los listeners creados.
+ * 
+ * @author PMG
+ *
+ */
 class TestListener {
     	
 	@BeforeAll
