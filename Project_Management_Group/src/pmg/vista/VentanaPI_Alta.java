@@ -120,7 +120,7 @@ public class VentanaPI_Alta extends JFrame {
 		lblCod.setForeground(new Color(0, 0, 0));
 		lblCod.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
-		lblCod.setBounds(133, 264, 321, 30);
+		lblCod.setBounds(175, 264, 279, 30);
 		getContentPane().add(lblCod);
 
 		// Inicializamos txtNombre
@@ -205,7 +205,7 @@ public class VentanaPI_Alta extends JFrame {
 		// Inicializamos lblAviso
 		lblAviso = new JLabel("");
 		lblAviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		lblAviso.setBounds(221, 295, 169, 40);
+		lblAviso.setBounds(198, 300, 205, 30);
 		getContentPane().add(lblAviso);
 
 		// Fondo de pantalla

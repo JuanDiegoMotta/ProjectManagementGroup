@@ -101,8 +101,10 @@ public class AccesoBBDD {
 	}
 
 	/**
-	 * Método que se encarga de crear un proyecto por defecto (Sin proyecto) por cada área nueva que se añada
-	 * @param con Instancia de Connection
+	 * Método que se encarga de crear un proyecto por defecto (Sin proyecto) por
+	 * cada área nueva que se añada
+	 * 
+	 * @param con   Instancia de Connection
 	 * @param datos Objeto de tipo DatosAltaAlumno
 	 */
 	public void setDefaultPI(Connection con, DatosAltaAlumno datos) {
@@ -265,7 +267,6 @@ public class AccesoBBDD {
 			pstmt.setString(1, nc);
 			resultado = pstmt.executeUpdate();
 			// Imprimimos la query ejecutada
-			eliminarRelacionados(con);
 			System.out.println(pstmt);
 			// cerramos cosas
 			pstmt.close();
@@ -276,21 +277,29 @@ public class AccesoBBDD {
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
+
+	/**
+	 * Método encargado de eliminar los proyectos y los alumnos que se quedan null
+	 * cuando borramos un área
+	 * 
+	 * @param con Instancia de la conexión de la base de datos
+	 */
 	public void eliminarRelacionados(Connection con) {
-		String query1 = "DELETE FROM ALUMNO WHERE area = NULL";
-		String query2 = "DELETE FROM ProyectoIntegrador WHERE nc_area = NULL";
-		
+		String query1 = "DELETE FROM ALUMNO WHERE area is NULL";
+		String query2 = "DELETE FROM ProyectoIntegrador WHERE nc_area is NULL";
+
 		try {
 			Statement stmt = con.createStatement();
 			Statement stmt2 = con.createStatement();
 			stmt.executeUpdate(query1);
 			stmt2.executeUpdate(query2);
+			System.out.println(stmt);
+			System.out.println(stmt2);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 
 	/**

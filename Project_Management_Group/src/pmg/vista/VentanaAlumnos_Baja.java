@@ -121,7 +121,7 @@ public class VentanaAlumnos_Baja extends JFrame {
 		// Se crea la Jlabel que nos dará el aviso de si se ha borrado o no
 		aviso = new JLabel();
 		aviso.setFont(new Font("Segoe UI", Font.BOLD, 14));
-		aviso.setBounds(182, 300, 314, 30);
+		aviso.setBounds(180, 276, 314, 30);
 		getContentPane().add(aviso);
 		
 		// Fondo de pantalla
