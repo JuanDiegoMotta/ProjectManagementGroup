@@ -134,7 +134,7 @@ public class AccesoBBDD {
 //				break;
 //			}
 			pstmt.setString(1, cod);
-			pstmt.setString(2,"S"+datos.getArea());
+			pstmt.setString(2, "S" + datos.getArea());
 			resultado = pstmt.executeUpdate();
 			// Imprimimos la query ejecutada
 			System.out.println(pstmt);
@@ -177,10 +177,11 @@ public class AccesoBBDD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//Añadimos el proyecto "sin proyecto" de esta area.
-		DatosAltaPI datosPI = new DatosAltaPI("","","","S"+nombre_corto,"Sin proyecto ("+nombre_corto+")","",nombre_corto);
+		// Añadimos el proyecto "sin proyecto" de esta area.
+		DatosAltaPI datosPI = new DatosAltaPI("", "", "", "S" + nombre_corto, "Sin proyecto (" + nombre_corto + ")", "",
+				nombre_corto);
 		System.out.println(datosPI);
-		altaPI(con,datosPI);
+		altaPI(con, datosPI);
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
@@ -583,7 +584,7 @@ public class AccesoBBDD {
 			e.printStackTrace();
 		}
 		String query3 = "UPDATE ProyectoIntegrador_Alumno SET cod_proyecto = ? WHERE cod_alumno = ?";// Creamos la
-																											// query3
+																										// query3
 		int resultado = 0;// Creamos resultado
 		try {
 			PreparedStatement pstmt3 = con.prepareStatement(query3);// Creamos el PreparedStatement y le damos valor
@@ -740,8 +741,10 @@ public class AccesoBBDD {
 	}
 
 	/**
-	 * Método que devuelve un arraylist con los registros de la tabla ProyectoIntegrador_Alumno de un área determinada
-	 * @param con Instancia de tipo Connection
+	 * Método que devuelve un arraylist con los registros de la tabla
+	 * ProyectoIntegrador_Alumno de un área determinada
+	 * 
+	 * @param con  Instancia de tipo Connection
 	 * @param area area del proyecto y alumno
 	 * @return ArrayList de DatosAsociaciones
 	 */
@@ -772,22 +775,25 @@ public class AccesoBBDD {
 		}
 		return datos;
 	}
-	
+
 	/**
-	 * Método que comprueba que el área del PI y el área del Alumno seleccionados en la ventana PI_Asociar son iguales
+	 * Método que comprueba que el área del PI y el área del Alumno seleccionados en
+	 * la ventana PI_Asociar son iguales
+	 * 
 	 * @param nombrePI nombre del PI (String)
 	 * @param nombreAl nombre alumno (String)
 	 * @return booleano true (si son iguales) o false (si no lo son)
 	 */
 	public boolean concuerdanAreas(String nombrePI, String nombreAl) {
-		String query = "SELECT p.nc_area, a.area FROM ProyectoIntegrador p, Alumno a WHERE p.nombre = '"+nombrePI+"' AND a.nombre_ape = '"+nombreAl+"'";
+		String query = "SELECT p.nc_area, a.area FROM ProyectoIntegrador p, Alumno a WHERE p.nombre = '" + nombrePI
+				+ "' AND a.nombre_ape = '" + nombreAl + "'";
 		ResultSet rset;
 		String areaPI = "a";
 		String areaAl = "b";
 		try {
 			Statement stmt = con.createStatement();
 			rset = stmt.executeQuery(query);
-			if(rset.next()) {
+			if (rset.next()) {
 				areaPI = rset.getString(1);
 				areaAl = rset.getString(2);
 			}
@@ -799,20 +805,21 @@ public class AccesoBBDD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(areaPI.equals(areaAl)) {
+		if (areaPI.equals(areaAl)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Método que devuelve un JComboBox de las áreas en la base de datos
+	 * 
 	 * @param con Instancia de Connection
-	 * @return JComboBox<String> de áreas 
+	 * @return JComboBox<String> de áreas
 	 */
 	public ArrayList<String> conseguirAreas(Connection con) {
-		
+
 		String query = "SELECT nombre_corto FROM AREA";
 		System.out.println(query);
 		ResultSet rset;
@@ -820,7 +827,7 @@ public class AccesoBBDD {
 		try {
 			Statement stmt = con.createStatement();
 			rset = stmt.executeQuery(query);
-			while(rset.next()) {
+			while (rset.next()) {
 				areas.add(rset.getString(1));
 			}
 			// cerramos cosas
