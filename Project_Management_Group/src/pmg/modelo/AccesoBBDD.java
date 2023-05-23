@@ -265,6 +265,7 @@ public class AccesoBBDD {
 			pstmt.setString(1, nc);
 			resultado = pstmt.executeUpdate();
 			// Imprimimos la query ejecutada
+			eliminarRelacionados(con);
 			System.out.println(pstmt);
 			// cerramos cosas
 			pstmt.close();
@@ -274,6 +275,22 @@ public class AccesoBBDD {
 		}
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
+	}
+	public void eliminarRelacionados(Connection con) {
+		String query1 = "DELETE FROM ALUMNO WHERE area = NULL";
+		String query2 = "DELETE FROM ProyectoIntegrador WHERE nc_area = NULL";
+		
+		try {
+			Statement stmt = con.createStatement();
+			Statement stmt2 = con.createStatement();
+			stmt.executeUpdate(query1);
+			stmt2.executeUpdate(query2);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	/**

@@ -84,8 +84,13 @@ public class VentanaArea_Alta extends JFrame {
 //		Se agrega descripción
 		descripcion = new JTextArea();
 		descripcion.setBounds(282, 131, 131, 69);
+		descripcion.setLineWrap(true); // Activa el wrap
+		descripcion.setWrapStyleWord(true);
 		getContentPane().add(descripcion);
-
+		JScrollPane scrollPane = new JScrollPane(descripcion);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); // Desplazamiento vertical siempre visible
+		scrollPane.setBounds(282, 131, 131, 69);
+		getContentPane().add(scrollPane);
 //		Se agrega mensaje
 		mensaje = new JLabel("");
 		mensaje.setFont(new Font("Segoe UI", Font.BOLD, 14));
