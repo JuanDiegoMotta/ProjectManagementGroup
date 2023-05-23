@@ -11,12 +11,11 @@ import pmg.modelo.*;
 import pmg.vista.*;
 
 /**
- * @author jburg
- * 
- * 
  * Clase que implementa la interfaz ActionListener para manejar eventos de botones de baja.
  * Proporciona el manejo de eventos cuando se hace clic en los botones de baja.
- *
+ * 
+ * @author PMG
+ * 
  */
 public class ListenerBotonBaja implements ActionListener {
 
@@ -40,9 +39,10 @@ public class ListenerBotonBaja implements ActionListener {
 	}
 
 	/**
-	 * Invocado cuando ocurre un evento de acción sobre el botón
-	 *
-	 * @param e el objeto ActionEvent que contiene la información
+	 * Implementa el método actionPerformed de la interfaz ActionListener y define el comportamiento al hacer clic en el botón.
+	 * Llama a los métodos de baja de las diferentes ventanas de baja.
+	 * 
+	 * @param e el evento que disparó la acción
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -99,7 +99,7 @@ public class ListenerBotonBaja implements ActionListener {
 
 	}
 	
-	/*
+	/**
 	 * Método del listener para la baja de los proyectos integradores
 	 */
 	public void bajaPI() {

@@ -13,13 +13,12 @@ import javax.swing.*;
 import pmg.controlador.*;
 
 /**
- * @author juanm
+ *  Clase de la ventana gráfica Alumnos que edita al alumno según su código.
+ *  
+ * @author PMG
  * 
- *         Clase de la ventana gráfica Alumnos que edita al alumno según su
- *         código.
  *
  */
-
 public class VentanaAlumnos_Edicion extends JFrame {
 	// Labels
 	private JLabel lblNombre;
@@ -84,11 +83,14 @@ public class VentanaAlumnos_Edicion extends JFrame {
 	}
 
 	/**
-	 * Método encargado de inicializar todos los componentes de la ventana
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 		// Configuramos layout a absoluto
 		getContentPane().setLayout(null);
+		
+		// Determina que hace la app al cerrar la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// Le damos tamaño y posición a la ventana
 		setSize(600, 400);

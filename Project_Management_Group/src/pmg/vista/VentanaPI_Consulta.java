@@ -17,7 +17,7 @@ import pmg.modelo.*;
  * Clase de la ventana gráfica Proyecto Integrador que consulta los proyectos
  * según las áreas.
  * 
- * @author jburg
+ * @author PMG
  */
 public class VentanaPI_Consulta extends JFrame {
 
@@ -41,7 +41,7 @@ public class VentanaPI_Consulta extends JFrame {
 	}
 
 	/**
-	 * Constructor con parámetros de VentanaPI_Consulta
+	 * Constructor de la clase VentanaPI_Consulta
 	 * 
 	 * @param titulo Título de la ventana de la aplicación.
 	 */
@@ -51,7 +51,7 @@ public class VentanaPI_Consulta extends JFrame {
 	}
 
 	/**
-	 * Método que inicializa los componentes
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 

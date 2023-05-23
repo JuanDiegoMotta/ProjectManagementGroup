@@ -14,7 +14,8 @@ import pmg.vista.*;
 /**
  * Clase ListenerGuardar es el listener de las ventanas de edición que se encarga de efectuar los
  * cambios pertinentes en la BBDD
- * @author juanm
+ * 
+ * @author PMG
  *
  */
 public class ListenerGuardar implements ActionListener {

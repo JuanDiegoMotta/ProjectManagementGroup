@@ -18,7 +18,7 @@ import java.awt.Color;
 /**
  * Clase de la ventana gráfica que da de alta los proyectos integradores
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class VentanaPI_Alta extends JFrame {
@@ -46,6 +46,11 @@ public class VentanaPI_Alta extends JFrame {
 	private JLabel lblFondo;
 	private ArrayList<String> areasList;
 
+	/**
+	 * Constructor de la clase VentanaPI_Alta
+	 *
+	 * @param titulo el título de la ventana alta de proyectos integradores
+	 */
 	public VentanaPI_Alta(String titulo) {
 		super(titulo);
 		inicializarComponentes();
@@ -68,11 +73,14 @@ public class VentanaPI_Alta extends JFrame {
 	}
 
 	/**
-	 * Método para inicializar los componentes de la ventana
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 		// Configuramos layout a absoluto
 		getContentPane().setLayout(null);
+		
+		// Determina que hace la app al cerrar la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// Le damos tamaño y posición a la ventana
 		setSize(600, 400);
@@ -212,7 +220,7 @@ public class VentanaPI_Alta extends JFrame {
 	/**
 	 * Método encargado de devolver un objeto de DatosAltaPI
 	 * 
-	 * @return
+	 * @return datos los datos asociados al alta de los proyectos integradores
 	 */
 	public DatosAltaPI getDatos() {
 		JTextField[] textFields = { txtNombre, txtURL };
@@ -254,6 +262,11 @@ public class VentanaPI_Alta extends JFrame {
 		return codigo.toString();
 	}
 
+	/**
+	 * Actualiza el texto del componente de aviso y el componente lblCod en función del resultado.
+	 *
+	 * @param caso indica si la operación fue exitosa (true) o no (false)
+	 */
 	public void mostrarAviso(boolean caso) {
 		if (caso) {
 			lblAviso.setText("PI añadido correctamente");

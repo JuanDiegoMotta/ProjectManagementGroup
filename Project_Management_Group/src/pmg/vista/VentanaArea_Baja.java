@@ -11,7 +11,7 @@ import pmg.controlador.ListenerBotonBaja;
 /**
  * Clase de la ventana gráfica áreas que da de baja el área según su código.
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class VentanaArea_Baja extends JFrame {
@@ -38,9 +38,9 @@ public class VentanaArea_Baja extends JFrame {
 	}
 
 	/**
-	 * Constructor con parámetros de VentanaAlumnos_Baja
+	 * Constructor de la clase VentanaArea_Baja
 	 * 
-	 * @param titulo Título de la ventana de la aplicación.
+	 * @param titulo Título de la ventana baja de áreas
 	 */
 	public VentanaArea_Baja(String titulo) {
 		super(titulo);
@@ -48,14 +48,14 @@ public class VentanaArea_Baja extends JFrame {
 	}
 
 	/**
-	 * Método que inicializa los componentes
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 
 		// Configuramos el layout a null.
 		getContentPane().setLayout(null);
 
-		// Se sale determina que hace la app al cerrar la ventana
+		// Determina que hace la app al cerrar la ventana
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// Se declara el tamaño de la ventana con los valores estáticos

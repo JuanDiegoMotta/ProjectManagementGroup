@@ -3,8 +3,10 @@ package pmg.app;
 import pmg.controlador.*;
 import pmg.vista.*;
 
-/*
+/**
  * Clase principal que contiene el main para dar inicio a la aplicación
+ * 
+ * @author PMG
  */
 public class Main {
 

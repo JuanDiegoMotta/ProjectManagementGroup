@@ -12,9 +12,9 @@ import pmg.controlador.*;
 import pmg.modelo.*;
 
 /**
- * Clase VentanaArea_Alta
+ * Clase de la ventana gráfica Áreas, que da de alta un área con su nombre corto y una pequeña descripción.
  * 
- * @author Pablo
+ * @author PMG
  *
  */
 public class VentanaArea_Alta extends JFrame {
@@ -32,7 +32,7 @@ public class VentanaArea_Alta extends JFrame {
 	/**
 	 * Constructor de la clase VentanaArea_Alta
 	 * 
-	 * @param titulo
+	 * @param titulo Título de la ventana alta de áreas
 	 */
 	public VentanaArea_Alta(String titulo) {
 		super(titulo);
@@ -54,12 +54,15 @@ public class VentanaArea_Alta extends JFrame {
 	}
 
 	/**
-	 * Método para inicializar componentes de la ventana, esta ventana construirá
-	 * las cosas de la ventana VentanaArea_Alta
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	private void inicializarComponentes() {
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		// Configuramos el layout a null.
 		getContentPane().setLayout(null);
+		
+		// Determina que hace la app al cerrar la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// Se agrega nombreCorto
 		nombreCorto = new JTextField();

@@ -14,7 +14,7 @@ import pmg.vista.*;
  * Clase ListenerMostrar es la clase que se encarga de mostrar los datos
  * existentes sobre lo que se quiere editar
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class ListenerMostrar implements ActionListener {
