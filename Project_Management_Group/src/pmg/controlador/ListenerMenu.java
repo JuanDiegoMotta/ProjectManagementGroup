@@ -2,9 +2,11 @@ package pmg.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 
 import javax.swing.*;
 
+import pmg.modelo.AccesoBBDD;
 import pmg.vista.*;
 
 /*
@@ -27,6 +29,7 @@ public class ListenerMenu implements ActionListener {
 	private VentanaArea_Edicion VAr_edicion;
 	private VentanaAyuda Vay;
 	private VentanaPI_Asociar vpiaso;
+	private AccesoBBDD acceso;
 	
 	/**
 	 * Constructor de ListenerMenu con las ventanas correspondientes para cada opción del menú.
@@ -75,34 +78,50 @@ public class ListenerMenu implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
+		acceso = new AccesoBBDD();
+		Connection con = acceso.getConexion();
 		  if (source == VPpal.getPi_alta()) {
 		        VPI_alta.hacerVisible(); // Mostrar la ventana VentanaPI_Alta
+		        VPI_alta.setAreasList(acceso.conseguirAreas(con));
+		        VPI_alta.rellenarComboBox();
 		        VPpal.dispose();
 		    } else if (source == VPpal.getPi_baja()) {
 		        VPI_baja.hacerVisible(); // Mostrar la ventana VentanaPI_Baja
 		        VPpal.dispose();
 		    } else if (source == VPpal.getPi_edicion()) {
 		        VPI_edicion.hacerVisible(); // Mostrar la ventana VentanaPI_Edicion
+		    	VPI_edicion.setAreasList(acceso.conseguirAreas(con));
+		    	VPI_edicion.rellenarComboBox();
 		        VPpal.dispose();
 		    } else if (source == VPpal.getPi_consulta()) {
 		    	VPI_consulta.hacerVisible(); // Mostrar la ventana VentanaPI_Consulta
+		    	VPI_consulta.setAreasList(acceso.conseguirAreas(con));
+		    	VPI_consulta.rellenarComboBox();
 		        VPpal.dispose();
 		    } else if (source == VPpal.getPi_asociar()) {
 		    	vpiaso.hacerVisible(); // Mostrar la ventana VentanaPI_Consulta
+		    	vpiaso.setAreasList(acceso.conseguirAreas(con));
+		    	vpiaso.rellenarComboBox();
 		        VPpal.dispose();
 		    } 
 		    
 		    else if (source == VPpal.getAlumnos_alta()) {
 		        VAl_alta.hacerVisible(); // Mostrar la ventana VentanaAlumnos_Alta
+		        VAl_alta.setAreasList(acceso.conseguirAreas(con));
+		        VAl_alta.rellenarComboBox();
 		        VPpal.dispose();
 		    } else if (source == VPpal.getAlumnos_baja()) {
 		        VAl_baja.hacerVisible(); // Mostrar la ventana VentanaAlumnos_Baja
 		        VPpal.dispose();
 		    } else if (source == VPpal.getAlumnos_consulta()) {
 		        VAl_consulta.hacerVisible(); // Mostrar la ventana VentanaAlumnos_Consulta
+		        VAl_consulta.setAreasList(acceso.conseguirAreas(con));
+		        VAl_consulta.rellenarComboBox();
 		        VPpal.dispose();
 		    } else if (source == VPpal.getAlumnos_edicion()) {
 		        VAl_edicion.hacerVisible(); // Mostrar la ventana VentanaAlumnos_Edicion
+		        VAl_edicion.setAreasList(acceso.conseguirAreas(con));
+		        VAl_edicion.rellenarComboBox();
 		        VPpal.dispose();
 		    } else if (source == VPpal.getArea_alta()) {
 		        VAr_alta.hacerVisible(); // Mostrar la ventana VentanaArea_Alta
@@ -117,6 +136,9 @@ public class ListenerMenu implements ActionListener {
 		    	Vay.hacerVisible(); //Mostrar la ventana VentanaAyuda
 		    	VPpal.dispose();
 		    }
+		  acceso.cerrarConexion();
 	}
-
+	
+	
+		
 }

@@ -36,6 +36,7 @@ public class VentanaPI_Asociar extends JFrame {
 	private JLabel aviso;
 	private ImageIcon fondo;
 	private JLabel lblFondo;
+	private ArrayList<String> areasList;
 
 	// Getters necesarios
 	public JComboBox<String> getAreasPi() {
@@ -52,6 +53,9 @@ public class VentanaPI_Asociar extends JFrame {
 
 	public JLabel getAviso() {
 		return aviso;
+	}
+	public void setAreasList(ArrayList<String> areas) {
+		areasList = areas;
 	}
 
 	/**
@@ -94,9 +98,6 @@ public class VentanaPI_Asociar extends JFrame {
 		// Creamos el comboBox
 		areasPi = new JComboBox<String>();
 		areasPi.setBounds(424, 27, 115, 25);
-		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
-		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
-		areasPi.setModel(modeloComboBox);
 		areasPi.setSelectedIndex(-1);
 		getContentPane().add(areasPi);
 
@@ -225,6 +226,18 @@ public class VentanaPI_Asociar extends JFrame {
 			aviso.setText("Alumno asociado correctamente");
 		} else {
 			aviso.setText("Error al asociar el alumno");
+		}
+	}
+	
+	/**
+	 * Método que rellena el ComboBox de areas con las areas en areasList
+	 */
+	public void rellenarComboBox() {
+		if (areasPi.getItemCount()>0) {
+			areasPi.removeAllItems();
+		}
+		for(String area: areasList) {			
+			areasPi.addItem(area);
 		}
 	}
 

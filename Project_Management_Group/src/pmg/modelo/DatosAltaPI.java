@@ -24,7 +24,6 @@ public class DatosAltaPI {
 	 * @param año          año
 	 * @param curso        curso (1 ó 2)
 	 * @param nota         nota (del 1 al 10)
-	 * @param grupo        grupo
 	 * @param cod_proyecto codigo proyecto integrador
 	 * @param nombre       nombre del proyecto
 	 * @param url          url de github del proyecto
@@ -69,5 +68,9 @@ public class DatosAltaPI {
 
 	public String getNc_area() {
 		return nc_area;
+	}
+	
+	public String toString() {
+		return año+"\n"+curso+"\n"+nota+"\n"+cod_proyecto+"\n"+nombre+"\n"+url+"\n"+nc_area;
 	}
 }

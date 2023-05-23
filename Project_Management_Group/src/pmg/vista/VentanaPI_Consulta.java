@@ -30,10 +30,14 @@ public class VentanaPI_Consulta extends JFrame {
 	private JButton btnAtras;
 	private ImageIcon fondo;
 	private JLabel lblFondo;
-
+	private ArrayList<String> areasList;
+	
 	// Getters necesarios
 	public JComboBox<String> getAreasPi() {
 		return areasPi;
+	}
+	public void setAreasList(ArrayList<String> areas) {
+		areasList = areas;
 	}
 
 	/**
@@ -76,9 +80,6 @@ public class VentanaPI_Consulta extends JFrame {
 		// Creamos el comboBox
 		areasPi = new JComboBox<String>();
 		areasPi.setBounds(268, 34, 115, 25);
-		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
-		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
-		areasPi.setModel(modeloComboBox);
 		areasPi.setSelectedIndex(-1);
 		getContentPane().add(areasPi);
 
@@ -172,6 +173,18 @@ public class VentanaPI_Consulta extends JFrame {
 	public void setControlador(ListenerBotonAtras ba, ListenerConsultas lc) {
 		btnAtras.addActionListener(ba);
 		areasPi.addItemListener(lc);
+	}
+	
+	/**
+	 * Método que rellena el ComboBox de areas con las areas en areasList
+	 */
+	public void rellenarComboBox() {
+		if (areasPi.getItemCount()>0) {
+			areasPi.removeAllItems();
+		}
+		for(String area: areasList) {			
+			areasPi.addItem(area);
+		}
 	}
 
 }

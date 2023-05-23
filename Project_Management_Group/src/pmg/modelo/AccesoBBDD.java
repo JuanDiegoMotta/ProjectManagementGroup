@@ -3,6 +3,9 @@ package pmg.modelo;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+
 /**
  * Clase AccesoBBDD encargada de crear la conexión con la base de datos
  * 
@@ -112,24 +115,26 @@ public class AccesoBBDD {
 			pstmt = con.prepareStatement(query);
 			// En función del área a la que pertenezca el alumno, se le asignara el "sin
 			// proyecto" correspondiente
-			switch (area) {
-			case "DAW":
-				pstmt.setString(1, cod);
-				pstmt.setString(2, "SDAW");
-				break;
-			case "DAM":
-				pstmt.setString(1, cod);
-				pstmt.setString(2, "SDAM");
-				break;
-			case "ASIR":
-				pstmt.setString(1, cod);
-				pstmt.setString(2, "SASIR");
-				break;
-			case "A3DV":
-				pstmt.setString(1, cod);
-				pstmt.setString(2, "SA3DV");
-				break;
-			}
+//			switch (area) {
+//			case "DAW":
+//				pstmt.setString(1, cod);
+//				pstmt.setString(2, "SDAW");
+//				break;
+//			case "DAM":
+//				pstmt.setString(1, cod);
+//				pstmt.setString(2, "SDAM");
+//				break;
+//			case "ASIR":
+//				pstmt.setString(1, cod);
+//				pstmt.setString(2, "SASIR");
+//				break;
+//			case "A3DV":
+//				pstmt.setString(1, cod);
+//				pstmt.setString(2, "SA3DV");
+//				break;
+//			}
+			pstmt.setString(1, cod);
+			pstmt.setString(2,"S"+datos.getArea());
 			resultado = pstmt.executeUpdate();
 			// Imprimimos la query ejecutada
 			System.out.println(pstmt);
@@ -153,7 +158,6 @@ public class AccesoBBDD {
 		String nombre_corto = datos.getNombre_corto();
 		String cod_area = datos.getCod_area();
 		String descripcion = datos.getDescripcion();
-
 		// Creamos la query del prepared statement
 		String query = "INSERT INTO AREA (nombre_corto, cod_area, descripcion) VALUES (?, ?, ?)";
 		PreparedStatement pstmt;
@@ -173,6 +177,10 @@ public class AccesoBBDD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//Añadimos el proyecto "sin proyecto" de esta area.
+		DatosAltaPI datosPI = new DatosAltaPI("","","","S"+nombre_corto,"Sin proyecto ("+nombre_corto+")","",nombre_corto);
+		System.out.println(datosPI);
+		altaPI(con,datosPI);
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
 	}
@@ -796,6 +804,33 @@ public class AccesoBBDD {
 		} else {
 			return false;
 		}
+	}
+	
+	/**
+	 * Método que devuelve un JComboBox de las áreas en la base de datos
+	 * @param con Instancia de Connection
+	 * @return JComboBox<String> de áreas 
+	 */
+	public ArrayList<String> conseguirAreas(Connection con) {
+		
+		String query = "SELECT nombre_corto FROM AREA";
+		System.out.println(query);
+		ResultSet rset;
+		ArrayList<String> areas = new ArrayList<>();
+		try {
+			Statement stmt = con.createStatement();
+			rset = stmt.executeQuery(query);
+			while(rset.next()) {
+				areas.add(rset.getString(1));
+			}
+			// cerramos cosas
+			rset.close();
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return areas;
 	}
 
 }

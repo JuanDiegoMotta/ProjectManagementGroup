@@ -36,6 +36,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 	private JLabel aviso;
 	private ImageIcon fondo;
 	private JLabel lblFondo;
+	private ArrayList<String> areasList;
 
 	/**
 	 * Método que crea una nueva instancia de la ventana de alta de alumnos con el título.
@@ -58,6 +59,10 @@ public class VentanaAlumnos_Alta extends JFrame {
 
 	public JLabel getLblCod() {
 		return lblCod;
+	}
+	
+	public void setAreasList(ArrayList<String> areas) {
+		areasList = areas;
 	}
 
 	public void inicializarComponentes() {
@@ -106,10 +111,6 @@ public class VentanaAlumnos_Alta extends JFrame {
 		getContentPane().add(lblCod);
 
 		cmbxArea = new JComboBox<String>();
-		cmbxArea.addItem("DAW");
-		cmbxArea.addItem("DAM");
-		cmbxArea.addItem("ASIR");
-		cmbxArea.addItem("A3DV");
 		cmbxArea.setBounds(270, 207, 138, 25);
 		getContentPane().add(cmbxArea);
 
@@ -222,5 +223,17 @@ public class VentanaAlumnos_Alta extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+	
+	/**
+	 * Método que rellena el ComboBox de areas con las areas en areasList
+	 */
+	public void rellenarComboBox() {
+		if (cmbxArea.getItemCount()>0) {
+			cmbxArea.removeAllItems();
+		}
+		for(String area: areasList) {			
+			cmbxArea.addItem(area);
+		}
 	}
 }
