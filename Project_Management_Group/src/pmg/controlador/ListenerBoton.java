@@ -36,7 +36,6 @@ public class ListenerBoton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		vl.concederAcceso(vp);
-
 	}
 
 }
