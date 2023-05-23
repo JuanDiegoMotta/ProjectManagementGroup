@@ -9,6 +9,7 @@ import pmg.controlador.*;
 import pmg.modelo.*;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -43,6 +44,7 @@ public class VentanaPI_Alta extends JFrame {
 	private JLabel lblAviso;
 	private ImageIcon fondo;
 	private JLabel lblFondo;
+	private ArrayList<String> areasList;
 
 	public VentanaPI_Alta(String titulo) {
 		super(titulo);
@@ -60,6 +62,9 @@ public class VentanaPI_Alta extends JFrame {
 
 	public JLabel getLblAviso() {
 		return lblAviso;
+	}
+	public void setAreasList(ArrayList<String> areas) {
+		areasList = areas;
 	}
 
 	/**
@@ -154,9 +159,6 @@ public class VentanaPI_Alta extends JFrame {
 
 		// Inicializamos cmbxArea
 		cmbxArea = new JComboBox<String>();
-		String[] areas = { "DAW", "ASIR", "DAM", "A3DV" };
-		DefaultComboBoxModel<String> modeloComboBox = new DefaultComboBoxModel<String>(areas);
-		cmbxArea.setModel(modeloComboBox);
 		cmbxArea.setSelectedIndex(-1);
 		// TODO Cuando se añada un área nueva, ésta se tiene que añadir automáticamente
 		// a este cmbx
@@ -275,5 +277,17 @@ public class VentanaPI_Alta extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+	
+	/**
+	 * Método que rellena el ComboBox de areas con las areas en areasList
+	 */
+	public void rellenarComboBox() {
+		if (cmbxArea.getItemCount()>0) {
+			cmbxArea.removeAllItems();
+		}
+		for(String area: areasList) {			
+			cmbxArea.addItem(area);
+		}
 	}
 }

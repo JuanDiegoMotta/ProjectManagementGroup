@@ -10,6 +10,7 @@ import javax.swing.*;
 import pmg.controlador.*;
 import pmg.modelo.Alumno;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 /**
@@ -40,6 +41,7 @@ public class VentanaPI_Edicion extends JFrame {
 	private JLabel lblAviso;
 	private ImageIcon fondo;
 	private JLabel lblFondo;
+	private ArrayList<String> areasList;
 	
 	//Getters necesarios
 	public JButton getBtnGuardar() {
@@ -78,6 +80,10 @@ public class VentanaPI_Edicion extends JFrame {
 	public JLabel getLblAviso() {
 		return lblAviso;
 	}
+	public void setAreasList(ArrayList<String> areas) {
+		areasList = areas;
+	}
+
 
 	/**
 	 * Constructor de la clase VentanaPI_Edicion
@@ -177,10 +183,6 @@ public class VentanaPI_Edicion extends JFrame {
 
 		// Inicializamos cmbxArea
 		cmbxArea = new JComboBox<String>();
-		cmbxArea.addItem("DAW");
-		cmbxArea.addItem("DAM");
-		cmbxArea.addItem("ASIR");
-		cmbxArea.addItem("A3DV");
 		cmbxArea.setBounds(297, 244, 60, 25);
 		getContentPane().add(cmbxArea);
 
@@ -244,6 +246,18 @@ public class VentanaPI_Edicion extends JFrame {
 	 */
 	public void hacerVisible() {
 		setVisible(true);
+	}
+	
+	/**
+	 * Método que rellena el ComboBox de areas con las areas en areasList
+	 */
+	public void rellenarComboBox() {
+		if (cmbxArea.getItemCount()>0) {
+			cmbxArea.removeAllItems();
+		}
+		for(String area: areasList) {			
+			cmbxArea.addItem(area);
+		}
 	}
 
 }

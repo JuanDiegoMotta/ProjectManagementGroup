@@ -45,9 +45,13 @@ public class ListenerBotonAsociar implements ActionListener {
 																						// valor de la fila seleccionada
 			if (acceso.existeNombrePI(con, vpiaso.getTxtnombre().getText())) {// Si el nombre de proyecto existe
 				// Le mostramos que el alumno ha sido asociado
-				vpiaso.mostrarAviso(acceso.asociarAlumno(con, al, vpiaso.getTxtnombre().getText()));
+				if(acceso.concuerdanAreas(vpiaso.getTxtnombre().getText(), al)) {
+					vpiaso.mostrarAviso(acceso.asociarAlumno(con, al, vpiaso.getTxtnombre().getText()));		
+				} else {
+					vpiaso.getAviso().setText("El proyecto no pertenece a esta área");
+				}
 			} else {
-				vpiaso.getAviso().setText("Introduce un nombre de proyecto válido");// Si no nos muestra este texto
+				vpiaso.getAviso().setText("Nombre de proyecto no válido");// Si no nos muestra este texto
 			}
 		} else {
 			vpiaso.getAviso().setText("Por favor, seleccione un alumno");
