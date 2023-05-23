@@ -81,6 +81,10 @@ public class ListenerMostrar implements ActionListener {
 			vae.getLblAviso().setText("");
 			//Impedimos que el usuario pueda editar el cod del alumno seleccionado
 			vae.getTxtCod().setEditable(false);
+			//Impedimos que el usuario pueda editar el num de expediente del alumno seleccionado
+			vae.getTxtNumExp().setEditable(false);
+			vae.getCmbxArea().setEnabled(false);
+			vae.getBtnGuardar().setEnabled(true);
 
 		} else {
 			vae.getLblAviso().setText("El código del alumno no existe");
@@ -109,6 +113,7 @@ public class ListenerMostrar implements ActionListener {
 			vare.getLblAviso().setText("");
 			//Hacemos que el nombre corto no sea editable
 			vare.getTxtNombreCorto().setEditable(false);
+			vare.getBtnGuardar().setEnabled(true);
 
 		} else {
 			vare.getLblAviso().setText("El nombre corto del área no existe");
@@ -132,6 +137,7 @@ public class ListenerMostrar implements ActionListener {
 			DatosAltaPI datosBaja = acceso.getInfoPI(con, cod);
 			//Mostramos los datos del PI
 			vpie.getTxtNombre().setText(datosBaja.getNombre());
+			vpie.getTxtGit().setText(datosBaja.getUrl());
 			vpie.getSpnrCurso().setValue(Integer.parseInt(datosBaja.getCurso()));
 			vpie.getSpnrNota().setValue(Integer.parseInt(datosBaja.getNota()));
 			vpie.getCmbxAno().setSelectedItem(datosBaja.getAño());
@@ -140,11 +146,13 @@ public class ListenerMostrar implements ActionListener {
 			//Hacemos que algunos campos no sean editables
 			vpie.getTxtCod().setEditable(false);
 			vpie.getCmbxArea().setEnabled(false);
+			vpie.getBtnGuardar().setEnabled(true);
 
 		} else {
 			vpie.getLblAviso().setText("El código del proyecto no existe");
 			// Hacemos que no se muestre nada
 			vpie.getTxtNombre().setText("");
+			vpie.getTxtGit().setText("");
 			vpie.getSpnrCurso().setValue(1);
 			vpie.getSpnrNota().setValue(0);
 			vpie.getCmbxAno().setSelectedItem(-1);
