@@ -4,6 +4,7 @@
 package pmg.modelo;
 
 /**
+ * Clase que representa un ProyectoIntegrador
  * @author juanm
  *
  */
@@ -15,7 +16,8 @@ public class ProyectoIntegrador {
 	private String nombre;
 	private String url;
 	private String nc_area;
-
+	
+	//Getters
 	public String getAño() {
 		return año;
 	}
@@ -44,6 +46,16 @@ public class ProyectoIntegrador {
 		return nc_area;
 	}
 
+	/**
+	 * Constructor con parámetros de un ProyectoIntegrador
+	 * @param año año (String)
+	 * @param curso curso (String)
+	 * @param nota nota (String)
+	 * @param cod_proyecto código del proyecto (String)
+	 * @param nombre nombre del proyecto (String)
+	 * @param url url de GitHub (String)
+	 * @param nc_area nombre corto (String)
+	 */
 	public ProyectoIntegrador(String año, String curso, String nota, String cod_proyecto, String nombre, String url,
 			String nc_area) {
 		super();

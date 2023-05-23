@@ -80,7 +80,7 @@ public class ListenerBotonAlta implements ActionListener {
 	 */
 	public void altaArea() {
 		//Se recogen los datos introducidos por el usuario
-		DatosAltaArea datos = vara.getDatos();
+		Area datos = vara.getDatos();
 		//Se crea un acceso a la bbdd y su conexión
 		acceso = new AccesoBBDD();
 		Connection con = acceso.getConexion();

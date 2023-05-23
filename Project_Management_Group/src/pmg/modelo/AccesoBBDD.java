@@ -100,6 +100,11 @@ public class AccesoBBDD {
 		return (resultado == 1) ? true : false;
 	}
 
+	/**
+	 * Método que se encarga de crear un proyecto por defecto (Sin proyecto) por cada área nueva que se añada
+	 * @param con Instancia de Connection
+	 * @param datos Objeto de tipo DatosAltaAlumno
+	 */
 	public void setDefaultPI(Connection con, DatosAltaAlumno datos) {
 		// Guardamos los datos en variables
 		String nombre = datos.getNombreCompleto();
@@ -132,7 +137,7 @@ public class AccesoBBDD {
 	 * @param datos instancia de la clase que contiene los datos del area
 	 * @return true si se realiza el insert, false en caso contrario
 	 */
-	public boolean altaArea(Connection con, DatosAltaArea datos) {
+	public boolean altaArea(Connection con, Area datos) {
 		// Guardamos los datos en variables
 		String nombre_corto = datos.getNombre_corto();
 		String cod_area = datos.getCod_area();
@@ -159,7 +164,6 @@ public class AccesoBBDD {
 		// Añadimos el proyecto "sin proyecto" de esta area.
 		DatosAltaPI datosPI = new DatosAltaPI("", "", "", "S" + nombre_corto, "Sin proyecto (" + nombre_corto + ")", "",
 				nombre_corto);
-		System.out.println(datosPI);
 		altaPI(con, datosPI);
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
@@ -261,6 +265,7 @@ public class AccesoBBDD {
 			pstmt.setString(1, nc);
 			resultado = pstmt.executeUpdate();
 			// Imprimimos la query ejecutada
+			eliminarRelacionados(con);
 			System.out.println(pstmt);
 			// cerramos cosas
 			pstmt.close();
@@ -270,6 +275,22 @@ public class AccesoBBDD {
 		}
 		// Hacemos que devuelva true si se modifica la tabla, false en el caso contrario
 		return (resultado == 1) ? true : false;
+	}
+	public void eliminarRelacionados(Connection con) {
+		String query1 = "DELETE FROM ALUMNO WHERE area = NULL";
+		String query2 = "DELETE FROM ProyectoIntegrador WHERE nc_area = NULL";
+		
+		try {
+			Statement stmt = con.createStatement();
+			Statement stmt2 = con.createStatement();
+			stmt.executeUpdate(query1);
+			stmt2.executeUpdate(query2);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	/**
@@ -653,7 +674,7 @@ public class AccesoBBDD {
 	 * @param nc_area nombre corto del área
 	 * @return objeto de DatosAltaArea
 	 */
-	public DatosAltaArea getInfoArea(Connection con, String nc_area) {
+	public Area getInfoArea(Connection con, String nc_area) {
 		String query = "SELECT * FROM AREA WHERE nombre_corto = ?";
 		ResultSet rset;
 		String descripcion = "";
@@ -674,7 +695,7 @@ public class AccesoBBDD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DatosAltaArea datosBaja = new DatosAltaArea(nc_area, cod_area, descripcion);
+		Area datosBaja = new Area(nc_area, cod_area, descripcion);
 		return datosBaja;
 	}
 

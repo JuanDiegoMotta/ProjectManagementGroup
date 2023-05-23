@@ -108,7 +108,7 @@ public class ListenerMostrar implements ActionListener {
 		AccesoBBDD acceso = new AccesoBBDD();
 		Connection con = acceso.getConexion();
 		if (acceso.existeNombreCortoArea(con, nc_area)) {
-			DatosAltaArea datosBaja = acceso.getInfoArea(con, nc_area);
+			Area datosBaja = acceso.getInfoArea(con, nc_area);
 			vare.getTxtDescripcion().setText(datosBaja.getDescripcion());
 			vare.getLblAviso().setText("");
 			//Hacemos que el nombre corto no sea editable
