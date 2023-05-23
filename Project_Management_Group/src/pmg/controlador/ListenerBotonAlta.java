@@ -10,10 +10,11 @@ import pmg.modelo.*;
 import pmg.vista.*;
 
 /**
- * @author jburg
- *
  * Clase que implementa la interfaz ActionListener para manejar eventos de botones de alta.
  * Proporciona el manejo de eventos cuando se hace clic en los botones de alta.
+ * 
+ * @author pmg
+ *
  */
 public class ListenerBotonAlta implements ActionListener {
 	private AccesoBBDD acceso;
@@ -74,7 +75,7 @@ public class ListenerBotonAlta implements ActionListener {
 		acceso.cerrarConexion();
 	}
 	
-	/*
+	/**
 	 * Método que se encarga de dar de alta a un área, creando la conexión con la base de datos y llamando al método de AccesoBBDD.
 	 */
 	public void altaArea() {
@@ -94,7 +95,7 @@ public class ListenerBotonAlta implements ActionListener {
 		acceso.cerrarConexion();
 	}
 	
-	/*
+	/**
 	 * Método que se encarga de dar de alta a un proyecto integrador, creando la conexión con la base de datos y llamando al método de AccesoBBDD.
 	 */
 	public void altaPI() {

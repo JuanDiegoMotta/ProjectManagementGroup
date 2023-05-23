@@ -9,9 +9,11 @@ import javax.swing.*;
 import pmg.modelo.AccesoBBDD;
 import pmg.vista.*;
 
-/*
+/**
  * Clase que implementa la interfaz ActionListener para manejar eventos de los botones del menú. 
  * Proporciona el manejo de eventos cuando se hace clic en los botones del menú.
+ * 
+ * @author PMG
  */
 public class ListenerMenu implements ActionListener {
 	
@@ -71,9 +73,10 @@ public class ListenerMenu implements ActionListener {
 	}
 
 	/**
-	 * Invocado cuando ocurre un evento de acción sobre el botón
-	 *
-	 * @param e el objeto ActionEvent que contiene la información
+	 * Implementa el método actionPerformed de la interfaz ActionListener y define el comportamiento al hacer clic en el botón.
+	 * Llama a los distintos métodos de las ventanas asociadas al menú.
+	 * 
+	 * @param e el evento que disparó la acción
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

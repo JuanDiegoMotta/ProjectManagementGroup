@@ -15,7 +15,7 @@ import pmg.modelo.*;
 /**
  * Clase de la ventana gráfica Alumnos que da de alta al alumno según su código
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class VentanaAlumnos_Alta extends JFrame {
@@ -39,7 +39,7 @@ public class VentanaAlumnos_Alta extends JFrame {
 	private ArrayList<String> areasList;
 
 	/**
-	 * Método que crea una nueva instancia de la ventana de alta de alumnos con el título.
+	 * Constructor de la clase VentanaAlumnos_Alta
 	 *
 	 * @param titulo el título de la ventana alta de alumnos
 	 */
@@ -65,9 +65,16 @@ public class VentanaAlumnos_Alta extends JFrame {
 		areasList = areas;
 	}
 
+
+	/**
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
+	 */
 	public void inicializarComponentes() {
 		// Configuramos layout a absoluto
 		getContentPane().setLayout(null);
+		
+		// Determina que hace la app al cerrar la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// Le damos tamaño y posición a la ventana
 		setSize(600, 400);

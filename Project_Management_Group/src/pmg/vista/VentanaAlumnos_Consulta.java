@@ -14,7 +14,9 @@ import pmg.controlador.*;
 import pmg.modelo.*;
 
 /**
- * @author Pablo
+ * Clase de la ventana gráfica Alumnos que hace una consulta de todos los alumnos asociados a la base de datos
+ * 
+ * @author PMG
  *
  */
 public class VentanaAlumnos_Consulta extends JFrame {
@@ -38,7 +40,7 @@ public class VentanaAlumnos_Consulta extends JFrame {
 	}
 
 	/**
-	 * Constructor con parámetros de VentanaAlumnos_Consulta
+	 * Constructor de la clase VentanaAlumnos_Consulta
 	 * 
 	 * @param titulo Título de la ventana de la aplicación.
 	 */
@@ -48,7 +50,7 @@ public class VentanaAlumnos_Consulta extends JFrame {
 	}
 
 	/**
-	 * Método que inicializa los componentes
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 
@@ -164,8 +166,6 @@ public class VentanaAlumnos_Consulta extends JFrame {
 	}
 
 	/**
-	 */
-	/**
 	 * Método encargado de agregar un controlador a la ventana
 	 * 
 	 * @param ba ListenerBotonAtras
@@ -175,6 +175,7 @@ public class VentanaAlumnos_Consulta extends JFrame {
 		btnAtras.addActionListener(ba);
 		areasPi.addItemListener(lc);
 	}
+	
 	/**
 	 * Método que rellena el ComboBox de areas con las areas en areasList
 	 */

@@ -14,9 +14,9 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 
 /**
- * Clase VentanaAyuda
+ * Clase de la ventana gráfica de ayuda, que trata de dar una pequeña ayuda al usuario y se le facilita un correo en caso de tener dudas.
  * 
- * @author Pablo
+ * @author PMG
  *
  */
 public class VentanaAyuda extends JFrame {
@@ -30,7 +30,7 @@ public class VentanaAyuda extends JFrame {
 	/**
 	 * Constructor de la clase VentanaAyuda
 	 * 
-	 * @param titulo Titulo de la ventana
+	 * @param titulo Titulo de la ventana ayuda
 	 */
 	public VentanaAyuda(String titulo) {
 		super(titulo);
@@ -38,11 +38,15 @@ public class VentanaAyuda extends JFrame {
 	}
 
 	/**
-	 * Método para inicializar los componentes de la ventana de la clase VentanaArea
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	private void inicializarComponentes() {
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		// Configuramos el layout a null.
 		getContentPane().setLayout(null);
+
+		// Determina que hace la app al cerrar la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 //		Añadirmos mensaje a la ventana
 		mensaje = new JTextArea("Esta aplicación se encargará de gestionar proyectos integradores (PI) de"

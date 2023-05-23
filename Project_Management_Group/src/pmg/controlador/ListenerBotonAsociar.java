@@ -11,9 +11,10 @@ import pmg.modelo.*;
 import pmg.vista.*;
 
 /**
- * Clase ListenerBotonAsociar
+ * Clase que implementa la interfaz ActionListener para manejar eventos de botones de asociar.
+ * Proporciona el manejo de eventos cuando se hace clic en los botones de asociar.
  * 
- * @author Pablo
+ * @author PMG
  *
  */
 public class ListenerBotonAsociar implements ActionListener {
@@ -33,7 +34,7 @@ public class ListenerBotonAsociar implements ActionListener {
 
 	/**
 	 * Implementa el método actionPerformed de la interfaz ActionListener y define
-	 * el comportamiento al hacer clic en el botón. Asocia al alumno con el proyeto
+	 * el comportamiento al hacer clic en el botón. Asocia al alumno con el proyeto.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 /**
- * Clase VentanaPI_Edicion
+ * Clase de la VentanaPI_Edicion, que permite editar un proyecto integrador según su código.
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class VentanaPI_Edicion extends JFrame {
@@ -95,9 +95,15 @@ public class VentanaPI_Edicion extends JFrame {
 		inicializarComponentes();
 	}
   
+	/**
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
+	 */
 	public void inicializarComponentes() {
 		// Configuramos layout a absoluto
 		getContentPane().setLayout(null);
+		
+		// Se sale determina que hace la app al cerrar la ventana
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		// Le damos tamaño y posición a la ventana
 		setSize(600, 400);

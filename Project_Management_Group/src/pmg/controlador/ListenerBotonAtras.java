@@ -20,7 +20,9 @@ import pmg.vista.VentanaPI_Edicion;
 import pmg.vista.VentanaPrincipal;
 
 /**
- * Implementa la interfaz ActionListener y define el comportamiento del botón para ir atrás en las diferentes pantallas.
+ * Clase que implementa la interfaz ActionListener y define el comportamiento del botón para ir atrás en las diferentes pantallas.
+ * 
+ * @author PMG
  */
 public class ListenerBotonAtras implements ActionListener {
 

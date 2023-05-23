@@ -13,9 +13,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * Clase VentanaPI_Baja
+ * Clase de la VentanaPI_Baja, que permite dar de baja un proyecto integrador según su código.
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class VentanaPI_Baja extends JFrame {
@@ -47,7 +47,7 @@ public class VentanaPI_Baja extends JFrame {
 	}
 
 	/**
-	 * Constructor con parámetros de VentanaAlumnos_Baja
+	 * Constructor de la clase VentanaAlumnos_Baja
 	 * 
 	 * @param titulo Título de la ventana de la aplicación.
 	 */
@@ -58,7 +58,7 @@ public class VentanaPI_Baja extends JFrame {
 	}
 
 	/**
-	 * Método que inicializa los componentes
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 
@@ -162,6 +162,7 @@ public class VentanaPI_Baja extends JFrame {
 		}
 	}
 
+	// Getter del botón consulta
 	public JButton getBtnConsulta() {
 		return btnConsulta;
 	}

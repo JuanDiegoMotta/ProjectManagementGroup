@@ -16,9 +16,9 @@ import pmg.modelo.Alumno;
 import pmg.modelo.DatosAsociaciones;
 
 /**
- * Clase VentanaPI_Asociar
+ * Clase de la VentanaPI_Asociar, que permite asociar alumnos, los cuales no tienen proyecto integrador, a uno existente.
  * 
- * @author Pablo
+ * @author PMG
  *
  */
 public class VentanaPI_Asociar extends JFrame {
@@ -59,9 +59,9 @@ public class VentanaPI_Asociar extends JFrame {
 	}
 
 	/**
-	 * Constructor con parámetros de VentanaAlumnos_Consulta
+	 * Constructor de la clase VentanaAlumnos_Consulta
 	 * 
-	 * @param titulo Título de la ventana de la aplicación.
+	 * @param titulo Título de la ventana consulta de alumnos
 	 */
 	public VentanaPI_Asociar(String titulo) {
 		super(titulo);
@@ -69,7 +69,7 @@ public class VentanaPI_Asociar extends JFrame {
 	}
 
 	/**
-	 * Método que inicializa los componentes
+	 * Método que se encarga de inicializar los componentes gráficos a nuestra aplicación.
 	 */
 	public void inicializarComponentes() {
 
@@ -206,10 +206,16 @@ public class VentanaPI_Asociar extends JFrame {
 		asociar.addActionListener(ListenerBAsociar);
 	}
 
+	// Getter de txtNombre
 	public JTextField getTxtnombre() {
 		return txtnombre;
 	}
 
+	/**
+	 * Devuelve una cadena de caracteres del text field del nombre del proyecto.
+	 *
+	 * @return Una cadena que representa el nombre del proyecto.
+	 */
 	@Override
 	public String toString() {
 		return "" + txtnombre + "";

@@ -14,7 +14,7 @@ import pmg.vista.*;
  * Controlador que maneja las consultas y muestra la información de Alumnos y
  * Proyectos Integradores en función del área seleccionada.
  * 
- * @author juanm
+ * @author PMG
  *
  */
 public class ListenerConsultas implements ItemListener {
@@ -39,6 +39,11 @@ public class ListenerConsultas implements ItemListener {
 		this.vpicon = vpicon;
 	}
 
+	/**
+	 * Método que se ejecuta cuando se produce un cambio en el estado de del ítem y realiza acciones según lo que ocurra.
+	 *
+	 * @param e El objeto ItemEvent que contiene la información del evento.
+	 */
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		Object source = e.getSource();
@@ -58,6 +63,12 @@ public class ListenerConsultas implements ItemListener {
 
 	}
 
+	/**
+	 * Rellena la tabla de alumnos con datos de la base de datos, según el área especificada.
+	 *
+	 * @param area El área relacionada con los alumnos.
+	 * @param o    Objeto utilizado para determinar la operación a realizar.
+	 */
 	public void rellenarTablaAlumnos(String area, Object o) {
 		acceso = new AccesoBBDD();
 		Connection con = acceso.getConexion();
@@ -68,6 +79,11 @@ public class ListenerConsultas implements ItemListener {
 		acceso.cerrarConexion();
 	}
 
+	/**
+	 * Rellena la tabla de proyectos con datos de la base de datos, según el área especificada.
+	 *
+	 * @param area El área relacionada con los proyectos.
+	 */
 	public void rellenarTablaProyectos(String area) {
 		acceso = new AccesoBBDD();
 		Connection con = acceso.getConexion();
@@ -76,6 +92,11 @@ public class ListenerConsultas implements ItemListener {
 
 	}
 	
+	/**
+	 * Rellena la tabla de asociaciones con datos de la base de datos, según el área especificada.
+	 *
+	 * @param area El área relacionada con las proyectos.
+	 */
 	public void rellenarTablaAsociar(String area) {
 		acceso = new AccesoBBDD();
 		Connection con = acceso.getConexion();
