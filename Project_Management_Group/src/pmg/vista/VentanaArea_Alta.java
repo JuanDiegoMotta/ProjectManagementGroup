@@ -131,7 +131,7 @@ public class VentanaArea_Alta extends JFrame {
 	 * 
 	 * @return objeto de DatosAltaArea
 	 */
-	public DatosAltaArea getDatos() {
+	public Area getDatos() {
 
 		JTextField[] textFields = { nombreCorto };
 
@@ -146,7 +146,7 @@ public class VentanaArea_Alta extends JFrame {
 		String nombre_corto = nombreCorto.getText();
 		String cod_area = generarCodigo();
 		String descripcion = this.descripcion.getText();
-		DatosAltaArea datos = new DatosAltaArea(nombre_corto, cod_area, descripcion);
+		Area datos = new Area(nombre_corto, cod_area, descripcion);
 		return datos;
 	}
 
